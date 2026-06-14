@@ -151,9 +151,35 @@
           </div>
         </section>
 
-        <section class="section video-section" aria-labelledby="video-title">
-          <div class="container video-layout">
-            <div>
+        <section class="video-scroll-section" data-video-scroll aria-labelledby="video-title">
+          <div class="video-scroll-sticky">
+            <div class="video-scroll-frame">
+              <div class="video-facade video-facade--scroll" data-video-id="4pTkihG-WgA">
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=82&fm=webp"
+                  >
+                  <img
+                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=82"
+                    alt="Equipo ejecutivo reunido en una sesión de acompañamiento institucional"
+                    loading="lazy"
+                    width="1600"
+                    height="900"
+                  >
+                </picture>
+                <div class="video-facade__content">
+                  <button class="video-facade__button" type="button" aria-label="Reproducir video institucional">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28">
+                      <path d="M8 5v14l11-7z" fill="currentColor"></path>
+                    </svg>
+                  </button>
+                  <span>Reproducir video institucional</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-scroll-copy">
               <p class="section__eyebrow">Video institucional</p>
               <h2 id="video-title" class="section__title">
                 Una mirada clara al servicio que sostiene a las empresas.
@@ -162,30 +188,6 @@
                 Conocé cómo Capellanía acompaña a colaboradores, familias y líderes
                 mediante presencia, escucha y principios cristianos aplicados al trabajo.
               </p>
-            </div>
-
-            <div class="video-facade" data-video-id="4pTkihG-WgA">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=82&fm=webp"
-                >
-                <img
-                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=82"
-                  alt="Equipo ejecutivo reunido en una sesión de acompañamiento institucional"
-                  loading="lazy"
-                  width="1200"
-                  height="760"
-                >
-              </picture>
-              <div class="video-facade__content">
-                <button class="video-facade__button" type="button" aria-label="Reproducir video institucional">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28">
-                    <path d="M8 5v14l11-7z" fill="currentColor"></path>
-                  </svg>
-                </button>
-                <span>Reproducir video institucional</span>
-              </div>
             </div>
           </div>
         </section>
@@ -235,6 +237,7 @@
     <script>
       document.querySelectorAll(".video-facade").forEach((facade) => {
         const button = facade.querySelector("button");
+        if (!button) return;
         button.addEventListener("click", () => {
           const iframe = document.createElement("iframe");
           iframe.src = `https://www.youtube-nocookie.com/embed/${facade.dataset.videoId}?autoplay=1&rel=0&modestbranding=1`;
@@ -246,6 +249,56 @@
           facade.classList.add("video-facade--loaded");
         });
       });
+    </script>
+    <script>
+      (function () {
+        var section = document.querySelector("[data-video-scroll]");
+        var video = section ? section.querySelector(".video-facade--scroll") : null;
+        var copy = section ? section.querySelector(".video-scroll-copy") : null;
+        var ticking = false;
+
+        if (!section || !video || !copy) return;
+
+        function clamp(value, min, max) {
+          return Math.min(Math.max(value, min), max);
+        }
+
+        function interpolate(start, end, progress) {
+          return start + (end - start) * progress;
+        }
+
+        function updateVideoScroll() {
+          var rect = section.getBoundingClientRect();
+          var scrollable = Math.max(section.offsetHeight - window.innerHeight, 1);
+          var rawProgress = clamp(-rect.top / scrollable, 0, 1);
+          var expandProgress = clamp(rawProgress / 0.72, 0, 1);
+          var eased = 1 - Math.pow(1 - expandProgress, 3);
+          var compactWidth = Math.min(400, window.innerWidth - 48);
+          var compactHeight = compactWidth * 0.5625;
+          var fullWidth = window.innerWidth;
+          var fullHeight = window.innerHeight;
+          var width = interpolate(compactWidth, fullWidth, eased);
+          var height = interpolate(compactHeight, fullHeight, eased);
+          var radius = interpolate(16, 0, eased);
+
+          video.style.width = width + "px";
+          video.style.height = height + "px";
+          video.style.borderRadius = radius + "px";
+          video.style.borderColor = eased > 0.92 ? "transparent" : "rgba(8, 35, 63, 0.08)";
+          copy.classList.toggle("is-visible", rawProgress > 0.78);
+          ticking = false;
+        }
+
+        function requestUpdate() {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(updateVideoScroll);
+        }
+
+        updateVideoScroll();
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+      }());
     </script>
     <script>
       (function () {
