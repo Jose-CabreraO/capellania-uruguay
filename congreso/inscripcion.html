@@ -132,7 +132,7 @@
 
                   <div class="choice-grid">
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="individual" checked>
+                      <input id="tipo-registro" type="radio" name="tipo_pase" value="individual" onchange="evaluarInscripcion()" checked>
                       <span>
                         <strong>Individual</strong>
                         <small>Inscripción para una persona.</small>
@@ -140,7 +140,7 @@
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="pareja">
+                      <input type="radio" name="tipo_pase" value="pareja" onchange="evaluarInscripcion()">
                       <span>
                         <strong>Pareja</strong>
                         <small>Inscripción para matrimonio o dos participantes.</small>
@@ -148,7 +148,7 @@
                     </label>
                   </div>
 
-                  <div class="form-grid form-grid--2">
+                  <div id="seccion-acompaniante" class="form-grid form-grid--2 hidden">
                     <label class="field">
                       <span class="field__label">Nombre de la segunda persona</span>
                       <input class="field__control" type="text" name="nombre_segunda_persona">
@@ -263,6 +263,26 @@
     </div>
 
     <script>
+      function evaluarInscripcion() {
+        const tipoRadio = document.querySelector('input[name="tipo_pase"]:checked');
+        const tipo = tipoRadio ? tipoRadio.value : document.getElementById('tipo-registro').value;
+        const seccion = document.getElementById('seccion-acompaniante');
+        const inputs = seccion.querySelectorAll('input');
+
+        if (tipo === 'pareja') {
+          seccion.classList.remove('hidden');
+          inputs.forEach(input => input.setAttribute('required', 'true'));
+        } else {
+          seccion.classList.add('hidden');
+          inputs.forEach(input => {
+            input.removeAttribute('required');
+            input.value = '';
+          });
+        }
+      }
+
+      evaluarInscripcion();
+
       (function () {
         var form = document.querySelector('[data-registration-form]');
         var receiptInput = form ? form.querySelector('input[name="comprobante_pago"]') : null;
