@@ -173,8 +173,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
-  gap: var(--space-6);
+  gap: var(--space-4) var(--space-6);
+  flex-wrap: wrap;
+  padding-block: var(--space-4);
 }
 
 .brand {
@@ -182,6 +183,7 @@ button {
   align-items: center;
   gap: var(--space-3);
   color: var(--color-capellania-navy);
+  flex-shrink: 0;
   font-weight: 800;
 }
 
@@ -198,7 +200,11 @@ button {
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  justify-content: flex-end;
+  min-width: 0;
+  gap: var(--space-3) var(--space-6);
+  flex: 1 1 420px;
+  flex-wrap: wrap;
 }
 
 .menu-toggle {
@@ -247,6 +253,7 @@ button {
   color: var(--color-muted);
   font-size: 0.95rem;
   font-weight: 600;
+  white-space: nowrap;
   transition: color 300ms ease-out;
 }
 
@@ -1825,6 +1832,7 @@ button {
   .header__inner {
     align-items: center;
     flex-direction: row;
+    flex-wrap: nowrap;
   }
 
   .header__inner {
