@@ -720,79 +720,6 @@ button {
   align-items: center;
 }
 
-.video-scroll-section {
-  position: relative;
-  height: 220vh;
-  min-height: 1400px;
-  overflow: hidden;
-  overflow: clip;
-  background: var(--color-surface);
-}
-
-.video-scroll-sticky {
-  position: sticky;
-  top: 0;
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-  overflow: hidden;
-  padding: var(--space-8);
-}
-
-.video-scroll-frame {
-  display: grid;
-  width: 100%;
-  min-height: 100vh;
-  place-items: center;
-  pointer-events: none;
-}
-
-.video-scroll-frame .video-facade {
-  pointer-events: auto;
-}
-
-.video-facade--scroll {
-  width: min(400px, calc(100vw - 48px));
-  height: min(225px, calc((100vw - 48px) * 0.5625));
-  max-width: 100%;
-  border-radius: 1rem;
-  transition:
-    border-radius 120ms linear,
-    border-color 220ms var(--ease-out-ui);
-  will-change: width, height, border-radius;
-}
-
-.video-scroll-copy {
-  position: absolute;
-  right: max(var(--space-6), calc((100vw - var(--container)) / 2));
-  bottom: clamp(2rem, 8vh, 5rem);
-  z-index: 2;
-  width: min(520px, calc(100% - 2rem));
-  color: var(--color-surface);
-  opacity: 0;
-  pointer-events: none;
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.32);
-  transform: translateY(16px);
-  transition:
-    opacity 300ms var(--ease-out-ui),
-    transform 300ms var(--ease-out-ui);
-}
-
-.video-scroll-copy.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.video-scroll-copy .section__eyebrow,
-.video-scroll-copy .section__title,
-.video-scroll-copy .section__lead {
-  color: inherit;
-}
-
-.video-scroll-copy .section__lead {
-  color: rgba(255, 255, 255, 0.82);
-}
-
 .video-facade {
   position: relative;
   overflow: hidden;
@@ -2089,17 +2016,6 @@ button {
 @media (max-width: 560px) {
   .container {
     width: min(100% - 24px, var(--container));
-  }
-
-  .video-scroll-sticky {
-    padding: var(--space-4);
-  }
-
-  .video-scroll-copy {
-    right: 1rem;
-    bottom: clamp(1.5rem, 7vh, 3rem);
-    left: 1rem;
-    width: auto;
   }
 
   .section {
