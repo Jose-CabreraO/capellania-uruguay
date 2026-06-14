@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Congreso Cristiano Paraguay, programa anual de Capellanía Empresarial para ejecutivos, líderes y empresarios."
+    >
+    <title>Congreso Cristiano | Capellanía Empresarial</title>
+    <link rel="stylesheet" href="../css/capellania-global.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="header">
+        <div class="container header__inner">
+          <a class="brand" href="../index.html" aria-label="Capellanía Empresarial">
+            <span class="brand__mark" aria-hidden="true">CE</span>
+            <span>Capellanía Empresarial</span>
+          </a>
+
+          <nav class="nav" id="main-navigation" aria-label="Navegación principal">
+            <a class="nav__link" href="../index.html">Inicio</a>
+            <a class="nav__link" href="../index.html#servicios">Servicios</a>
+            <a class="nav__link" href="index.html" aria-current="page">Congreso</a>
+            <a class="nav__link" href="fotos.html">Eventos</a>
+            <a class="nav__link" href="../index.html#contacto">Contacto</a>
+          </nav>
+          <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="congress-page-hero" aria-labelledby="congress-title">
+          <div class="container congress-page-hero__grid">
+            <div>
+              <p class="home-hero__eyebrow">Programa anual</p>
+              <h1 id="congress-title" class="home-hero__title">
+                Congreso Cristiano para líderes en negocios y sociedad.
+              </h1>
+              <p class="home-hero__lead">
+                Un espacio de encuentro, formación y visión para ejecutivos, empresarios
+                y líderes que buscan integrar principios bíblicos en sus decisiones.
+              </p>
+              <div class="button-row">
+                <a class="btn btn--congreso" href="2026.html">Ver programa 2026</a>
+                <a class="btn btn--secondary btn--light" href="inscripcion.html">Asegurar mi lugar</a>
+              </div>
+            </div>
+
+            <aside class="event-summary" aria-label="Edición vigente">
+              <div class="event-summary__item">
+                <span>Edición vigente</span>
+                <strong>XVIII Congreso Cristiano de Ejecutivos y Líderes</strong>
+              </div>
+              <div class="event-summary__item">
+                <span>Lema</span>
+                <strong>Liderar transformando</strong>
+              </div>
+              <div class="event-summary__item">
+                <span>Fecha y lugar</span>
+                <strong>3 y 4 de Septiembre · Hotel Sheraton Asunción</strong>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="purpose-title">
+          <div class="container">
+            <p class="section__eyebrow">Propósito</p>
+            <h2 id="purpose-title" class="section__title">
+              Trazar futuro con líderes que desean servir mejor.
+            </h2>
+            <p class="section__lead">
+              El Congreso promueve comunicación, comunidad y formación para líderes
+              que buscan alinear actitudes, decisiones y acciones con principios cristianos.
+            </p>
+
+            <div class="grid grid--3 services-grid">
+              <article class="card service-card">
+                <span class="service-card__number">01</span>
+                <h3 class="card__title">Comunión ejecutiva</h3>
+                <p class="card__text">
+                  Encuentro entre empresarios y líderes que comparten una visión de servicio.
+                </p>
+              </article>
+
+              <article class="card service-card">
+                <span class="service-card__number">02</span>
+                <h3 class="card__title">Principios bíblicos</h3>
+                <p class="card__text">
+                  Contenido orientado a decisiones, cultura organizacional y liderazgo.
+                </p>
+              </article>
+
+              <article class="card service-card">
+                <span class="service-card__number">03</span>
+                <h3 class="card__title">Transformación</h3>
+                <p class="card__text">
+                  Inspiración práctica para liderar organizaciones con propósito y carácter.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer" id="contacto">
+        <div class="container footer__grid">
+          <div>
+            <a class="brand footer__brand" href="../index.html" aria-label="Capellanía Empresarial">
+              <span class="brand__mark" aria-hidden="true">CE</span>
+              <span>Capellanía Empresarial</span>
+            </a>
+            <p class="footer__text">
+              Congreso Cristiano forma parte de Capellanía Empresarial.
+            </p>
+          </div>
+
+          <address class="footer__contact">
+            <strong>Contacto unificado</strong>
+            <a href="https://wa.me/595983310202">WhatsApp 0983 310 202</a>
+            <a href="mailto:eventos@capellania.org.py">eventos@capellania.org.py</a>
+            <span>Asunción, Paraguay</span>
+          </address>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        var toggle = document.querySelector(".menu-toggle");
+        var nav = document.querySelector("#main-navigation");
+
+        if (!toggle || !nav) return;
+
+        function closeMenu() {
+          nav.classList.remove("is-open");
+          document.body.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Abrir menú");
+        }
+
+        function openMenu() {
+          nav.classList.add("is-open");
+          document.body.classList.add("menu-open");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", "Cerrar menú");
+        }
+
+        toggle.addEventListener("click", function () {
+          nav.classList.contains("is-open") ? closeMenu() : openMenu();
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!document.body.classList.contains("menu-open")) return;
+          if (nav.contains(event.target) || toggle.contains(event.target)) return;
+          closeMenu();
+        });
+
+        window.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeMenu();
+        });
+      }());
+    </script>
+  </body>
+</html>

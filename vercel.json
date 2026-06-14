@@ -1,0 +1,29 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/congreso/2026",
+      "destination": "/congreso/2026.html"
+    },
+    {
+      "source": "/congreso/inscripcion",
+      "destination": "/congreso/inscripcion.html"
+    },
+    {
+      "source": "/congreso/fotos",
+      "destination": "/congreso/fotos.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
