@@ -222,6 +222,12 @@ button {
   background: var(--color-surface);
 }
 
+.menu-toggle[aria-expanded="true"] {
+  border-color: rgba(180, 138, 60, 0.42);
+  background: var(--color-capellania-navy);
+  color: var(--color-surface);
+}
+
 .menu-toggle:active {
   transform: scale(0.98);
 }
@@ -1797,7 +1803,7 @@ button {
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1024px) {
   body.menu-open {
     overflow: hidden;
   }
@@ -1811,6 +1817,7 @@ button {
     inset: 0;
     z-index: 35;
     background: rgba(6, 18, 31, 0.28);
+    -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     content: "";
   }
@@ -1844,20 +1851,24 @@ button {
     padding: clamp(5rem, 12vh, 7rem) var(--space-8) var(--space-8);
     border-left: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(8, 35, 63, 0.9);
+    -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
     box-shadow: -12px 0 42px rgba(0, 0, 0, 0.12);
     opacity: 0;
     pointer-events: none;
     transform: translateX(100%);
+    visibility: hidden;
     transition:
       opacity 300ms var(--ease-out-ui),
-      transform 300ms var(--ease-out-ui);
+      transform 300ms var(--ease-out-ui),
+      visibility 300ms var(--ease-out-ui);
   }
 
   .nav.is-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
+    visibility: visible;
   }
 
   .nav__link {
