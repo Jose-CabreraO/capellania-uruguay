@@ -230,6 +230,7 @@ button {
   display: none;
   align-items: center;
   justify-content: center;
+  gap: 0.15rem;
   width: 44px;
   height: 44px;
   border: 1px solid rgba(8, 35, 63, 0.12);
@@ -265,6 +266,16 @@ button {
 .menu-toggle svg {
   width: 22px;
   height: 22px;
+}
+
+.menu-toggle__chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 200ms var(--ease-out-ui);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__chevron {
+  transform: rotate(180deg);
 }
 
 .nav__link {
@@ -1852,10 +1863,19 @@ button {
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
   }
 
-  .header__inner {
-    padding-block: var(--space-4);
+  .brand {
+    min-width: 0;
+    gap: var(--space-2);
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .menu-toggle {
@@ -1875,8 +1895,8 @@ button {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: var(--space-5);
-    padding: clamp(5rem, 12vh, 7rem) var(--space-8) var(--space-8);
+    gap: var(--space-4);
+    padding: clamp(4.5rem, 10vh, 6rem) var(--space-6) var(--space-6);
     border-left: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(8, 35, 63, 0.9);
     -webkit-backdrop-filter: blur(18px);
@@ -1901,9 +1921,9 @@ button {
 
   .nav__link {
     color: rgba(255, 255, 255, 0.78);
-    font-size: clamp(1.35rem, 6vw, 2rem);
+    font-size: clamp(1.12rem, 5.2vw, 1.6rem);
     font-weight: 850;
-    line-height: 1;
+    line-height: 1.08;
   }
 
   .nav__link:hover,
@@ -1959,7 +1979,7 @@ button {
   .service-card--wide {
     grid-column: auto;
     grid-row: auto;
-    min-height: 300px;
+    min-height: 240px;
   }
 
   .service-card--raised {
@@ -1972,8 +1992,8 @@ button {
 
   .impact-metric--large {
     grid-row: auto;
-    min-height: 320px;
-    padding: var(--space-8);
+    min-height: 280px;
+    padding: var(--space-6);
   }
 
   .event-card--feature {
@@ -2018,6 +2038,42 @@ button {
     width: min(100% - 32px, var(--container));
   }
 
+  .header__inner {
+    padding-block: 0.65rem;
+  }
+
+  .brand {
+    font-size: 0.9rem;
+  }
+
+  .brand__mark {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .menu-toggle svg:not(.menu-toggle__chevron) {
+    width: 19px;
+    height: 19px;
+  }
+
+  .menu-toggle__chevron {
+    width: 12px;
+    height: 12px;
+  }
+
+  .nav {
+    width: min(84vw, 320px);
+    gap: var(--space-3);
+    padding: 4.5rem var(--space-5) var(--space-5);
+  }
+
   .section {
     padding-block: var(--space-10);
   }
@@ -2040,6 +2096,197 @@ button {
     margin-top: var(--space-3);
     font-size: 0.98rem;
     line-height: 1.58;
+  }
+
+  .home-hero {
+    min-height: 62vh;
+  }
+
+  .home-hero__content {
+    padding-block: var(--space-16);
+  }
+
+  .home-hero__eyebrow {
+    margin-bottom: var(--space-3);
+    font-size: 0.72rem;
+  }
+
+  .home-hero__title {
+    font-size: clamp(2.15rem, 11vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .home-hero__lead {
+    margin-top: var(--space-4);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .button-row {
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.68rem 0.9rem;
+    font-size: 0.92rem;
+  }
+
+  .services-bento {
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .card {
+    padding: var(--space-4);
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+
+  .service-card--featured,
+  .service-card--wide {
+    min-height: 220px;
+  }
+
+  .service-card--featured {
+    padding: var(--space-5);
+  }
+
+  .service-card--featured .card__title,
+  .card__title {
+    font-size: 1.12rem;
+    line-height: 1.22;
+  }
+
+  .service-card__number {
+    margin-bottom: var(--space-4);
+  }
+
+  .impact-layout,
+  .video-layout {
+    gap: var(--space-5);
+  }
+
+  .impact-metrics {
+    gap: var(--space-3);
+  }
+
+  .impact-metric {
+    min-height: 170px;
+    padding: var(--space-5);
+  }
+
+  .impact-metric--large {
+    min-height: 220px;
+  }
+
+  .impact-metric span {
+    margin-top: var(--space-3);
+  }
+
+  .video-facade__button {
+    width: 64px;
+    height: 64px;
+  }
+
+  .congress-banner,
+  .pricing-note {
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
+  .congress-banner__eyebrow,
+  .congress-banner__text {
+    margin-top: var(--space-3);
+  }
+
+  .congress-page-hero__grid {
+    gap: var(--space-6);
+    padding-block: var(--space-14);
+  }
+
+  .congress-page-hero__motto {
+    margin-top: var(--space-4);
+    padding: var(--space-3) 0 var(--space-3) var(--space-4);
+  }
+
+  .schedule-tabs {
+    margin-top: var(--space-6);
+  }
+
+  .schedule-tabs__panels {
+    margin-top: var(--space-5);
+  }
+
+  .schedule-tabs__tab,
+  .program-item,
+  .pricing-note {
+    padding: var(--space-4);
+  }
+
+  .gallery-filter {
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+  }
+
+  .gallery-filter__button {
+    min-height: 38px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .event-gallery {
+    gap: var(--space-4);
+  }
+
+  .event-card {
+    border-radius: var(--radius-md);
+    box-shadow: 0 1px 0 rgba(8, 35, 63, 0.06);
+  }
+
+  .event-card:hover {
+    transform: none;
+  }
+
+  .event-card__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .event-card__actions {
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .event-card__action {
+    min-height: 36px;
+    padding: 0.55rem 0.72rem;
+    font-size: 0.74rem;
+    line-height: 1.05;
+  }
+
+  .event-card__body {
+    padding: var(--space-4);
+  }
+
+  .event-card__type {
+    font-size: 0.7rem;
+  }
+
+  .event-card h2 {
+    margin: var(--space-2) 0 var(--space-1);
+    font-size: clamp(1.25rem, 7vw, 1.75rem);
+    line-height: 1.08;
+  }
+
+  .event-card p {
+    margin-top: var(--space-3);
+    font-size: 0.94rem;
+    line-height: 1.55;
   }
 
   .registration-layout {
