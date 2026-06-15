@@ -2102,8 +2102,8 @@ button {
     height: auto !important;
     min-height: auto !important;
     align-items: start;
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     background-size: cover;
     background-position: center;
   }
