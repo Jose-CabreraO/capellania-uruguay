@@ -2099,11 +2099,16 @@ button {
   }
 
   .home-hero {
-    min-height: 62vh;
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-size: cover;
+    background-position: center;
   }
 
   .home-hero__content {
-    padding-block: var(--space-16);
+    padding-block: 0;
   }
 
   .home-hero__eyebrow {
