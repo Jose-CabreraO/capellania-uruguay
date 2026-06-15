@@ -132,7 +132,7 @@
 
                   <div class="choice-grid">
                     <label class="choice-card">
-                      <input id="tipo-registro" type="radio" name="tipo_pase" value="individual" onchange="evaluarInscripcion()" checked>
+                      <input type="radio" name="tipo_pase" value="individual" onchange="document.getElementById('tipo-registro').value = this.value; evaluarInscripcion()" checked>
                       <span>
                         <strong>Individual</strong>
                         <small>Inscripción para una persona.</small>
@@ -140,13 +140,18 @@
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="pareja" onchange="evaluarInscripcion()">
+                      <input type="radio" name="tipo_pase" value="pareja" onchange="document.getElementById('tipo-registro').value = this.value; evaluarInscripcion()">
                       <span>
                         <strong>Pareja</strong>
                         <small>Inscripción para matrimonio o dos participantes.</small>
                       </span>
                     </label>
                   </div>
+
+                  <select id="tipo-registro" class="hidden" onchange="evaluarInscripcion()" aria-hidden="true" tabindex="-1">
+                    <option value="individual" selected>Individual</option>
+                    <option value="pareja">Pareja</option>
+                  </select>
 
                   <div id="seccion-acompaniante" class="form-grid form-grid--2 hidden">
                     <label class="field">
@@ -264,8 +269,7 @@
 
     <script>
       function evaluarInscripcion() {
-        const tipoRadio = document.querySelector('input[name="tipo_pase"]:checked');
-        const tipo = tipoRadio ? tipoRadio.value : document.getElementById('tipo-registro').value;
+        const tipo = document.getElementById('tipo-registro').value;
         const seccion = document.getElementById('seccion-acompaniante');
         const inputs = seccion.querySelectorAll('input');
 
@@ -281,7 +285,7 @@
         }
       }
 
-      evaluarInscripcion();
+      window.onload = evaluarInscripcion;
 
       (function () {
         var form = document.querySelector('[data-registration-form]');

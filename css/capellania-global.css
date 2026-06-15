@@ -2015,11 +2015,116 @@ button {
 
 @media (max-width: 560px) {
   .container {
-    width: min(100% - 24px, var(--container));
+    width: min(100% - 32px, var(--container));
   }
 
   .section {
-    padding-block: var(--space-14, 3.5rem);
+    padding-block: var(--space-10);
+  }
+
+  .section--compact {
+    padding-block: var(--space-8);
+  }
+
+  .section__eyebrow {
+    margin-bottom: var(--space-2);
+    font-size: 0.72rem;
+  }
+
+  .section__title {
+    font-size: clamp(2rem, 10vw, 2.65rem);
+    line-height: 1.05;
+  }
+
+  .section__lead {
+    margin-top: var(--space-3);
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .registration-layout {
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+  }
+
+  .registration-summary {
+    padding: var(--space-4);
+    box-shadow: none;
+  }
+
+  .registration-summary__eyebrow {
+    margin-bottom: var(--space-2);
+    font-size: 0.72rem;
+  }
+
+  .registration-summary h2 {
+    font-size: 1.12rem;
+  }
+
+  .registration-summary dl {
+    gap: var(--space-3);
+    margin: var(--space-4) 0;
+  }
+
+  .summary-pricing {
+    padding-top: var(--space-4);
+  }
+
+  .summary-pricing h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .summary-pricing__row {
+    padding: var(--space-3);
+  }
+
+  .registration-form {
+    gap: var(--space-4);
+  }
+
+  .form-step {
+    padding: var(--space-5);
+  }
+
+  .form-step legend {
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+
+  .form-step legend span {
+    width: 30px;
+    height: 30px;
+    font-size: 0.76rem;
+  }
+
+  .form-grid {
+    gap: var(--space-4);
+  }
+
+  .choice-grid {
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .choice-card {
+    padding: var(--space-3);
+  }
+
+  .transfer-box,
+  .upload-box,
+  .form-actions {
+    padding: var(--space-4);
+  }
+
+  .form-actions {
+    gap: var(--space-3);
+  }
+
+  .field__control {
+    min-height: 44px;
+    padding: 0.68rem 0.8rem;
   }
 
   .button-row,
