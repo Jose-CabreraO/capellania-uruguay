@@ -2102,8 +2102,8 @@ button {
     height: auto !important;
     min-height: auto !important;
     align-items: start;
-    padding-top: 44px;
-    padding-bottom: 44px;
+    padding-top: 36px;
+    padding-bottom: 36px;
     background-size: cover;
     background-position: center;
   }
@@ -2118,14 +2118,14 @@ button {
   }
 
   .home-hero__title {
-    font-size: clamp(2.15rem, 11vw, 3rem);
-    line-height: 1.04;
+    font-size: clamp(1.85rem, 9vw, 2.35rem);
+    line-height: 1.08;
   }
 
   .home-hero__lead {
     margin-top: var(--space-3);
-    font-size: 1rem;
-    line-height: 1.55;
+    font-size: 0.96rem;
+    line-height: 1.5;
   }
 
   .button-row {
@@ -2134,9 +2134,9 @@ button {
   }
 
   .btn {
-    min-height: 44px;
-    padding: 0.68rem 0.9rem;
-    font-size: 0.92rem;
+    min-height: 42px;
+    padding: 0.62rem 0.82rem;
+    font-size: 0.88rem;
   }
 
   .services-bento {
