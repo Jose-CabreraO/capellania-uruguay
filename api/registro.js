@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     // Sintaxis correcta desestructurando la respuesta del SDK de Resend
     const { data, error } = await resend.emails.send({
       from: 'Capellania <onboarding@resend.dev>',
-      to: 'joselocabrera563@gmail.com',
+      to: 'jcshogun39@gmail.com',
       subject: `Nueva Inscripción: ${d.nombre_completo || 'Test'}`,
       html: `<p><strong>Nombre:</strong> ${d.nombre_completo}</p>
              <p><strong>Email:</strong> ${d.email}</p>
