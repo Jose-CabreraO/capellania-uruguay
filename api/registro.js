@@ -11,8 +11,8 @@ export default async function handler(req, res) {
   const d = req.body;
 
   try {
-    // Envió con parámetros estrictos de Sandbox de Resend
-    const data = await resend.emails.send({
+    // Sintaxis correcta desestructurando la respuesta del SDK de Resend
+    const { data, error } = await resend.emails.send({
       from: 'Capellania <onboarding@resend.dev>',
       to: 'joselocabrera563@gmail.com',
       subject: `Nueva Inscripción: ${d.nombre_completo || 'Test'}`,
@@ -21,11 +21,15 @@ export default async function handler(req, res) {
              <p><strong>Pase:</strong> ${d.tipo_pase}</p>`
     });
 
-    console.log('Resend aceptó el envío con ID:', data.id);
+    if (error) {
+      console.error('Resend rebotó el envío:', error);
+      return res.status(400).json({ error: 'Resend rebotó el envío', detalle: error });
+    }
+
+    console.log('Resend aceptó el envío con ID:', data?.id);
     return res.redirect(303, '/index.html?registro=exito');
 
   } catch (error) {
-    // Si la API Key está mal o Resend rebota el correo, lo veremos en los logs de Vercel
     console.error('Error crítico en la API de Resend:', error.message || error);
     return res.status(500).json({ error: 'Error interno en el servidor de correos', detalle: error.message });
   }
