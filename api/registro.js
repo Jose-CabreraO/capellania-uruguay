@@ -1,8 +1,7 @@
 import { Resend } from 'resend';
 
-// Inicializamos Resend. Usaremos una API Key provisional de pruebas de Resend.
-// En producción lo ideal es usar process.env.RESEND_API_KEY
-const resend = new Resend('re_7vK2G1zX_M3B6H9N2P5Q8R1S4T7U0V3W6');
+// Inicializamos Resend desde una variable segura del entorno de Vercel.
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
