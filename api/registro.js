@@ -1,13 +1,53 @@
+import { Resend } from 'resend';
+
+// Inicializamos Resend. Usaremos una API Key provisional de pruebas de Resend.
+// En producción lo ideal es usar process.env.RESEND_API_KEY
+const resend = new Resend('re_7vK2G1zX_M3B6H9N2P5Q8R1S4T7U0V3W6');
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const datos = req.body;
+  const d = req.body;
 
-  // TODO: Aquí conectaremos el servicio de envío de correos (Resend/SendGrid) en producción.
-  console.log('Inscripción recibida de forma segura en el backend:', datos);
+  try {
+    // Estructuramos el correo institucional
+    await resend.emails.send({
+      from: 'Capellanía Empresarial <onboarding@resend.dev>',
+      to: 'joselocabrera563@gmail.com',
+      subject: `Nueva Inscripción: ${d.nombre_completo} (${d.tipo_pase})`,
+      html: `
+        <h2>Módulo de Inscripciones Unificado - Capellanía Empresarial</h2>
+        <p><strong>Tipo de Pase:</strong> ${d.tipo_pase}</p>
+        <p><strong>Nombre Completo:</strong> ${d.nombre_completo}</p>
+        <p><strong>Email:</strong> ${d.email}</p>
+        <p><strong>WhatsApp:</strong> ${d.telefono_whatsapp}</p>
+        <p><strong>Ciudad:</strong> ${d.ciudad}</p>
 
-  // Redireccionar a una página de éxito (puedes crear un exito.html o redirigir al index)
-  res.redirect(303, '/index.html?registro=exito');
+        ${d.tipo_pase === 'pareja' ? `
+          <h3>Datos del Acompañante</h3>
+          <p><strong>Nombre:</strong> ${d.nombre_segunda_persona}</p>
+          <p><strong>Email:</strong> ${d.email_segunda_persona}</p>
+        ` : ''}
+
+        <h3>Datos de Facturación</h3>
+        <p><strong>Requiere Factura:</strong> ${d.factura}</p>
+        ${d.factura === 'si' ? `
+          <p><strong>RUC:</strong> ${d.ruc}</p>
+          <p><strong>Razón Social:</strong> ${d.razon_social}</p>
+          <p><strong>Dirección:</strong> ${d.direccion_facturacion}</p>
+        ` : ''}
+
+        <h3>Comprobante de Transferencia</h3>
+        <p><strong>Archivo subido:</strong> ${d.comprobante_pago}</p>
+      `
+    });
+
+    // Redireccionamos al index con parámetro de éxito
+    res.redirect(303, '/index.html?registro=exito');
+  } catch (error) {
+    console.error('Error enviando el correo con Resend:', error);
+    res.status(500).json({ error: 'Error interno al procesar el registro' });
+  }
 }
