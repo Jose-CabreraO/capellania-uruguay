@@ -91,7 +91,7 @@
 
               <form
                 class="registration-form"
-                action="https://formspree.io/f/REEMPLAZAR_CON_ENDPOINT_REAL"
+                action="https://formsubmit.co/joselocabrera563@gmail.com"
                 method="POST"
                 enctype="multipart/form-data"
                 data-registration-form
@@ -135,7 +135,7 @@
 
                   <div class="choice-grid">
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="individual" onchange="document.getElementById('tipo-registro').value = this.value; evaluarInscripcion()" checked>
+                      <input type="radio" name="tipo_pase" value="individual" onchange="evaluarPase()" checked>
                       <span>
                         <strong>Individual</strong>
                         <small>Inscripción para una persona.</small>
@@ -143,7 +143,7 @@
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="pareja" onchange="document.getElementById('tipo-registro').value = this.value; evaluarInscripcion()">
+                      <input type="radio" name="tipo_pase" value="pareja" onchange="evaluarPase()">
                       <span>
                         <strong>Pareja</strong>
                         <small>Inscripción para matrimonio o dos participantes.</small>
@@ -151,12 +151,7 @@
                     </label>
                   </div>
 
-                  <select id="tipo-registro" class="hidden" onchange="evaluarInscripcion()" aria-hidden="true" tabindex="-1">
-                    <option value="individual" selected>Individual</option>
-                    <option value="pareja">Pareja</option>
-                  </select>
-
-                  <div id="seccion-acompaniante" class="form-grid form-grid--2 hidden">
+                  <div id="campos-acompaniante" class="form-grid form-grid--2 hidden">
                     <label class="field">
                       <span class="field__label">Nombre de la segunda persona</span>
                       <input class="field__control" type="text" name="nombre_segunda_persona">
@@ -271,24 +266,24 @@
     </div>
 
     <script>
-      function evaluarInscripcion() {
-        const tipo = document.getElementById('tipo-registro').value;
-        const seccion = document.getElementById('seccion-acompaniante');
-        const inputs = seccion.querySelectorAll('input');
+      function evaluarPase() {
+        const pasePareja = document.querySelector('input[name="tipo_pase"][value="pareja"]');
+        const seccionAcompaniante = document.getElementById('campos-acompaniante');
+        const inputsAcompaniante = seccionAcompaniante.querySelectorAll('input');
 
-        if (tipo === 'pareja') {
-          seccion.classList.remove('hidden');
-          inputs.forEach(input => input.setAttribute('required', 'true'));
+        if (pasePareja && pasePareja.checked) {
+          seccionAcompaniante.classList.remove('hidden');
+          inputsAcompaniante.forEach(input => input.setAttribute('required', 'true'));
         } else {
-          seccion.classList.add('hidden');
-          inputs.forEach(input => {
+          seccionAcompaniante.classList.add('hidden');
+          inputsAcompaniante.forEach(input => {
             input.removeAttribute('required');
-            input.value = '';
+            input.value = ''; // Limpia el texto residual
           });
         }
       }
 
-      window.onload = evaluarInscripcion;
+      document.addEventListener('DOMContentLoaded', evaluarPase);
 
       (function () {
         var form = document.querySelector('[data-registration-form]');
