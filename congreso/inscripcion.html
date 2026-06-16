@@ -91,9 +91,8 @@
 
               <form
                 class="registration-form"
-                action="https://formsubmit.co/joselocabrera563@gmail.com"
+                action="/api/registro"
                 method="POST"
-                enctype="multipart/form-data"
                 data-registration-form
               >
                 <input type="hidden" name="_subject" value="Inscripcion Congreso Cristiano 2026">
@@ -135,7 +134,7 @@
 
                   <div class="choice-grid">
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="individual" onchange="evaluarPase()" checked>
+                      <input type="radio" name="tipo_pase" value="individual" onchange="manejarCambioPase()" checked>
                       <span>
                         <strong>Individual</strong>
                         <small>Inscripción para una persona.</small>
@@ -143,7 +142,7 @@
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="pareja" onchange="evaluarPase()">
+                      <input type="radio" name="tipo_pase" value="pareja" onchange="manejarCambioPase()">
                       <span>
                         <strong>Pareja</strong>
                         <small>Inscripción para matrimonio o dos participantes.</small>
@@ -151,7 +150,7 @@
                     </label>
                   </div>
 
-                  <div id="campos-acompaniante" class="form-grid form-grid--2 hidden">
+                  <div id="seccion-acompaniante" class="form-grid form-grid--2" style="display: none;">
                     <label class="field">
                       <span class="field__label">Nombre de la segunda persona</span>
                       <input class="field__control" type="text" name="nombre_segunda_persona">
@@ -266,24 +265,30 @@
     </div>
 
     <script>
-      function evaluarPase() {
+      function manejarCambioPase() {
         const pasePareja = document.querySelector('input[name="tipo_pase"][value="pareja"]');
-        const seccionAcompaniante = document.getElementById('campos-acompaniante');
-        const inputsAcompaniante = seccionAcompaniante.querySelectorAll('input');
+        const contenedor = document.getElementById('seccion-acompaniante');
+        const inputs = contenedor.querySelectorAll('input');
 
         if (pasePareja && pasePareja.checked) {
-          seccionAcompaniante.classList.remove('hidden');
-          inputsAcompaniante.forEach(input => input.setAttribute('required', 'true'));
+          contenedor.style.display = 'block';
+          inputs.forEach(input => input.setAttribute('required', 'true'));
         } else {
-          seccionAcompaniante.classList.add('hidden');
-          inputsAcompaniante.forEach(input => {
+          contenedor.style.display = 'none';
+          inputs.forEach(input => {
             input.removeAttribute('required');
-            input.value = ''; // Limpia el texto residual
+            input.value = '';
           });
         }
       }
 
-      document.addEventListener('DOMContentLoaded', evaluarPase);
+      document.addEventListener('DOMContentLoaded', () => {
+        // Escuchar cambios en ambos botones de radio
+        document.querySelectorAll('input[name="tipo_pase"]').forEach(radio => {
+          radio.addEventListener('change', manejarCambioPase);
+        });
+        manejarCambioPase(); // Ejecución inicial
+      });
 
       (function () {
         var form = document.querySelector('[data-registration-form]');
