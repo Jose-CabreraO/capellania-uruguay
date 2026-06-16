@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   try {
     // Estructuramos el correo institucional
     await resend.emails.send({
-      from: 'Capellanía Empresarial <onboarding@resend.dev>',
+      from: 'Capellania <onboarding@resend.dev>',
       to: 'joselocabrera563@gmail.com',
       subject: `Nueva Inscripción: ${d.nombre_completo} (${d.tipo_pase})`,
       html: `
