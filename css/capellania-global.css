@@ -169,6 +169,61 @@ button {
   font-size: clamp(1.04rem, 2vw, 1.18rem);
 }
 
+.seccion-identidad {
+  padding-block: var(--space-16);
+  background: var(--color-surface-soft);
+}
+
+.identidad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+.card-identidad {
+  padding: var(--space-10);
+  border: 1px solid rgba(8, 35, 63, 0.08);
+  border-left: 5px solid var(--color-capellania-navy);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 4px 6px rgba(8, 35, 63, 0.05);
+  transition:
+    transform 200ms var(--ease-out-ui),
+    box-shadow 200ms var(--ease-out-ui);
+}
+
+.card-identidad:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(8, 35, 63, 0.1);
+}
+
+.card-identidad__eyebrow {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-identidad__title {
+  margin: 0 0 var(--space-4);
+  color: var(--color-capellania-navy);
+  font-family: var(--font-sans);
+  font-size: clamp(1.55rem, 3vw, 1.9rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.card-identidad__text {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(1.05rem, 2vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.6;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -1838,6 +1893,10 @@ button {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+
+  .card-identidad:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2096,6 +2155,23 @@ button {
     margin-top: var(--space-3);
     font-size: 0.98rem;
     line-height: 1.58;
+  }
+
+  .seccion-identidad {
+    padding-block: var(--space-10);
+  }
+
+  .identidad-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .card-identidad {
+    padding: var(--space-6);
+  }
+
+  .card-identidad:hover {
+    transform: none;
   }
 
   .home-hero {
