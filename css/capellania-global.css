@@ -169,82 +169,6 @@ button {
   font-size: clamp(1.04rem, 2vw, 1.18rem);
 }
 
-/* --- RESET Y CODIGO AISLADO PARA MISION Y VISION --- */
-.bloque-identidad-global {
-  padding: 50px 20px !important;
-  background-color: var(--color-surface-soft) !important;
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-.grid-identidad-global {
-  max-width: 1100px !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 25px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-.tarjeta-propósito-item {
-  background-color: var(--color-surface) !important;
-  padding: 35px 25px !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-  border-left: 5px solid var(--color-capellania-navy) !important;
-  box-sizing: border-box !important;
-  width: 100% !important;
-  transition: transform 0.2s ease !important;
-}
-
-.tag-propósito {
-  font-size: 0.75rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1.5px !important;
-  color: var(--color-muted) !important;
-  font-weight: 600 !important;
-  display: block !important;
-  margin-bottom: 10px !important;
-}
-
-.title-propósito {
-  font-size: 1.7rem !important;
-  color: var(--color-capellania-navy) !important;
-  margin: 0 0 15px 0 !important;
-  font-family: var(--font-sans) !important;
-  font-weight: 700 !important;
-}
-
-.desc-propósito {
-  font-size: 1.05rem !important;
-  color: var(--color-ink) !important;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-  font-style: italic !important;
-}
-
-@media (min-width: 768px) {
-  .bloque-identidad-global {
-    padding: 80px 20px !important;
-  }
-
-  .grid-identidad-global {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 35px !important;
-  }
-
-  .tarjeta-propósito-item {
-    padding: 45px !important;
-  }
-
-  .tarjeta-propósito-item:hover {
-    transform: translateY(-5px) !important;
-  }
-}
-
 .header {
   position: sticky;
   top: 0;
@@ -1915,9 +1839,6 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-  .tarjeta-propósito-item:hover {
-    transform: none !important;
-  }
 }
 
 @media (max-width: 1024px) {
