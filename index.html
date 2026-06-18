@@ -18,6 +18,7 @@
     <meta property="og:url" content="https://www.capellania.org.py/">
     <meta property="og:image" content="https://www.capellania.org.py/images/og-capellania.jpg">
     <link rel="canonical" href="https://www.capellania.org.py/">
+    <link rel="icon" type="image/png" href="/assets/logos/capellania/capellania-symbol-color.png">
     <link rel="stylesheet" href="css/capellania-global.css?v=1.1">
   </head>
   <body>
@@ -25,8 +26,7 @@
       <header class="header">
         <div class="container header__inner">
           <a class="brand" href="/" aria-label="Capellanía Empresarial">
-            <span class="brand__mark" aria-hidden="true">CE</span>
-            <span>Capellanía Empresarial</span>
+            <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-color.png" alt="Capellanía Empresarial" width="168" height="42">
           </a>
 
           <nav class="nav hidden md:flex" id="main-navigation" aria-label="Navegación principal">
@@ -60,26 +60,37 @@
             </p>
             <div class="button-row">
               <a class="btn btn--primary" href="#servicios">Explorar servicios empresariales</a>
-              <a class="btn btn--congreso" href="congreso/inscripcion.html">Asegurar mi lugar en el Congreso</a>
+              <a class="btn btn--congreso" href="/congreso/inscripcion">Asegurar mi lugar en el Congreso</a>
             </div>
           </div>
         </section>
 
-        <section class="section" style="background-color: var(--color-surface-soft);">
+        <section class="section identity-section" aria-labelledby="identity-title">
           <div class="container">
-            <div class="services-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
-              <article class="card service-card" style="width: 100%; box-sizing: border-box;">
-                <span style="color: var(--color-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; display: block; margin-bottom: 5px;">Nuestro Propósito</span>
-                <h3 class="card__title" style="color: var(--color-capellania-navy); font-weight: 700; margin-top: 5px; font-size: 1.7rem;">Misión</h3>
-                <p class="card__text" style="color: var(--color-ink); font-style: italic; line-height: 1.6; margin-top: 10px;">
+            <div class="identity-section__header">
+              <p class="section__eyebrow">Identidad institucional</p>
+              <h2 id="identity-title" class="identity-section__title">
+                Propósito claro para servir al mundo empresarial.
+              </h2>
+              <p class="section__lead">
+                Misión y visión expresan el llamado de Capellanía Empresarial:
+                acompañar el trabajo con presencia cristiana, servicio y dirección.
+              </p>
+            </div>
+
+            <div class="identity-grid">
+              <article class="card service-card service-card--identity">
+                <span class="identity-card__eyebrow">Nuestro Propósito</span>
+                <h3 class="card__title identity-card__title">Misión</h3>
+                <p class="card__text identity-card__text">
                   "Promover el Reino de Dios en el mundo del trabajo."
                 </p>
               </article>
 
-              <article class="card service-card" style="width: 100%; box-sizing: border-box;">
-                <span style="color: var(--color-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; display: block; margin-bottom: 5px;">Nuestra Proyección</span>
-                <h3 class="card__title" style="color: var(--color-capellania-navy); font-weight: 700; margin-top: 5px; font-size: 1.7rem;">Visión</h3>
-                <p class="card__text" style="color: var(--color-ink); font-style: italic; line-height: 1.6; margin-top: 10px;">
+              <article class="card service-card service-card--identity">
+                <span class="identity-card__eyebrow">Nuestra Proyección</span>
+                <h3 class="card__title identity-card__title">Visión</h3>
+                <p class="card__text identity-card__text">
                   "El Reino de Dios establecido en el entorno empresarial."
                 </p>
               </article>
@@ -219,6 +230,9 @@
           <div class="container">
             <div class="congress-banner">
               <div>
+                <span class="congress-logo" aria-hidden="true">
+                  <img src="/assets/logos/congreso/congreso-white.png" alt="" width="220" height="58">
+                </span>
                 <p class="congress-banner__eyebrow">Congreso Cristiano 2026</p>
                 <h2 id="congress-title" class="congress-banner__title">
                   XVIII Congreso Cristiano de Ejecutivos y Líderes
@@ -227,9 +241,23 @@
                   3 y 4 de Septiembre · Hotel Sheraton Asunción · Liderar transformando
                 </p>
               </div>
-              <a class="btn btn--congreso" href="congreso/inscripcion.html">
+              <a class="btn btn--congreso" href="/congreso/inscripcion">
                 Asegurar mi lugar en el Congreso
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="whatsapp-cta" aria-labelledby="whatsapp-title">
+          <div class="container">
+            <div class="whatsapp-cta__inner">
+              <div>
+                <p class="whatsapp-cta__eyebrow">Contacto directo</p>
+                <h2 id="whatsapp-title">Conversá con el equipo de Capellanía</h2>
+                <p>Canal sobrio para consultas institucionales, coordinación de servicios o apoyo con la inscripción.</p>
+              </div>
+              <!-- WhatsApp editable: cambiar número y mensaje en el href siguiente. Formato: https://wa.me/595983310202?text=Mensaje -->
+              <a class="btn btn--primary" href="https://wa.me/595983310202?text=Hola%20Capellania%2C%20quisiera%20recibir%20informacion." target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
             </div>
           </div>
         </section>
@@ -238,9 +266,8 @@
       <footer class="footer" id="contacto">
         <div class="container footer__grid">
           <div>
-            <a class="brand footer__brand" href="index.html" aria-label="Capellanía Empresarial">
-              <span class="brand__mark" aria-hidden="true">CE</span>
-              <span>Capellanía Empresarial</span>
+            <a class="brand footer__brand" href="/" aria-label="Capellanía Empresarial">
+              <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-white.png" alt="Capellanía Empresarial" width="168" height="42">
             </a>
             <p class="footer__text">
               Promovemos el Reino de Dios en el mundo del trabajo con servicio,

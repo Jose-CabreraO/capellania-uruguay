@@ -18,6 +18,7 @@
     <meta property="og:url" content="https://www.capellania.org.py/congreso/fotos">
     <meta property="og:image" content="https://www.capellania.org.py/images/og-galeria.jpg">
     <link rel="canonical" href="https://www.capellania.org.py/congreso/fotos">
+    <link rel="icon" type="image/png" href="/assets/logos/capellania/capellania-symbol-color.png">
     <link rel="stylesheet" href="../css/capellania-global.css">
   </head>
   <body>
@@ -25,8 +26,7 @@
       <header class="header">
         <div class="container header__inner">
           <a class="brand" href="/" aria-label="Capellanía Empresarial">
-            <span class="brand__mark" aria-hidden="true">CE</span>
-            <span>Capellanía Empresarial</span>
+            <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-color.png" alt="Capellanía Empresarial" width="168" height="42">
           </a>
 
           <nav class="nav hidden md:flex" id="main-navigation" aria-label="Navegación principal">
@@ -106,15 +106,15 @@
                     </a>
                   </div>
                 </div>
-                <button
-                  class="sr-only"
-                  type="button"
-                  data-lightbox-src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1800&q=86&fm=webp"
-                  data-album="congreso-2025"
-                  data-caption="Congreso Cristiano 2025: momento de conversación entre líderes y ejecutivos."
-                >
-                  Foto adicional Congreso 2025
-                </button>
+                <div class="event-card__album-items" hidden>
+                  <!-- Fotos futuras: duplicar este span y actualizar data-lightbox-src, data-album y data-caption. -->
+                  <span
+                    data-lightbox-src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=1800&q=86&fm=webp"
+                    data-album="congreso-2025"
+                    data-caption="Congreso Cristiano 2025: momento de conversación entre líderes y ejecutivos."
+                    aria-label="Foto adicional Congreso 2025"
+                  ></span>
+                </div>
                 <div class="event-card__body">
                   <span class="event-card__type">Congresos</span>
                   <h2>XVII Congreso Cristiano 2025</h2>
@@ -123,6 +123,8 @@
                     Encuentro anual de ejecutivos y líderes orientado a principios bíblicos,
                     liderazgo y transformación en negocios y sociedad.
                   </p>
+                  <!-- Google Fotos editable: cuando exista el enlace real, reemplazar este span por un <a href="URL_REAL" target="_blank" rel="noopener noreferrer">Ver álbum completo</a>. -->
+                  <span class="event-card__action event-card__action--album is-disabled" aria-disabled="true">Álbum próximamente</span>
                 </div>
               </article>
 
@@ -157,6 +159,8 @@
                     Espacio de conversación para gerentes y jefes con enfoque en experiencia
                     empresarial, valores y desarrollo organizacional.
                   </p>
+                  <!-- Google Fotos editable: cuando exista el enlace real, reemplazar este span por un <a href="URL_REAL" target="_blank" rel="noopener noreferrer">Ver álbum completo</a>. -->
+                  <span class="event-card__action event-card__action--album is-disabled" aria-disabled="true">Álbum próximamente</span>
                 </div>
               </article>
 
@@ -191,6 +195,8 @@
                     Primer encuentro ejecutivo del año, diseñado para fortalecer vínculos
                     y abrir conversación sobre liderazgo con propósito.
                   </p>
+                  <!-- Google Fotos editable: cuando exista el enlace real, reemplazar este span por un <a href="URL_REAL" target="_blank" rel="noopener noreferrer">Ver álbum completo</a>. -->
+                  <span class="event-card__action event-card__action--album is-disabled" aria-disabled="true">Álbum próximamente</span>
                 </div>
               </article>
 
@@ -225,8 +231,24 @@
                     Jornada de pausa, formación y renovación para equipos comprometidos
                     con un liderazgo más humano y espiritual.
                   </p>
+                  <!-- Google Fotos editable: cuando exista el enlace real, reemplazar este span por un <a href="URL_REAL" target="_blank" rel="noopener noreferrer">Ver álbum completo</a>. -->
+                  <span class="event-card__action event-card__action--album is-disabled" aria-disabled="true">Álbum próximamente</span>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="whatsapp-cta" aria-labelledby="whatsapp-title">
+          <div class="container">
+            <div class="whatsapp-cta__inner">
+              <div>
+                <p class="whatsapp-cta__eyebrow">Contacto directo</p>
+                <h2 id="whatsapp-title">Consultá por eventos y registros</h2>
+                <p>Canal institucional para solicitar información sobre eventos pasados, fotos o próximos encuentros.</p>
+              </div>
+              <!-- WhatsApp editable: cambiar número y mensaje en el href siguiente. Formato: https://wa.me/595983310202?text=Mensaje -->
+              <a class="btn btn--primary" href="https://wa.me/595983310202?text=Hola%20Capellania%2C%20quisiera%20consultar%20sobre%20eventos%20y%20fotos." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
             </div>
           </div>
         </section>
@@ -235,9 +257,8 @@
       <footer class="footer" id="contacto">
         <div class="container footer__grid">
           <div>
-            <a class="brand footer__brand" href="../index.html" aria-label="Capellanía Empresarial">
-              <span class="brand__mark" aria-hidden="true">CE</span>
-              <span>Capellanía Empresarial</span>
+            <a class="brand footer__brand" href="/" aria-label="Capellanía Empresarial">
+              <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-white.png" alt="Capellanía Empresarial" width="168" height="42">
             </a>
             <p class="footer__text">
               Memoria visual de encuentros institucionales, congresos y espacios ejecutivos.
