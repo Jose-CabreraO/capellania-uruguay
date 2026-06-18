@@ -18,6 +18,7 @@
     <meta property="og:url" content="https://www.capellania.org.py/congreso/2026">
     <meta property="og:image" content="https://www.capellania.org.py/images/og-congreso2026.jpg">
     <link rel="canonical" href="https://www.capellania.org.py/congreso/2026">
+    <link rel="icon" type="image/png" href="/assets/logos/capellania/capellania-symbol-color.png">
     <link rel="stylesheet" href="../css/capellania-global.css">
     <script src="/js/speed-insights-init.js"></script>
   </head>
@@ -26,8 +27,7 @@
       <header class="header">
         <div class="container header__inner">
           <a class="brand" href="/" aria-label="Capellanía Empresarial">
-            <span class="brand__mark" aria-hidden="true">CE</span>
-            <span>Capellanía Empresarial</span>
+            <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-color.png" alt="Capellanía Empresarial" width="168" height="42">
           </a>
 
           <nav class="nav hidden md:flex" id="main-navigation" aria-label="Navegación principal">
@@ -51,6 +51,9 @@
         <section class="congress-page-hero" aria-labelledby="congress-title">
           <div class="container congress-page-hero__grid">
             <div>
+              <span class="congress-logo" aria-hidden="true">
+                <img src="/assets/logos/congreso/congreso-color-dark.png" alt="" width="220" height="58">
+              </span>
               <p class="home-hero__eyebrow">Congreso Cristiano 2026</p>
               <h1 id="congress-title" class="home-hero__title">
                 XVIII Congreso Cristiano de Ejecutivos y Líderes
@@ -61,7 +64,7 @@
                 decisiones con principios bíblicos y construir organizaciones con propósito.
               </p>
               <div class="button-row">
-                <a class="btn btn--congreso" href="inscripcion.html">Asegurar mi lugar</a>
+                <a class="btn btn--congreso" href="/congreso/inscripcion">Asegurar mi lugar</a>
                 <a class="btn btn--secondary btn--light" href="#costos">Consultar costos 2026</a>
               </div>
             </div>
@@ -234,7 +237,7 @@
                 El costo incluye la participación en el Congreso. La jornada del viernes
                 contempla almuerzo según la información vigente del evento.
               </p>
-              <a class="btn btn--congreso" href="inscripcion.html">Reservar mi pase 2026</a>
+              <a class="btn btn--congreso" href="/congreso/inscripcion">Reservar mi pase 2026</a>
             </div>
           </div>
         </section>
@@ -254,14 +257,27 @@
             </div>
           </div>
         </section>
+
+        <section class="whatsapp-cta" aria-labelledby="whatsapp-title">
+          <div class="container">
+            <div class="whatsapp-cta__inner">
+              <div>
+                <p class="whatsapp-cta__eyebrow">Contacto directo</p>
+                <h2 id="whatsapp-title">Consultá con el equipo del Congreso</h2>
+                <p>Canal institucional para resolver dudas sobre programa, inscripción o detalles de participación.</p>
+              </div>
+              <!-- WhatsApp editable: cambiar número y mensaje en el href siguiente. Formato: https://wa.me/595983310202?text=Mensaje -->
+              <a class="btn btn--primary" href="https://wa.me/595983310202?text=Hola%20Capellania%2C%20quisiera%20consultar%20sobre%20el%20Congreso%202026." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer class="footer" id="contacto">
         <div class="container footer__grid">
           <div>
-            <a class="brand footer__brand" href="../index.html" aria-label="Capellanía Empresarial">
-              <span class="brand__mark" aria-hidden="true">CE</span>
-              <span>Capellanía Empresarial</span>
+            <a class="brand footer__brand" href="/" aria-label="Capellanía Empresarial">
+              <img class="brand__logo brand__logo--capellania" src="/assets/logos/capellania/capellania-white.png" alt="Capellanía Empresarial" width="168" height="42">
             </a>
             <p class="footer__text">
               Congreso Cristiano es parte del ecosistema de Capellanía Empresarial
