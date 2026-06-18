@@ -1,5 +1,11 @@
 {
+  "name": "web-capellania-unificada",
+  "version": "1.0.0",
+  "description": "Capellanía Empresarial website",
+  "private": true,
+  "type": "module",
   "dependencies": {
+    "@vercel/speed-insights": "^1.1.0",
     "resend": "^6.12.4"
   }
 }
