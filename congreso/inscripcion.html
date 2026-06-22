@@ -6,14 +6,14 @@
     <title>Inscripción Congreso Cristiano 2026 | Reservar mi lugar</title>
     <meta
       name="description"
-      content="Formulario de inscripción al XVIII Congreso Cristiano de Ejecutivos y Líderes 2026. Reservá tu lugar y adjuntá el comprobante de transferencia."
+      content="Formulario de pre-inscripción al XVIII Congreso Cristiano de Ejecutivos y Líderes 2026. Reservá tu lugar y el equipo organizador coordinará los detalles."
     >
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Congreso Cristiano Paraguay">
     <meta property="og:title" content="Inscripción Congreso Cristiano 2026 | Reservar mi lugar">
     <meta
       property="og:description"
-      content="Completá tus datos, seleccioná tu pase y enviá el comprobante para participar del Congreso Cristiano 2026."
+      content="Completá tus datos y seleccioná tu pase para reservar tu lugar en el Congreso Cristiano 2026."
     >
     <meta property="og:url" content="https://www.capellania.org.py/congreso/inscripcion">
     <link rel="canonical" href="https://www.capellania.org.py/congreso/inscripcion">
@@ -55,8 +55,9 @@
             <p class="section__eyebrow">Congreso Cristiano 2026</p>
             <h1 id="registration-title" class="section__title">Inscripción al Congreso</h1>
             <p class="section__lead">
-              Completá tus datos, seleccioná el tipo de pase y adjuntá el comprobante
-              de transferencia para registrar tu participación.
+              Completá tus datos y seleccioná el tipo de pase para registrar tu
+              pre-inscripción. El equipo organizador te contactará para coordinar
+              los detalles.
             </p>
 
             <div class="registration-layout">
@@ -95,7 +96,7 @@
 
               <form
                 class="registration-form"
-                action="/api/registro"
+                action="https://script.google.com/macros/s/AKfycby-cn-EqIq_H34AsX4OYKBHmnn-A5OGyu98f0oSLcZm5ptKPc8zEP0ajy01Mw6ls5HPaQ/exec"
                 method="POST"
                 data-registration-form
               >
@@ -110,7 +111,7 @@
                   <div class="form-grid form-grid--2">
                     <label class="field">
                       <span class="field__label">Nombre y apellido</span>
-                      <input class="field__control" type="text" name="nombre_completo" autocomplete="name" required>
+                      <input class="field__control" type="text" name="nombre" autocomplete="name" required>
                     </label>
 
                     <label class="field">
@@ -120,7 +121,7 @@
 
                     <label class="field">
                       <span class="field__label">Teléfono / WhatsApp</span>
-                      <input class="field__control" type="tel" name="telefono_whatsapp" autocomplete="tel" required>
+                      <input class="field__control" type="tel" name="telefono" autocomplete="tel" required>
                     </label>
 
                     <label class="field">
@@ -157,12 +158,12 @@
                   <div id="seccion-acompaniante" class="form-grid form-grid--2" style="display: none;">
                     <label class="field">
                       <span class="field__label">Nombre de la segunda persona</span>
-                      <input class="field__control" type="text" name="nombre_segunda_persona">
+                      <input class="field__control" type="text" name="acompaniante_nombre">
                     </label>
 
                     <label class="field">
                       <span class="field__label">Correo de la segunda persona</span>
-                      <input class="field__control" type="email" name="email_segunda_persona">
+                      <input class="field__control" type="email" name="acompaniante_email">
                     </label>
                   </div>
                 </fieldset>
@@ -175,21 +176,21 @@
 
                   <div class="choice-grid choice-grid--compact">
                     <label class="choice-card">
-                      <input type="radio" name="factura" value="si" checked>
+                      <input type="radio" name="factura" value="si" onchange="manejarCambioFactura()" checked>
                       <span>
                         <strong>Necesito factura</strong>
                       </span>
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="factura" value="no">
+                      <input type="radio" name="factura" value="no" onchange="manejarCambioFactura()">
                       <span>
                         <strong>No necesito factura</strong>
                       </span>
                     </label>
                   </div>
 
-                  <div class="form-grid form-grid--2">
+                  <div id="seccion-facturacion" class="form-grid form-grid--2">
                     <label class="field">
                       <span class="field__label">RUC</span>
                       <input class="field__control" type="text" name="ruc">
@@ -202,42 +203,16 @@
 
                     <label class="field form-grid__full">
                       <span class="field__label">Dirección de facturación</span>
-                      <input class="field__control" type="text" name="direccion_facturacion">
+                      <input class="field__control" type="text" name="direccion">
                     </label>
                   </div>
                 </fieldset>
 
-                <fieldset class="form-step">
-                  <legend>
-                    <span>04</span>
-                    Transferencia y comprobante
-                  </legend>
-
-                  <div class="transfer-box">
-                    <h3>Datos de transferencia</h3>
-                    <ul>
-                      <li><strong>Banco:</strong> Itaú</li>
-                      <li><strong>N° de cuenta:</strong> 400007689</li>
-                      <li><strong>Titular:</strong> Asociación Capellanía Empresarial</li>
-                      <li><strong>RUC:</strong> 80063608-2</li>
-                      <li><strong>Contacto:</strong> 0983 310 202</li>
-                    </ul>
-                  </div>
-
-                  <label class="upload-box">
-                    <input type="file" name="comprobante_pago" accept=".jpg,.jpeg,.png,.pdf" required>
-                    <span>
-                      <strong>Adjuntar comprobante</strong>
-                      <small>PDF, JPG o PNG. Tamaño recomendado menor a 5 MB.</small>
-                    </span>
-                  </label>
-                </fieldset>
-
                 <div class="form-actions">
-                  <button class="btn btn--congreso" type="submit">Enviar comprobante y reservar lugar</button>
+                  <button class="btn btn--congreso" type="submit" data-submit-button>Registrar mi pre-inscripción</button>
                   <p>
-                    Al enviar el formulario, el equipo organizador confirmará la recepción
-                    del comprobante por correo o WhatsApp.
+                    Al enviar el formulario, el equipo organizador confirmará tu
+                    pre-inscripción por correo o WhatsApp.
                   </p>
                 </div>
               </form>
@@ -251,7 +226,7 @@
               <div>
                 <p class="whatsapp-cta__eyebrow">Contacto directo</p>
                 <h2 id="whatsapp-title">¿Necesitás ayuda con tu inscripción?</h2>
-                <p>Canal institucional para resolver dudas antes de enviar tus datos o comprobante.</p>
+                <p>Canal institucional para resolver dudas antes de enviar tus datos.</p>
               </div>
               <!-- WhatsApp editable: cambiar número y mensaje en el href siguiente. Formato: https://wa.me/595983310202?text=Mensaje -->
               <a class="btn btn--primary" href="https://wa.me/595983310202?text=Hola%20Capellania%2C%20necesito%20ayuda%20con%20mi%20inscripcion%20al%20Congreso%202026." target="_blank" rel="noopener noreferrer">Pedir ayuda por WhatsApp</a>
@@ -299,45 +274,83 @@
         }
       }
 
+      function manejarCambioFactura() {
+        const requiereFactura = document.querySelector('input[name="factura"][value="si"]');
+        const contenedor = document.getElementById('seccion-facturacion');
+        const inputs = contenedor.querySelectorAll('input');
+
+        if (requiereFactura && requiereFactura.checked) {
+          contenedor.style.display = 'grid';
+          inputs.forEach(input => input.setAttribute('required', 'true'));
+        } else {
+          contenedor.style.display = 'none';
+          inputs.forEach(input => {
+            input.removeAttribute('required');
+            input.value = '';
+          });
+        }
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         // Escuchar cambios en ambos botones de radio
         document.querySelectorAll('input[name="tipo_pase"]').forEach(radio => {
           radio.addEventListener('change', manejarCambioPase);
         });
+
+        document.querySelectorAll('input[name="factura"]').forEach(radio => {
+          radio.addEventListener('change', manejarCambioFactura);
+        });
+
         manejarCambioPase(); // Ejecución inicial
+        manejarCambioFactura();
       });
 
       (function () {
         var form = document.querySelector('[data-registration-form]');
-        var receiptInput = form ? form.querySelector('input[name="comprobante_pago"]') : null;
-        var allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+        var submitButton = form ? form.querySelector('[data-submit-button]') : null;
+        var defaultButtonText = submitButton ? submitButton.textContent : '';
 
-        if (!form || !receiptInput) {
+        if (!form || !submitButton) {
           return;
         }
 
         form.addEventListener('submit', function (event) {
-          var file = receiptInput.files && receiptInput.files[0];
+          event.preventDefault();
 
-          if (!file) {
+          if (submitButton.disabled) {
             return;
           }
 
-          var extension = file.name.split('.').pop().toLowerCase();
+          submitButton.disabled = true;
+          submitButton.textContent = 'Procesando registro...';
 
-          if (allowedExtensions.indexOf(extension) === -1) {
-            event.preventDefault();
-            receiptInput.value = '';
-            receiptInput.setCustomValidity('Adjunta un comprobante en formato JPG, PNG o PDF.');
-            receiptInput.reportValidity();
-            return;
-          }
+          var endpoint = form.getAttribute('action');
+          var datos = new URLSearchParams(new FormData(form));
 
-          receiptInput.setCustomValidity('');
-        });
+          fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: datos
+          })
+            .then(function (response) {
+              if (!response.ok) {
+                throw new Error('No se pudo registrar la pre-inscripción.');
+              }
 
-        receiptInput.addEventListener('change', function () {
-          receiptInput.setCustomValidity('');
+              form.reset();
+              manejarCambioPase();
+              manejarCambioFactura();
+              alert('Tu lugar quedó reservado. El equipo organizador se pondrá en contacto por WhatsApp o correo para coordinar los detalles.');
+            })
+            .catch(function () {
+              alert('No pudimos completar el registro en este momento. Por favor, intentá nuevamente o contactanos por WhatsApp.');
+            })
+            .finally(function () {
+              submitButton.disabled = false;
+              submitButton.textContent = defaultButtonText;
+            });
         });
       }());
     </script>
