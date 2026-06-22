@@ -625,6 +625,7 @@ button {
   background:
     linear-gradient(180deg, rgba(247, 249, 251, 0.94), rgba(255, 255, 255, 0.98)),
     var(--color-surface-soft);
+  padding-bottom: var(--space-20);
 }
 
 .identity-section__header {
@@ -644,10 +645,6 @@ button {
 
 .identity-section__title span {
   color: inherit;
-}
-
-.identity-section__title span:last-child {
-  color: var(--color-congreso-gold-700);
 }
 
 .identity-layout {
@@ -673,6 +670,7 @@ button {
   background: var(--color-surface);
   padding: var(--space-8);
   box-shadow: 0 18px 46px rgba(8, 35, 63, 0.08);
+  overflow: hidden;
 }
 
 .identity-panel::before {
@@ -716,7 +714,7 @@ button {
 .identity-card__text {
   max-width: 460px;
   margin: 0;
-  color: var(--color-charcoal);
+  color: var(--color-capellania-navy);
   font-size: clamp(1.12rem, 2vw, 1.35rem);
   font-style: italic;
   line-height: 1.62;
@@ -2240,6 +2238,85 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+  .identity-section {
+    padding: 64px 20px 76px;
+  }
+
+  .identity-section > .container {
+    width: min(100%, var(--container));
+  }
+
+  .identity-section__header {
+    max-width: 620px;
+    margin-inline: auto;
+    margin-bottom: var(--space-7);
+  }
+
+  .identity-section__title,
+  .identity-section__title span {
+    color: var(--color-capellania-navy);
+  }
+
+  .identity-section__title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .identity-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .identity-copy {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .identity-panel {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    border: 1px solid rgba(8, 35, 63, 0.12);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: 24px 22px;
+    box-shadow: 0 12px 28px rgba(8, 35, 63, 0.08);
+  }
+
+  .identity-card__eyebrow {
+    color: var(--color-capellania-navy);
+  }
+
+  .identity-card__text {
+    max-width: 100%;
+    color: var(--color-capellania-navy);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .identity-image {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+    min-height: 0;
+    margin: 8px auto 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .identity-image img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 560px) {
   .container {
     width: min(100% - 32px, var(--container));
@@ -2375,8 +2452,12 @@ button {
     margin-bottom: var(--space-6);
   }
 
+  .identity-section {
+    padding: 56px 20px 72px;
+  }
+
   .identity-section__title {
-    font-size: clamp(1.72rem, 7vw, 2.18rem);
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
     line-height: 1.12;
   }
 
@@ -2393,8 +2474,13 @@ button {
   }
 
   .identity-panel {
+    width: 100%;
     max-width: 520px;
-    padding: var(--space-5);
+    border: 1px solid rgba(8, 35, 63, 0.12);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: 24px 22px;
+    box-shadow: 0 12px 28px rgba(8, 35, 63, 0.08);
   }
 
   .identity-panel::before {
@@ -2404,8 +2490,8 @@ button {
   }
 
   .identity-image {
-    max-width: 520px;
-    min-height: 260px;
+    max-width: 420px;
+    min-height: 0;
   }
 
   .identity-card__text {
