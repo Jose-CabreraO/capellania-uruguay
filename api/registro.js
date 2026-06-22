@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     }
 
     console.log('Resend aceptó el envío con ID:', data?.id);
-    return res.redirect(303, '/index.html?registro=exito');
+    return res.redirect(303, '/?registro=exito');
 
   } catch (error) {
     console.error('Error crítico en la API de Resend:', error.message || error);
