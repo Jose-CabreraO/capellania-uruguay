@@ -853,6 +853,151 @@ button {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.devocional-section {
+  padding: var(--space-16) 24px;
+  background: var(--color-surface);
+}
+
+.devocional-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  align-items: center;
+  gap: var(--space-12);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(180, 138, 60, 0.2), transparent 30%),
+    linear-gradient(135deg, var(--color-capellania-navy), var(--color-capellania-navy-700));
+  padding: clamp(2rem, 5vw, 4.5rem);
+  box-shadow: var(--shadow-soft);
+}
+
+.devocional-card::after {
+  position: absolute;
+  top: 0;
+  right: clamp(2rem, 7vw, 6rem);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.devocional-card__content,
+.devocional-card__action {
+  position: relative;
+  z-index: 1;
+}
+
+.devocional-card__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-8);
+  color: var(--color-surface);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.devocional-card__brand strong {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-congreso-gold);
+  color: var(--color-capellania-navy);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.devocional-card__eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--color-congreso-gold);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.devocional-card__title {
+  margin: 0;
+  color: var(--color-surface);
+  font-size: clamp(2.35rem, 5vw, 4.75rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.devocional-card__text {
+  max-width: 680px;
+  margin: var(--space-6) 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.devocional-card__action {
+  display: grid;
+  justify-items: stretch;
+  gap: var(--space-4);
+}
+
+.devocional-card__note {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.devocional-card__button {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-md);
+  background: #25d366;
+  color: #071f16;
+  padding: 0.9rem 1.35rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    box-shadow 240ms var(--ease-out-ui),
+    filter 240ms var(--ease-out-ui),
+    transform 240ms var(--ease-out-ui);
+}
+
+.devocional-card__button i {
+  flex: 0 0 auto;
+  font-size: 1.35rem;
+}
+
+.devocional-card__button:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+
+.devocional-card__button:active {
+  transform: scale(0.98);
+}
+
+.devocional-card__button:focus-visible {
+  outline: 2px solid var(--color-surface);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 5px rgba(37, 211, 102, 0.28),
+    0 14px 32px rgba(0, 0, 0, 0.18);
+}
+
 .video-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.88fr);
@@ -2677,6 +2822,45 @@ button {
 
   .impact-metric span {
     margin-top: var(--space-3);
+  }
+
+  .devocional-section {
+    padding: 48px 20px;
+  }
+
+  .devocional-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding: var(--space-6);
+  }
+
+  .devocional-card::after {
+    display: none;
+  }
+
+  .devocional-card__brand {
+    margin-bottom: var(--space-6);
+  }
+
+  .devocional-card__title {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .devocional-card__text {
+    margin-top: var(--space-4);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .devocional-card__action {
+    gap: var(--space-3);
+  }
+
+  .devocional-card__button {
+    width: 100%;
+    min-height: 54px;
+    padding-inline: var(--space-4);
   }
 
   .video-facade__button {
