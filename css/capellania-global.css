@@ -2013,14 +2013,20 @@ button {
 }
 
 .footer-social__link {
-  display: inline-grid;
-  width: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 42px;
   height: 42px;
-  place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--color-surface);
+  padding: 0 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1;
   transition:
     background-color 240ms var(--ease-out-ui),
     border-color 240ms var(--ease-out-ui),
@@ -2045,9 +2051,24 @@ button {
   box-shadow: 0 0 0 4px rgba(180, 138, 60, 0.22);
 }
 
-.footer-social__link svg {
-  width: 19px;
-  height: 19px;
+.footer-social__link--icon {
+  width: 42px;
+  padding: 0;
+}
+
+.footer-social__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.footer-social__label {
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .footer__contact {
@@ -2070,8 +2091,8 @@ button {
   bottom: clamp(16px, 3vw, 28px);
   z-index: 45;
   display: inline-grid;
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
@@ -2094,9 +2115,10 @@ button {
   transform: scale(0.97);
 }
 
-.floating-whatsapp svg {
-  width: 30px;
-  height: 30px;
+.floating-whatsapp .footer-social__icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 1.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2520,13 +2542,36 @@ button {
   .floating-whatsapp {
     right: 16px;
     bottom: 16px;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
   }
 
-  .floating-whatsapp svg {
-    width: 27px;
-    height: 27px;
+  .footer-social {
+    gap: var(--space-2);
+  }
+
+  .footer-social__link {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 0.72rem;
+    font-size: 0.84rem;
+  }
+
+  .footer-social__link--icon {
+    width: 38px;
+    padding: 0;
+  }
+
+  .footer-social__icon {
+    width: 1.05rem;
+    height: 1.05rem;
+    font-size: 1.05rem;
+  }
+
+  .floating-whatsapp .footer-social__icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 1.35rem;
   }
 
   .btn {
