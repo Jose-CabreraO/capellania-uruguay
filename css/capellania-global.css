@@ -2004,6 +2004,52 @@ button {
   color: rgba(255, 255, 255, 0.74);
 }
 
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.footer-social__link {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-surface);
+  transition:
+    background-color 240ms var(--ease-out-ui),
+    border-color 240ms var(--ease-out-ui),
+    color 240ms var(--ease-out-ui),
+    transform 240ms var(--ease-out-ui);
+}
+
+.footer-social__link:hover {
+  border-color: rgba(180, 138, 60, 0.64);
+  background: rgba(180, 138, 60, 0.16);
+  color: var(--color-congreso-gold);
+  transform: translateY(-2px);
+}
+
+.footer-social__link:active {
+  transform: scale(0.97);
+}
+
+.footer-social__link:focus-visible,
+.floating-whatsapp:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(180, 138, 60, 0.22);
+}
+
+.footer-social__link svg {
+  width: 19px;
+  height: 19px;
+}
+
 .footer__contact {
   display: grid;
   gap: var(--space-2);
@@ -2016,6 +2062,41 @@ button {
 
 .footer__contact span {
   color: rgba(255, 255, 255, 0.74);
+}
+
+.floating-whatsapp {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 45;
+  display: inline-grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 18px 44px rgba(8, 35, 63, 0.22);
+  transition:
+    box-shadow 240ms var(--ease-out-ui),
+    transform 240ms var(--ease-out-ui),
+    filter 240ms var(--ease-out-ui);
+}
+
+.floating-whatsapp:hover {
+  filter: saturate(1.04);
+  box-shadow: 0 22px 54px rgba(8, 35, 63, 0.28);
+  transform: translateY(-3px);
+}
+
+.floating-whatsapp:active {
+  transform: scale(0.97);
+}
+
+.floating-whatsapp svg {
+  width: 30px;
+  height: 30px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2434,6 +2515,18 @@ button {
   .button-row {
     gap: var(--space-2);
     margin-top: var(--space-4);
+  }
+
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .floating-whatsapp svg {
+    width: 27px;
+    height: 27px;
   }
 
   .btn {
