@@ -892,26 +892,15 @@ button {
 }
 
 .devocional-card__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
+  display: block;
+  width: min(360px, 58%);
   margin: 0 0 var(--space-8);
-  color: var(--color-surface);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  font-weight: 800;
-  line-height: 1;
 }
 
-.devocional-card__brand strong {
-  display: inline-grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--color-congreso-gold);
-  color: var(--color-capellania-navy);
-  font-size: 1.35rem;
-  font-weight: 900;
+.devocional-card__brand img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .devocional-card__eyebrow {
@@ -2839,6 +2828,7 @@ button {
   }
 
   .devocional-card__brand {
+    width: min(280px, 88%);
     margin-bottom: var(--space-6);
   }
 
