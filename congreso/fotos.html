@@ -78,9 +78,9 @@
           <div class="container">
             <div class="whatsapp-cta__inner">
               <div>
-                <p class="whatsapp-cta__eyebrow">Contacto directo</p>
+                <p class="whatsapp-cta__eyebrow">Contacto</p>
                 <h2 id="whatsapp-title">Consultá por eventos y registros</h2>
-                <p>Canal institucional para solicitar información sobre eventos pasados, fotos o próximos encuentros.</p>
+                <p>Canal institucional para solicitar información sobre eventos, fotos o próximos encuentros.</p>
               </div>
               <!-- WhatsApp editable: cambiar número y mensaje en el href siguiente. Formato: https://wa.me/595983310202?text=Mensaje -->
               <a class="btn btn--primary" href="https://wa.me/595983310202?text=Hola%20Capellania%2C%20quisiera%20consultar%20sobre%20eventos%20y%20fotos." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
@@ -179,7 +179,14 @@
           titulo: "XVII Congreso Cristiano 2025",
           fechaTexto: "11 de septiembre de 2025",
           descripcion: "Encuentro anual de ejecutivos y líderes orientado a principios bíblicos, liderazgo y transformación en negocios y sociedad.",
-          imagenPortada: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=82",
+          imagenPortada: "/assets/images/eventos/congreso-2025/portada.webp",
+
+          fotosLightbox: [
+            "/assets/images/eventos/congreso-2025/foto-extra1.webp",
+            "/assets/images/eventos/congreso-2025/foto-extra2.webp",
+            "/assets/images/eventos/congreso-2025/foto-extra3.webp",
+            "/assets/images/eventos/congreso-2025/foto-extra4.webp"
+          ],
           linkDrive: "https://drive.google.com/drive/folders/1zC5kiJRgFAUWAjlq5MFgu0G16vGyJ1jf?usp=sharing",
           linkVideo: "https://www.youtube-nocookie.com/embed/4pTkihG-WgA"
         }
@@ -258,6 +265,20 @@
         `;
       }
 
+      function renderLightboxItems(evento) {
+        if (!Array.isArray(evento.fotosLightbox)) return "";
+
+        return evento.fotosLightbox.map((foto, index) => `
+          <span
+            hidden
+            data-lightbox-src="${escapeHTML(getImageURL(foto, 1800))}"
+            data-album="${escapeHTML(evento.id)}"
+            data-caption="${escapeHTML(evento.titulo)}: foto ${index + 2}"
+            aria-label="Foto ${index + 2} de ${escapeHTML(evento.titulo)}"
+          ></span>
+        `).join("");
+      }
+
       function renderEventoCard(evento, index) {
         const safeTitle = escapeHTML(evento.titulo);
         const categoryLabel = categoriaLabels[evento.categoria] || evento.categoria;
@@ -280,6 +301,7 @@
                 ${renderVideoAction(evento)}
               </div>
             </div>
+            ${renderLightboxItems(evento)}
             <div class="event-card__body">
               <span class="event-card__type">${escapeHTML(categoryLabel)}</span>
               <h2>${safeTitle}</h2>
