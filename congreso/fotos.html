@@ -20,7 +20,7 @@
     <link rel="canonical" href="https://www.capellania.org.py/congreso/fotos">
     <link rel="icon" type="image/png" href="/assets/logos/capellania/capellania-symbol-color.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/capellania-global.css?v=1.8">
+    <link rel="stylesheet" href="../css/capellania-global.css?v=1.9">
     <script type="module" src="/js/speed-insights-init.js"></script>
   </head>
   <body>
@@ -53,11 +53,11 @@
           <div class="container">
             <p class="section__eyebrow">Eventos y memoria institucional</p>
             <h1 id="gallery-title" class="section__title">
-              Una galería sobria para recorrer encuentros, liderazgo y comunidad.
+              Memoria visual de nuestros encuentros
             </h1>
             <p class="section__lead">
-              Filtrá por tipo de evento y abrí imágenes optimizadas o videos resumen
-              externos sin cargar recursos pesados al inicio.
+              Recorré imágenes y momentos destacados de congresos, almuerzos ejecutivos
+              y jornadas institucionales.
             </p>
           </div>
         </section>
@@ -68,7 +68,8 @@
               <button class="gallery-filter__button is-active" type="button" data-filter="all">Todos</button>
               <button class="gallery-filter__button" type="button" data-filter="congresos">Congresos</button>
               <button class="gallery-filter__button" type="button" data-filter="almuerzos">Almuerzos Ejecutivos</button>
-              <button class="gallery-filter__button" type="button" data-filter="retiros">Retiros</button>
+              <button class="gallery-filter__button" type="button" data-filter="jornadas">Jornadas</button>
+              <button class="gallery-filter__button" type="button" data-filter="institucionales">Institucionales</button>
             </div>
 
             <div class="event-gallery" data-event-gallery></div>
@@ -144,6 +145,7 @@
       <figure class="lightbox__figure">
         <img class="lightbox__image" src="" alt="" loading="lazy" width="1600" height="1000">
         <figcaption class="lightbox__caption"></figcaption>
+        <div class="lightbox__thumbnails" aria-label="Miniaturas del álbum"></div>
       </figure>
       <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Imagen siguiente">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28">
@@ -155,43 +157,13 @@
     <script>
       const eventosData = [
         {
-          id: "almuerzo-ejecutivo-2026-02",
-          categoria: "almuerzos",
-          titulo: "2° Almuerzo Ejecutivo 2026",
-          fechaTexto: "21 de mayo de 2026",
-          descripcion: "Espacio de conversación para gerentes y jefes con enfoque en experiencia empresarial, valores y desarrollo organizacional.",
-          imagenPortada: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=82",
-          linkDrive: "",
-          linkVideo: ""
-        },
-        {
-          id: "almuerzo-ejecutivo-2026-01",
-          categoria: "almuerzos",
-          titulo: "1° Almuerzo Ejecutivo 2026",
-          fechaTexto: "13 de marzo de 2026",
-          descripcion: "Primer encuentro ejecutivo del año, diseñado para fortalecer vínculos y abrir conversación sobre liderazgo con propósito.",
-          imagenPortada: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=82",
-          linkDrive: "",
-          linkVideo: ""
-        },
-        {
-          id: "retiro-formacion-enfoque-2025",
-          categoria: "retiros",
-          titulo: "Retiro de formación y enfoque",
-          fechaTexto: "15 de noviembre de 2025",
-          descripcion: "Jornada de pausa, formación y renovación para equipos comprometidos con un liderazgo más humano y espiritual.",
-          imagenPortada: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82",
-          linkDrive: "",
-          linkVideo: ""
-        },
-        {
           id: "congreso-2025",
           categoria: "congresos",
-          titulo: "XVII Congreso Cristiano 2025",
+          formato: "principal",
+          titulo: "Congreso Cristiano de Ejecutivos y Líderes",
           fechaTexto: "11 de septiembre de 2025",
           descripcion: "Encuentro anual de ejecutivos y líderes orientado a principios bíblicos, liderazgo y transformación en negocios y sociedad.",
           imagenPortada: "/assets/images/eventos/congreso-2025/portada.webp",
-
           fotosLightbox: [
             "/assets/images/eventos/congreso-2025/foto-extra1.webp",
             "/assets/images/eventos/congreso-2025/foto-extra2.webp",
@@ -199,13 +171,58 @@
             "/assets/images/eventos/congreso-2025/foto-extra4.webp"
           ],
           linkDrive: "https://drive.google.com/drive/folders/1zC5kiJRgFAUWAjlq5MFgu0G16vGyJ1jf?usp=sharing"
+        },
+        {
+          id: "almuerzo-ejecutivo",
+          categoria: "almuerzos",
+          formato: "vertical",
+          titulo: "Almuerzo Ejecutivo",
+          fechaTexto: "Encuentros 2025",
+          descripcion: "Conversaciones cercanas entre referentes empresariales para compartir experiencias, valores y nuevas perspectivas de liderazgo.",
+          // Placeholder local: reemplazar por la portada específica del almuerzo cuando esté disponible.
+          imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra4.webp",
+          linkDrive: ""
+        },
+        {
+          id: "jornada-capellanes",
+          categoria: "jornadas",
+          formato: "compacta",
+          titulo: "Jornada de Capellanes",
+          fechaTexto: "Formación institucional",
+          descripcion: "Espacios de capacitación, escucha y fortalecimiento del equipo que acompaña a empresas y colaboradores.",
+          // Placeholder local: reemplazar por la portada específica de la jornada cuando esté disponible.
+          imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra1.webp",
+          linkDrive: ""
+        },
+        {
+          id: "encuentros-institucionales",
+          categoria: "institucionales",
+          formato: "ancha",
+          titulo: "Encuentros institucionales",
+          fechaTexto: "Memoria institucional",
+          descripcion: "Momentos que consolidan vínculos, propósito compartido y presencia cristiana en el mundo del trabajo.",
+          // Placeholder local: reemplazar por la portada específica del encuentro cuando esté disponible.
+          imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra2.webp",
+          linkDrive: ""
+        },
+        {
+          id: "liderazgo-comunidad",
+          categoria: "institucionales",
+          formato: "cierre",
+          titulo: "Liderazgo y comunidad empresarial",
+          fechaTexto: "Comunidad Capellanía",
+          descripcion: "Una red de líderes que aprende, dialoga y construye organizaciones más humanas y responsables.",
+          // Placeholder local: reemplazar por la portada específica del encuentro cuando esté disponible.
+          imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra3.webp",
+          linkDrive: ""
         }
       ];
 
       const categoriaLabels = {
         congresos: "Congresos",
         almuerzos: "Almuerzos Ejecutivos",
-        retiros: "Retiros"
+        jornadas: "Jornadas",
+        institucionales: "Institucionales"
       };
 
       const galleryContainer = document.querySelector("[data-event-gallery]");
@@ -216,9 +233,13 @@
       const lightboxClose = lightbox.querySelector(".lightbox__close");
       const lightboxPrev = lightbox.querySelector(".lightbox__nav--prev");
       const lightboxNext = lightbox.querySelector(".lightbox__nav--next");
+      const lightboxThumbnails = lightbox.querySelector(".lightbox__thumbnails");
       let galleryItems = [];
       let activeAlbumItems = [];
       let activeIndex = 0;
+      let revealObserver;
+      let lastLightboxTrigger;
+      let lightboxCloseTimer;
 
       function escapeHTML(value) {
         return String(value)
@@ -292,18 +313,22 @@
       function renderEventoCard(evento, index) {
         const safeTitle = escapeHTML(evento.titulo);
         const categoryLabel = categoriaLabels[evento.categoria] || evento.categoria;
-        const featureClass = index === 0 ? " event-card--feature" : "";
-        const offsetClass = index === 2 ? " event-card--offset" : "";
+        const formatClass = evento.formato ? ` event-card--${escapeHTML(evento.formato)}` : "";
         const imageFull = getImageURL(evento.imagenPortada, 1800);
         const imageSrc = getImageURL(evento.imagenPortada, index === 0 ? 1200 : 900);
 
         return `
-          <article class="event-card${featureClass}${offsetClass}" data-category="${escapeHTML(evento.categoria)}" data-event-id="${escapeHTML(evento.id)}">
+          <article class="event-card${formatClass}" data-category="${escapeHTML(evento.categoria)}" data-event-id="${escapeHTML(evento.id)}">
             <div class="event-card__media" data-lightbox-src="${escapeHTML(imageFull)}" data-album="${escapeHTML(evento.id)}" data-caption="${safeTitle}: ${escapeHTML(evento.descripcion)}" aria-label="Abrir imagen de ${safeTitle}" role="button" tabindex="0">
               <picture>
                 <source type="image/webp" srcset="${escapeHTML(imageSrc)}">
                 <img src="${escapeHTML(imageSrc)}" alt="${safeTitle}" loading="lazy" width="1200" height="820">
               </picture>
+              <div class="event-card__hover-copy" aria-hidden="true">
+                <span>${escapeHTML(categoryLabel)}</span>
+                <strong>${safeTitle}</strong>
+                <p>${escapeHTML(evento.descripcion)}</p>
+              </div>
               <div class="event-card__actions" aria-label="Acciones de ${safeTitle}">
                 <button class="event-card__action event-card__action--gold" type="button" data-lightbox-trigger>
                   Abrir fotos
@@ -326,6 +351,36 @@
       function renderEventos() {
         galleryContainer.innerHTML = eventosData.map(renderEventoCard).join("");
         galleryItems = [...galleryContainer.querySelectorAll("[data-lightbox-src]")];
+        prepareCardReveal();
+      }
+
+      function prepareCardReveal() {
+        const cards = [...galleryContainer.querySelectorAll(".event-card")];
+
+        if (revealObserver) revealObserver.disconnect();
+
+        cards.forEach((card, index) => {
+          card.style.setProperty("--reveal-delay", `${Math.min(index * 70, 280)}ms`);
+          card.classList.add("is-reveal-pending");
+        });
+
+        if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          cards.forEach((card) => card.classList.add("is-visible"));
+          return;
+        }
+
+        revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, {
+          rootMargin: "0px 0px -8% 0px",
+          threshold: 0.12
+        });
+
+        cards.forEach((card) => revealObserver.observe(card));
       }
 
       function applyFilter(filter) {
@@ -334,6 +389,11 @@
         eventCards.forEach((card) => {
           const visible = filter === "all" || card.dataset.category === filter;
           card.hidden = !visible;
+
+          if (visible) {
+            card.classList.remove("is-visible");
+            window.requestAnimationFrame(() => card.classList.add("is-visible"));
+          }
         });
       }
 
@@ -357,15 +417,48 @@
           lightboxImage.src = item.dataset.lightboxSrc;
           lightboxImage.alt = item.getAttribute("aria-label") || item.dataset.caption || "Imagen ampliada de evento";
           lightboxCaption.textContent = item.dataset.caption || "";
+          updateActiveThumbnail();
           lightboxImage.classList.remove("is-transitioning");
         }, 160);
       }
 
+      function renderLightboxThumbnails() {
+        lightboxThumbnails.innerHTML = activeAlbumItems.map((item, index) => `
+          <button
+            class="lightbox__thumbnail"
+            type="button"
+            data-lightbox-index="${index}"
+            aria-label="Ver imagen ${index + 1} de ${activeAlbumItems.length}"
+          >
+            <img src="${escapeHTML(item.dataset.lightboxSrc)}" alt="" loading="lazy" width="96" height="64">
+          </button>
+        `).join("");
+
+        lightboxThumbnails.hidden = activeAlbumItems.length < 2;
+        updateActiveThumbnail();
+      }
+
+      function updateActiveThumbnail() {
+        lightboxThumbnails.querySelectorAll(".lightbox__thumbnail").forEach((thumbnail, index) => {
+          const active = index === activeIndex;
+          thumbnail.classList.toggle("is-active", active);
+          if (active) {
+            thumbnail.setAttribute("aria-current", "true");
+          } else {
+            thumbnail.removeAttribute("aria-current");
+          }
+        });
+      }
+
       function openLightbox(item) {
+        window.clearTimeout(lightboxCloseTimer);
+        lastLightboxTrigger = item;
         activeAlbumItems = galleryItems.filter((entry) => entry.dataset.album === item.dataset.album);
         activeIndex = activeAlbumItems.indexOf(item);
         lightbox.hidden = false;
         document.body.classList.add("has-lightbox");
+        renderLightboxThumbnails();
+        window.requestAnimationFrame(() => lightbox.classList.add("is-open"));
         lightboxImage.classList.add("is-entering");
         renderLightboxItem(activeIndex);
         window.setTimeout(() => lightboxImage.classList.remove("is-entering"), 40);
@@ -373,9 +466,14 @@
       }
 
       function closeLightbox() {
-        lightbox.hidden = true;
+        lightbox.classList.remove("is-open");
         document.body.classList.remove("has-lightbox");
-        lightboxImage.src = "";
+        lightboxCloseTimer = window.setTimeout(() => {
+          lightbox.hidden = true;
+          lightboxImage.src = "";
+          lightboxThumbnails.innerHTML = "";
+          if (lastLightboxTrigger) lastLightboxTrigger.focus();
+        }, 260);
       }
 
       function moveLightbox(direction) {
@@ -410,6 +508,12 @@
       lightboxClose.addEventListener("click", closeLightbox);
       lightboxPrev.addEventListener("click", () => moveLightbox(-1));
       lightboxNext.addEventListener("click", () => moveLightbox(1));
+      lightboxThumbnails.addEventListener("click", (event) => {
+        const thumbnail = event.target.closest("[data-lightbox-index]");
+        if (!thumbnail) return;
+        activeIndex = Number(thumbnail.dataset.lightboxIndex);
+        renderLightboxItem(activeIndex);
+      });
 
       lightbox.addEventListener("click", (event) => {
         if (event.target === lightbox) closeLightbox();
