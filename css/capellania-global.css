@@ -2910,6 +2910,10 @@ button {
     padding: 48px 24px;
   }
 
+  .congress-section__title {
+    margin-bottom: 40px;
+  }
+
   .section__eyebrow {
     margin-bottom: var(--space-2);
     font-size: 0.72rem;
