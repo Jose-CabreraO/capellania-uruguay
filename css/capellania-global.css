@@ -2737,6 +2737,61 @@ button {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(210px, auto);
+    gap: var(--space-5);
+  }
+
+  .service-card {
+    min-height: 210px;
+  }
+
+  .service-card--featured {
+    grid-column: auto;
+    grid-row: span 2;
+    min-height: 440px;
+    padding: var(--space-8);
+  }
+
+  .service-card--featured .card__title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  .service-card--wide {
+    grid-column: span 2;
+    min-height: 210px;
+  }
+
+  .impact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .impact-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(180px, auto);
+    gap: var(--space-4);
+  }
+
+  .impact-metric {
+    min-height: 180px;
+    padding: var(--space-5);
+  }
+
+  .impact-metric--large {
+    grid-column: span 2;
+    grid-row: auto;
+    min-height: 260px;
+    padding: var(--space-8);
+  }
+
+  .impact-metric:last-child {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 768px) {
   .event-gallery {
     grid-template-columns: 1fr;
@@ -2920,8 +2975,8 @@ button {
   }
 
   .section__title {
-    font-size: clamp(2rem, 10vw, 2.65rem);
-    line-height: 1.05;
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    line-height: 1.08;
   }
 
   .section__lead {
@@ -3007,8 +3062,9 @@ button {
   }
 
   .services-bento {
+    grid-auto-rows: auto;
     gap: var(--space-3);
-    margin-top: var(--space-6);
+    margin-top: var(--space-8);
   }
 
   .identity-section__header {
@@ -3070,7 +3126,7 @@ button {
 
   .service-card--featured,
   .service-card--wide {
-    min-height: 220px;
+    min-height: 190px;
   }
 
   .service-card--featured {
@@ -3089,20 +3145,22 @@ button {
 
   .impact-layout,
   .video-layout {
-    gap: var(--space-5);
+    gap: var(--space-8);
   }
 
   .impact-metrics {
+    grid-auto-rows: auto;
     gap: var(--space-3);
   }
 
   .impact-metric {
-    min-height: 170px;
-    padding: var(--space-5);
+    min-height: 150px;
+    padding: var(--space-4);
   }
 
   .impact-metric--large {
-    min-height: 220px;
+    min-height: 190px;
+    padding: var(--space-5);
   }
 
   .impact-metric span {
