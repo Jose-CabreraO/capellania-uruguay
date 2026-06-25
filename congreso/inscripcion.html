@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://www.capellania.org.py/congreso/inscripcion">
     <link rel="icon" type="image/png" href="/assets/logos/capellania/capellania-symbol-color.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/capellania-global.css?v=1.8">
+    <link rel="stylesheet" href="../css/capellania-global.css?v=1.13">
     <script type="module" src="/js/speed-insights-init.js"></script>
   </head>
   <body>
@@ -97,12 +97,15 @@
 
               <form
                 class="registration-form"
-                action="https://script.google.com/macros/s/AKfycby-cn-EqIq_H34AsX4OYKBHmnn-A5OGyu98f0oSLcZm5ptKPc8zEP0ajy01Mw6ls5HPaQ/exec"
+                action="https://script.google.com/macros/s/AKfycbyOjpmYaxXQaTBZrN9v1d5jYBmbjss5gTrUguODONaMHkKJuFqQiThkNRs1Rquw6Qcp/exec"
                 method="POST"
                 data-registration-form
               >
-                <input type="hidden" name="_subject" value="Inscripcion Congreso Cristiano 2026">
-                <input type="hidden" name="formulario_origen" value="congreso_2026_inscripcion">
+                <input type="hidden" name="formulario_origen" value="congreso_2026_inscripcion_web">
+                <input type="hidden" name="schema_version" value="1">
+                <input type="hidden" name="estado" value="preinscripcion_recibida">
+                <input type="hidden" name="comprobante_estado" value="pendiente">
+                <input type="hidden" name="observaciones" value="">
                 <fieldset class="form-step">
                   <legend>
                     <span>01</span>
@@ -113,6 +116,11 @@
                     <label class="field">
                       <span class="field__label">Nombre y apellido</span>
                       <input class="field__control" type="text" name="nombre" autocomplete="name" required>
+                    </label>
+
+                    <label class="field">
+                      <span class="field__label">Edad</span>
+                      <input class="field__control" type="number" name="edad" min="18" max="120" inputmode="numeric" required>
                     </label>
 
                     <label class="field">
@@ -127,8 +135,33 @@
 
                     <label class="field">
                       <span class="field__label">Ciudad</span>
-                      <input class="field__control" type="text" name="ciudad" autocomplete="address-level2">
+                      <input class="field__control" type="text" name="ciudad" autocomplete="address-level2" required>
                     </label>
+                  </div>
+
+                  <div class="form-subsection">
+                    <h3>Restricciones alimenticias</h3>
+                    <p>Podés seleccionar más de una opción.</p>
+                    <div class="checkbox-grid">
+                      <label class="choice-card choice-card--checkbox">
+                        <input type="checkbox" name="restriccion_gluten" value="si">
+                        <span><strong>Gluten</strong></span>
+                      </label>
+                      <label class="choice-card choice-card--checkbox">
+                        <input type="checkbox" name="restriccion_lactosa" value="si">
+                        <span><strong>Lactosa</strong></span>
+                      </label>
+                      <label class="choice-card choice-card--checkbox">
+                        <input type="checkbox" name="restriccion_otra" value="si" data-other-toggle="titular">
+                        <span><strong>Otra</strong></span>
+                      </label>
+                    </div>
+                    <div class="conditional-field" data-other-detail="titular" hidden>
+                      <label class="field">
+                        <span class="field__label">Detallá la restricción alimenticia</span>
+                        <input class="field__control" type="text" name="restriccion_detalle">
+                      </label>
+                    </div>
                   </div>
                 </fieldset>
 
@@ -140,7 +173,7 @@
 
                   <div class="choice-grid">
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="individual" onchange="manejarCambioPase()" checked>
+                      <input type="radio" name="tipo_pase" value="individual" checked required>
                       <span>
                         <strong>Individual</strong>
                         <small>Inscripción para una persona.</small>
@@ -148,7 +181,7 @@
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="tipo_pase" value="pareja" onchange="manejarCambioPase()">
+                      <input type="radio" name="tipo_pase" value="pareja" required>
                       <span>
                         <strong>Pareja</strong>
                         <small>Inscripción para matrimonio o dos participantes.</small>
@@ -159,13 +192,43 @@
                   <div id="seccion-acompaniante" class="form-grid form-grid--2" style="display: none;">
                     <label class="field">
                       <span class="field__label">Nombre de la segunda persona</span>
-                      <input class="field__control" type="text" name="acompaniante_nombre">
+                      <input class="field__control" type="text" name="pareja_nombre" autocomplete="name">
                     </label>
 
                     <label class="field">
-                      <span class="field__label">Correo de la segunda persona</span>
-                      <input class="field__control" type="email" name="acompaniante_email">
+                      <span class="field__label">Edad de la segunda persona</span>
+                      <input class="field__control" type="number" name="pareja_edad" min="18" max="120" inputmode="numeric">
                     </label>
+
+                    <label class="field form-grid__full">
+                      <span class="field__label">Correo de la segunda persona</span>
+                      <input class="field__control" type="email" name="pareja_email" autocomplete="email">
+                    </label>
+
+                    <div class="form-subsection form-grid__full">
+                      <h3>Restricciones alimenticias de la segunda persona</h3>
+                      <p>Podés seleccionar más de una opción.</p>
+                      <div class="checkbox-grid">
+                        <label class="choice-card choice-card--checkbox">
+                          <input type="checkbox" name="pareja_restriccion_gluten" value="si">
+                          <span><strong>Gluten</strong></span>
+                        </label>
+                        <label class="choice-card choice-card--checkbox">
+                          <input type="checkbox" name="pareja_restriccion_lactosa" value="si">
+                          <span><strong>Lactosa</strong></span>
+                        </label>
+                        <label class="choice-card choice-card--checkbox">
+                          <input type="checkbox" name="pareja_restriccion_otra" value="si" data-other-toggle="pareja">
+                          <span><strong>Otra</strong></span>
+                        </label>
+                      </div>
+                      <div class="conditional-field" data-other-detail="pareja" hidden>
+                        <label class="field">
+                          <span class="field__label">Detallá la restricción alimenticia</span>
+                          <input class="field__control" type="text" name="pareja_restriccion_detalle">
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </fieldset>
 
@@ -177,14 +240,14 @@
 
                   <div class="choice-grid choice-grid--compact">
                     <label class="choice-card">
-                      <input type="radio" name="factura" value="si" onchange="manejarCambioFactura()" checked>
+                      <input type="radio" name="factura" value="si" checked required>
                       <span>
                         <strong>Necesito factura</strong>
                       </span>
                     </label>
 
                     <label class="choice-card">
-                      <input type="radio" name="factura" value="no" onchange="manejarCambioFactura()">
+                      <input type="radio" name="factura" value="no" required>
                       <span>
                         <strong>No necesito factura</strong>
                       </span>
@@ -204,18 +267,41 @@
 
                     <label class="field form-grid__full">
                       <span class="field__label">Dirección de facturación</span>
-                      <input class="field__control" type="text" name="direccion">
+                      <input class="field__control" type="text" name="direccion_facturacion">
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="form-step">
+                  <legend>
+                    <span>04</span>
+                    Hospedaje
+                  </legend>
+
+                  <div class="choice-grid choice-grid--compact">
+                    <label class="choice-card">
+                      <input type="radio" name="ayuda_hospedaje" value="si" required>
+                      <span>
+                        <strong>Necesito ayuda con la reserva</strong>
+                      </span>
+                    </label>
+                    <label class="choice-card">
+                      <input type="radio" name="ayuda_hospedaje" value="no" required>
+                      <span>
+                        <strong>No necesito ayuda</strong>
+                      </span>
                     </label>
                   </div>
                 </fieldset>
 
                 <div class="form-actions">
-                  <button class="btn btn--congreso" type="submit" data-submit-button>Registrar mi pre-inscripción</button>
+                  <button class="btn btn--congreso" type="submit" data-submit-button disabled>Registrar mi pre-inscripción</button>
                   <p>
                     Al enviar el formulario, el equipo organizador confirmará tu
                     pre-inscripción por correo o WhatsApp.
                   </p>
                 </div>
+                <div class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
               </form>
             </div>
           </div>
@@ -276,107 +362,243 @@
         </div>
       </footer>
       <!-- WhatsApp flotante editable: cambiar número y mensaje en el href siguiente. -->
-      <a class="floating-whatsapp" href="https://wa.me/595981722275" target="_blank" rel="noopener noreferrer" aria-label="Pedir ayuda por WhatsApp">
+      <a class="floating-whatsapp" href="https://wa.me/595983310202" target="_blank" rel="noopener noreferrer" aria-label="Pedir ayuda por WhatsApp">
         <i class="bi bi-whatsapp footer-social__icon" aria-hidden="true"></i>
       </a>
     </div>
 
     <script>
-      function manejarCambioPase() {
-        const pasePareja = document.querySelector('input[name="tipo_pase"][value="pareja"]');
-        const contenedor = document.getElementById('seccion-acompaniante');
-        const inputs = contenedor.querySelectorAll('input');
-
-        if (pasePareja && pasePareja.checked) {
-          contenedor.style.display = 'block';
-          inputs.forEach(input => input.setAttribute('required', 'true'));
-        } else {
-          contenedor.style.display = 'none';
-          inputs.forEach(input => {
-            input.removeAttribute('required');
-            input.value = '';
-          });
-        }
-      }
-
-      function manejarCambioFactura() {
-        const requiereFactura = document.querySelector('input[name="factura"][value="si"]');
-        const contenedor = document.getElementById('seccion-facturacion');
-        const inputs = contenedor.querySelectorAll('input');
-
-        if (requiereFactura && requiereFactura.checked) {
-          contenedor.style.display = 'grid';
-          inputs.forEach(input => input.setAttribute('required', 'true'));
-        } else {
-          contenedor.style.display = 'none';
-          inputs.forEach(input => {
-            input.removeAttribute('required');
-            input.value = '';
-          });
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        // Escuchar cambios en ambos botones de radio
-        document.querySelectorAll('input[name="tipo_pase"]').forEach(radio => {
-          radio.addEventListener('change', manejarCambioPase);
-        });
-
-        document.querySelectorAll('input[name="factura"]').forEach(radio => {
-          radio.addEventListener('change', manejarCambioFactura);
-        });
-
-        manejarCambioPase(); // Ejecución inicial
-        manejarCambioFactura();
-      });
-
       (function () {
         var form = document.querySelector('[data-registration-form]');
         var submitButton = form ? form.querySelector('[data-submit-button]') : null;
+        var statusBox = form ? form.querySelector('[data-form-status]') : null;
+        var parejaSection = document.getElementById('seccion-acompaniante');
+        var facturaSection = document.getElementById('seccion-facturacion');
         var defaultButtonText = submitButton ? submitButton.textContent : '';
+        var isSubmitting = false;
 
-        if (!form || !submitButton) {
+        if (!form || !submitButton || !statusBox || !parejaSection || !facturaSection) {
           return;
         }
+
+        function clearControl(control) {
+          if (control.type === 'checkbox' || control.type === 'radio') {
+            control.checked = false;
+          } else {
+            control.value = '';
+          }
+          control.removeAttribute('required');
+        }
+
+        function setSectionState(section, visible, requiredNames) {
+          section.style.display = visible ? 'grid' : 'none';
+          section.querySelectorAll('input').forEach(function (input) {
+            if (!visible) {
+              clearControl(input);
+              return;
+            }
+            if (requiredNames.indexOf(input.name) !== -1) {
+              input.setAttribute('required', 'true');
+            }
+          });
+        }
+
+        function updateOtherDetail(scope) {
+          var toggle = form.querySelector('[data-other-toggle="' + scope + '"]');
+          var container = form.querySelector('[data-other-detail="' + scope + '"]');
+          var input = container ? container.querySelector('input') : null;
+          var parejaActiva = form.querySelector('input[name="tipo_pase"][value="pareja"]').checked;
+          var visible = Boolean(toggle && toggle.checked && (scope !== 'pareja' || parejaActiva));
+
+          if (!container || !input) {
+            return;
+          }
+
+          container.hidden = !visible;
+          if (visible) {
+            input.setAttribute('required', 'true');
+          } else {
+            input.removeAttribute('required');
+            input.value = '';
+          }
+        }
+
+        function manejarCambioPase() {
+          var parejaActiva = form.querySelector('input[name="tipo_pase"][value="pareja"]').checked;
+          setSectionState(
+            parejaSection,
+            parejaActiva,
+            ['pareja_nombre', 'pareja_edad', 'pareja_email']
+          );
+          updateOtherDetail('pareja');
+          updateSubmitState();
+        }
+
+        function manejarCambioFactura() {
+          var requiereFactura = form.querySelector('input[name="factura"][value="si"]').checked;
+          setSectionState(
+            facturaSection,
+            requiereFactura,
+            ['ruc', 'razon_social', 'direccion_facturacion']
+          );
+          updateSubmitState();
+        }
+
+        function updateSubmitState() {
+          submitButton.disabled = isSubmitting || !form.checkValidity();
+        }
+
+        function showStatus(type, message) {
+          statusBox.className = 'form-status form-status--' + type;
+          statusBox.innerHTML = message;
+          statusBox.hidden = false;
+          statusBox.setAttribute('role', type === 'error' ? 'alert' : 'status');
+          statusBox.focus({ preventScroll: true });
+        }
+
+        function calculateAmount() {
+          var now = new Date();
+          var cutoff = new Date(2026, 7, 7, 23, 59, 59, 999);
+          var tipoPase = form.querySelector('input[name="tipo_pase"]:checked').value;
+          var earlyPrice = tipoPase === 'pareja' ? 1650000 : 1100000;
+          var regularPrice = tipoPase === 'pareja' ? 1900000 : 1300000;
+          return now <= cutoff ? earlyPrice : regularPrice;
+        }
+
+        function checkboxValue(name) {
+          var checkbox = form.querySelector('input[name="' + name + '"]');
+          return checkbox && checkbox.checked ? 'si' : 'no';
+        }
+
+        function buildPayload() {
+          var raw = new FormData(form);
+          var payload = new URLSearchParams();
+          var fields = [
+            'formulario_origen',
+            'schema_version',
+            'estado',
+            'nombre',
+            'edad',
+            'email',
+            'telefono',
+            'ciudad',
+            'tipo_pase',
+            'restriccion_detalle',
+            'pareja_nombre',
+            'pareja_edad',
+            'pareja_email',
+            'pareja_restriccion_detalle',
+            'factura',
+            'ruc',
+            'razon_social',
+            'direccion_facturacion',
+            'ayuda_hospedaje',
+            'comprobante_estado',
+            'observaciones'
+          ];
+
+          payload.set('fecha_hora', new Date().toISOString());
+          fields.forEach(function (field) {
+            payload.set(field, raw.get(field) || '');
+          });
+          payload.set('monto_calculado', String(calculateAmount()));
+          payload.set('restriccion_gluten', checkboxValue('restriccion_gluten'));
+          payload.set('restriccion_lactosa', checkboxValue('restriccion_lactosa'));
+          payload.set('restriccion_otra', checkboxValue('restriccion_otra'));
+          payload.set('pareja_restriccion_gluten', checkboxValue('pareja_restriccion_gluten'));
+          payload.set('pareja_restriccion_lactosa', checkboxValue('pareja_restriccion_lactosa'));
+          payload.set('pareja_restriccion_otra', checkboxValue('pareja_restriccion_otra'));
+          payload.set('user_agent', navigator.userAgent);
+          return payload;
+        }
+
+        form.addEventListener('input', updateSubmitState);
+        form.addEventListener('change', function (event) {
+          if (event.target.name === 'tipo_pase') {
+            manejarCambioPase();
+          } else if (event.target.name === 'factura') {
+            manejarCambioFactura();
+          } else if (event.target.matches('[data-other-toggle="titular"]')) {
+            updateOtherDetail('titular');
+          } else if (event.target.matches('[data-other-toggle="pareja"]')) {
+            updateOtherDetail('pareja');
+          }
+          updateSubmitState();
+        });
 
         form.addEventListener('submit', function (event) {
           event.preventDefault();
 
-          if (submitButton.disabled) {
+          if (isSubmitting || !form.checkValidity()) {
+            form.reportValidity();
+            updateSubmitState();
             return;
           }
 
+          isSubmitting = true;
+          statusBox.hidden = true;
           submitButton.disabled = true;
-          submitButton.textContent = 'Procesando registro...';
+          submitButton.textContent = 'Enviando...';
 
-          var endpoint = form.getAttribute('action');
-          var datos = new URLSearchParams(new FormData(form));
+          var controller = new AbortController();
+          var timeoutId = window.setTimeout(function () {
+            controller.abort();
+          }, 20000);
 
-          fetch(endpoint, {
+          fetch(form.getAttribute('action'), {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
             },
-            body: datos
+            body: buildPayload(),
+            signal: controller.signal
           })
             .then(function (response) {
               if (!response.ok) {
-                throw new Error('No se pudo registrar la pre-inscripción.');
+                throw new Error('El servicio respondió con un estado no válido.');
+              }
+              return response.json();
+            })
+            .then(function (result) {
+              if (!result || result.ok !== true) {
+                throw new Error(result && result.error ? result.error : 'La respuesta no confirmó el registro.');
               }
 
               form.reset();
               manejarCambioPase();
               manejarCambioFactura();
-              alert('Tu lugar quedó reservado. El equipo organizador se pondrá en contacto por WhatsApp o correo para coordinar los detalles.');
+              updateOtherDetail('titular');
+              showStatus(
+                'success',
+                '<strong>Tu preinscripción fue registrada correctamente.</strong> ' +
+                'El equipo organizador confirmará tu inscripción cuando reciba el comprobante de transferencia.' +
+                '<span>Enviá el comprobante por WhatsApp al <a href="https://wa.me/595983310202" target="_blank" rel="noopener noreferrer">+595 983 310 202</a> ' +
+                'o al correo <a href="mailto:eventos@capellania.org.py">eventos@capellania.org.py</a>.</span>'
+              );
             })
-            .catch(function () {
-              alert('No pudimos completar el registro en este momento. Por favor, intentá nuevamente o contactanos por WhatsApp.');
+            .catch(function (error) {
+              var detail = error && error.name === 'AbortError'
+                ? 'La solicitud tardó demasiado tiempo.'
+                : 'El servicio no confirmó la recepción de los datos.';
+              showStatus(
+                'error',
+                '<strong>No pudimos completar la preinscripción.</strong> ' + detail +
+                ' Revisá tu conexión e intentá nuevamente. El formulario conserva tus datos.'
+              );
             })
             .finally(function () {
-              submitButton.disabled = false;
+              window.clearTimeout(timeoutId);
+              isSubmitting = false;
               submitButton.textContent = defaultButtonText;
+              updateSubmitState();
             });
         });
+
+        manejarCambioPase();
+        manejarCambioFactura();
+        updateOtherDetail('titular');
+        updateOtherDetail('pareja');
+        updateSubmitState();
       }());
     </script>
     <script>

@@ -6,6 +6,11 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/congreso/2026/inscripcion",
+      "destination": "/congreso/inscripcion",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -2153,6 +2153,12 @@ button {
   max-width: 620px;
 }
 
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
 .choice-card {
   display: flex;
   align-items: flex-start;
@@ -2174,6 +2180,10 @@ button {
   accent-color: var(--color-congreso-gold);
 }
 
+.choice-card--checkbox {
+  align-items: center;
+}
+
 .choice-card strong {
   display: block;
   color: var(--color-capellania-navy);
@@ -2184,6 +2194,32 @@ button {
   display: block;
   margin-top: var(--space-1);
   color: var(--color-muted);
+}
+
+.form-subsection {
+  margin-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+}
+
+.form-subsection h3 {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: 1rem;
+}
+
+.form-subsection > p {
+  margin: var(--space-1) 0 var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.conditional-field {
+  margin-top: var(--space-4);
+}
+
+.conditional-field[hidden] {
+  display: none;
 }
 
 .transfer-box {
@@ -2253,6 +2289,47 @@ button {
   max-width: 520px;
   margin: 0;
   color: var(--color-muted);
+}
+
+.form-actions .btn:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.28);
+  opacity: 0.52;
+  transform: none;
+}
+
+.form-status {
+  border: 1px solid;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  line-height: 1.65;
+}
+
+.form-status strong,
+.form-status span {
+  display: block;
+}
+
+.form-status span {
+  margin-top: var(--space-2);
+}
+
+.form-status a {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.form-status--success {
+  border-color: rgba(26, 127, 74, 0.3);
+  background: rgba(232, 247, 238, 0.9);
+  color: #145c38;
+}
+
+.form-status--error {
+  border-color: rgba(176, 47, 47, 0.28);
+  background: rgba(253, 239, 239, 0.94);
+  color: #842727;
 }
 
 .metric {
@@ -2624,7 +2701,8 @@ button {
   .schedule-grid,
   .info-panel,
   .form-grid--2,
-  .choice-grid {
+  .choice-grid,
+  .checkbox-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3387,6 +3465,10 @@ button {
   .choice-grid {
     gap: var(--space-3);
     margin-bottom: var(--space-4);
+  }
+
+  .checkbox-grid {
+    gap: var(--space-2);
   }
 
   .choice-card {
