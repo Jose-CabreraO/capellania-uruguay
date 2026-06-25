@@ -25,6 +25,10 @@
     {
       "source": "/congreso/fotos",
       "destination": "/congreso/fotos.html"
+    },
+    {
+      "source": "/sobre-nosotros",
+      "destination": "/sobre-nosotros.html"
     }
   ],
   "headers": [

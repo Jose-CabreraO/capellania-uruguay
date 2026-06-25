@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/capellania-global.css?v=1.12">
+    <link rel="stylesheet" href="css/capellania-global.css?v=1.14">
   </head>
   <body>
     <div class="site-shell">
@@ -46,6 +46,7 @@
 
           <nav class="nav hidden md:flex" id="main-navigation" aria-label="Navegación principal">
             <a class="nav__link" href="/" aria-current="page">Inicio</a>
+            <a class="nav__link" href="/#sobre-nosotros">Sobre nosotros</a>
             <a class="nav__link" href="/congreso/2026">Congreso 2026</a>
             <a class="nav__link" href="/congreso/fotos">Eventos</a>
             <a class="nav__link" href="/congreso/inscripcion">Inscripción</a>
@@ -119,19 +120,41 @@
           </div>
         </section>
 
-        <section class="section identity-section" aria-labelledby="identity-title">
+        <section class="section identity-section about-summary" id="sobre-nosotros" aria-labelledby="about-title">
           <div class="container">
-            <div class="identity-section__header">
-              <h2 id="identity-title" class="identity-section__title">
-                <span>Misión</span> y <span>Visión</span>
-              </h2>
-              <p class="section__lead">
-                Misión y visión expresan el llamado de Capellanía Empresarial:
-                acompañar el trabajo con presencia cristiana, servicio y dirección.
-              </p>
+            <div class="about-summary__intro">
+              <div>
+                <p class="section__eyebrow">Asociación Capellanía Empresarial</p>
+                <h2 id="about-title" class="section__title">Sobre nosotros</h2>
+                <p class="section__lead">
+                  La Asociación Capellanía Empresarial acompaña a colaboradores,
+                  familias, líderes y organizaciones mediante presencia, escucha y
+                  principios cristianos aplicados al ámbito laboral.
+                </p>
+              </div>
+
+              <div class="about-summary__history">
+                <p>
+                  Nuestra historia comenzó en Paraguay hacia 1984, cuando empresarios
+                  cristianos impulsaron espacios de reflexión y acompañamiento espiritual
+                  dentro de empresas comerciales.
+                </p>
+                <p>
+                  Con el tiempo, esta visión creció hasta consolidarse como un ministerio
+                  de acompañamiento para el mundo del trabajo.
+                </p>
+                <p>
+                  Hoy continuamos sirviendo mediante devocionales, estudios bíblicos,
+                  consejería, capacitaciones y orientación para colaboradores, familias
+                  y líderes.
+                </p>
+                <a class="btn btn--secondary about-summary__history-link" href="/sobre-nosotros">
+                  Conocer nuestra historia
+                </a>
+              </div>
             </div>
 
-            <div class="identity-layout">
+            <div class="identity-layout about-summary__identity">
               <div class="identity-copy">
                 <div class="identity-panel">
                   <span class="identity-card__eyebrow">Misión</span>
@@ -145,6 +168,17 @@
                   <p class="identity-card__text">
                     El Reino de Dios establecido en el entorno empresarial.
                   </p>
+                </div>
+              </div>
+
+              <div class="about-summary__values">
+                <p class="about-summary__values-label">Valores institucionales</p>
+                <div class="value-chips" aria-label="Valores institucionales">
+                  <span>Servicio</span>
+                  <span>Integridad</span>
+                  <span>Compasión</span>
+                  <span>Confidencialidad</span>
+                  <span>Fe</span>
                 </div>
               </div>
             </div>

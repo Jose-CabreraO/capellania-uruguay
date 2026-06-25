@@ -719,6 +719,185 @@ button {
   line-height: 1.62;
 }
 
+.about-summary {
+  padding-block: var(--space-16);
+}
+
+.about-summary__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: start;
+  gap: var(--space-12);
+  margin-bottom: var(--space-10);
+}
+
+.about-summary__history {
+  display: grid;
+  gap: var(--space-3);
+  border-left: 3px solid var(--color-congreso-gold);
+  padding-left: var(--space-6);
+}
+
+.about-summary__history p {
+  margin: 0;
+  color: var(--color-ink);
+  line-height: 1.68;
+}
+
+.about-summary__history-link {
+  justify-self: start;
+  margin-top: var(--space-2);
+}
+
+.about-summary__identity {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.about-summary__values {
+  order: 2;
+  width: min(100%, 1080px);
+  margin-inline: auto;
+}
+
+.about-summary__values-label {
+  margin: 0 0 var(--space-3);
+  color: var(--color-capellania-navy);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.value-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.value-chips span {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--color-capellania-navy);
+  padding: 0.45rem 0.82rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.about-page-hero {
+  background:
+    linear-gradient(135deg, rgba(8, 35, 63, 0.98), rgba(18, 58, 95, 0.94)),
+    var(--color-capellania-navy);
+  color: var(--color-surface);
+  padding-block: var(--space-20);
+}
+
+.about-page-hero__content {
+  max-width: 850px;
+}
+
+.about-page-hero .section__eyebrow {
+  color: var(--color-congreso-gold);
+}
+
+.about-page-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  line-height: 1;
+  font-weight: 900;
+}
+
+.about-page-hero p:last-child {
+  max-width: 720px;
+  margin: var(--space-6) 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.1rem;
+  line-height: 1.72;
+}
+
+.about-history-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  align-items: start;
+  gap: var(--space-12);
+  margin-top: var(--space-10);
+}
+
+.about-history__body {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.about-history__body p {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+.about-milestones {
+  display: grid;
+  gap: var(--space-3);
+  border-left: 1px solid var(--color-border);
+  padding-left: var(--space-6);
+}
+
+.about-milestone {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+}
+
+.about-milestone strong {
+  color: var(--color-congreso-gold-700);
+  font-size: 1.05rem;
+}
+
+.about-milestone span {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.about-value {
+  border-top: 3px solid var(--color-congreso-gold);
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.about-value h3 {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: 1rem;
+}
+
+.about-value p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+.about-source {
+  margin: var(--space-10) 0 0;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
 .congress-section__title {
   max-width: 900px;
   margin: 0 0 var(--space-8);
@@ -2691,6 +2870,7 @@ button {
   .hero__grid,
   .congress-page-hero__grid,
   .registration-layout,
+  .about-history-layout,
   .impact-layout,
   .video-layout,
   .footer__grid,
@@ -2811,6 +2991,10 @@ button {
     order: 2;
     min-height: 420px;
   }
+
+  .about-values-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -2892,6 +3076,36 @@ button {
 
   .identity-section {
     padding: 64px 20px 76px;
+  }
+
+  .about-summary {
+    padding: 56px 20px 64px;
+  }
+
+  .about-summary__intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .about-summary__history {
+    padding-left: var(--space-5);
+  }
+
+  .about-history-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .about-milestones {
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+    padding-top: var(--space-4);
+    padding-left: 0;
+  }
+
+  .about-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .identity-section > .container {
@@ -3059,6 +3273,84 @@ button {
     margin-top: var(--space-3);
     font-size: 0.98rem;
     line-height: 1.65;
+  }
+
+  .about-page-hero {
+    padding-block: var(--space-14);
+  }
+
+  .about-page-hero h1 {
+    font-size: clamp(2.25rem, 12vw, 3.3rem);
+    line-height: 1.04;
+  }
+
+  .about-page-hero p:last-child {
+    margin-top: var(--space-4);
+    font-size: 1rem;
+  }
+
+  .about-summary__history {
+    gap: var(--space-2);
+    padding-left: var(--space-4);
+  }
+
+  .about-summary__history p {
+    font-size: 0.92rem;
+    line-height: 1.58;
+  }
+
+  .about-summary .identity-copy {
+    gap: var(--space-3);
+  }
+
+  .about-summary .identity-panel {
+    padding: 18px;
+  }
+
+  .about-summary .identity-panel::before {
+    top: var(--space-4);
+    left: var(--space-4);
+  }
+
+  .about-summary .identity-card__eyebrow {
+    margin-bottom: var(--space-3);
+    padding-top: var(--space-4);
+    font-size: 1.45rem;
+  }
+
+  .about-summary .identity-card__text {
+    font-size: 0.94rem;
+    line-height: 1.52;
+  }
+
+  .about-summary__history-link {
+    width: 100%;
+  }
+
+  .about-summary__identity {
+    gap: var(--space-5);
+  }
+
+  .about-summary__values-label {
+    margin-bottom: var(--space-2);
+  }
+
+  .value-chips {
+    gap: 0.4rem;
+  }
+
+  .value-chips span {
+    min-height: 32px;
+    padding: 0.34rem 0.68rem;
+    font-size: 0.78rem;
+  }
+
+  .about-values-grid {
+    gap: var(--space-2);
+  }
+
+  .about-value {
+    padding: var(--space-4);
   }
 
   .home-hero {
