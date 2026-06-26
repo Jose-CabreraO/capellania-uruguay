@@ -252,22 +252,22 @@
 
             <div class="impact-metrics" aria-label="Indicadores de impacto 2025">
               <article class="impact-metric impact-metric--large">
-                <strong>7.889+</strong>
+                <strong data-count="7889" data-suffix="+">7.889+</strong>
                 <span>Colaboradores participando mensualmente de devocionales</span>
               </article>
 
               <article class="impact-metric">
-                <strong>3.180+</strong>
+                <strong data-count="3180" data-suffix="+">3.180+</strong>
                 <span>Sesiones de consejería al colaborador</span>
               </article>
 
               <article class="impact-metric">
-                <strong>700+</strong>
+                <strong data-count="700" data-suffix="+">700+</strong>
                 <span>Estudiantes mensuales</span>
               </article>
 
               <article class="impact-metric">
-                <strong>838+</strong>
+                <strong data-count="838" data-suffix="+">838+</strong>
                 <span>Visitas al colaborador</span>
               </article>
             </div>
@@ -423,6 +423,101 @@
           facade.classList.add("video-facade--loaded");
         });
       });
+    </script>
+    <script>
+      (function () {
+        var section = document.querySelector(".impact-section");
+        if (!section) return;
+
+        var counters = Array.from(section.querySelectorAll("[data-count]"));
+        if (!counters.length) return;
+
+        var formatter = new Intl.NumberFormat("es-PY");
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var sectionIsVisible = false;
+
+        function renderValue(element, value) {
+          var suffix = element.dataset.suffix || "";
+          element.textContent = formatter.format(value) + suffix;
+        }
+
+        function animateCounter(element) {
+          var target = Number(element.dataset.count);
+          if (!Number.isFinite(target)) return;
+
+          var duration = 1500;
+          var start = null;
+
+          if (element._countUpFrame) {
+            window.cancelAnimationFrame(element._countUpFrame);
+          }
+
+          renderValue(element, 0);
+
+          function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = Math.min((timestamp - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.round(target * eased);
+
+            renderValue(element, current);
+
+            if (progress < 1) {
+              element._countUpFrame = window.requestAnimationFrame(step);
+            } else {
+              element._countUpFrame = null;
+              renderValue(element, target);
+            }
+          }
+
+          element._countUpFrame = window.requestAnimationFrame(step);
+        }
+
+        function stopCountersAtFinalValue() {
+          counters.forEach(function (counter) {
+            if (counter._countUpFrame) {
+              window.cancelAnimationFrame(counter._countUpFrame);
+              counter._countUpFrame = null;
+            }
+
+            renderValue(counter, Number(counter.dataset.count));
+          });
+        }
+
+        function runCounters() {
+          counters.forEach(function (counter) {
+            if (reduceMotion) {
+              renderValue(counter, Number(counter.dataset.count));
+              return;
+            }
+
+            animateCounter(counter);
+          });
+        }
+
+        if (!("IntersectionObserver" in window)) {
+          runCounters();
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              if (sectionIsVisible) return;
+              sectionIsVisible = true;
+              runCounters();
+              return;
+            }
+
+            sectionIsVisible = false;
+            stopCountersAtFinalValue();
+          });
+        }, {
+          threshold: 0.35
+        });
+
+        observer.observe(section);
+      }());
     </script>
     <script>
       (function () {
