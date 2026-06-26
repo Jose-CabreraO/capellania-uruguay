@@ -1014,6 +1014,7 @@ button {
   background:
     radial-gradient(circle at 92% 10%, rgba(180, 138, 60, 0.22), transparent 30%),
     linear-gradient(135deg, var(--color-capellania-navy), var(--color-capellania-navy-700));
+  background-color: var(--color-capellania-navy);
   color: var(--color-surface);
   padding: clamp(var(--space-8), 5vw, var(--space-14));
 }
@@ -3305,7 +3306,21 @@ button {
 
   .about-objectives-grid,
   .about-why__grid {
+    display: grid;
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-page-card,
+  .about-objective-card,
+  .about-why-card {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 
   .about-objective-card {
@@ -3322,6 +3337,8 @@ button {
   }
 
   .about-why__inner {
+    width: 100%;
+    max-width: 100%;
     padding: var(--space-6);
   }
 
