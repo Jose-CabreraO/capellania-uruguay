@@ -1561,16 +1561,17 @@ button {
   position: relative;
   display: block;
   overflow: hidden;
+  height: clamp(260px, 26vw, 340px);
   aspect-ratio: 4 / 3;
   background: #eef2f6;
 }
 
 .event-card--principal .event-card__media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: auto;
 }
 
 .event-card--vertical .event-card__media {
-  min-height: 420px;
+  min-height: 0;
   aspect-ratio: auto;
 }
 
@@ -1594,6 +1595,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition:
     filter 520ms var(--ease-out-ui),
     transform 620ms var(--ease-out-ui);
@@ -1759,9 +1761,9 @@ button {
 .event-card h2 {
   margin: var(--space-3) 0 var(--space-2);
   color: var(--color-capellania-navy);
-  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  font-size: clamp(1.45rem, 2vw, 2rem);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: 0;
 }
 
@@ -1773,6 +1775,10 @@ button {
 .event-card p {
   margin: var(--space-4) 0 0;
   color: var(--color-ink);
+}
+
+.event-card__body p {
+  margin-bottom: var(--space-5);
 }
 
 .sr-only {
