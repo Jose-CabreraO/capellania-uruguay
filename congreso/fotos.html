@@ -69,8 +69,9 @@
               <button class="gallery-filter__button is-active" type="button" data-filter="all">Todos</button>
               <button class="gallery-filter__button" type="button" data-filter="congresos">Congresos</button>
               <button class="gallery-filter__button" type="button" data-filter="almuerzos">Almuerzos Ejecutivos</button>
-              <button class="gallery-filter__button" type="button" data-filter="jornadas">Jornadas</button>
-              <button class="gallery-filter__button" type="button" data-filter="institucionales">Institucionales</button>
+              <!-- Filtros pausados temporalmente para reactivar cuando vuelvan esas secciones. -->
+              <button class="gallery-filter__button" type="button" data-filter="jornadas" hidden>Jornadas</button>
+              <button class="gallery-filter__button" type="button" data-filter="institucionales" hidden>Institucionales</button>
             </div>
 
             <div class="event-gallery" data-event-gallery></div>
@@ -174,19 +175,31 @@
           linkDrive: "https://drive.google.com/drive/folders/1zC5kiJRgFAUWAjlq5MFgu0G16vGyJ1jf?usp=sharing"
         },
         {
-          id: "almuerzo-ejecutivo",
+          id: "almuerzo-gerentes-jefes-2026",
           categoria: "almuerzos",
           formato: "vertical",
-          titulo: "Almuerzo Ejecutivo",
-          fechaTexto: "Encuentros 2025",
-          descripcion: "Conversaciones cercanas entre referentes empresariales para compartir experiencias, valores y nuevas perspectivas de liderazgo.",
+          titulo: "Almuerzo Ejecutivo para gerentes y jefes 2026",
+          fechaTexto: "13 de marzo del 2026",
+          descripcion: "Experiencia en liderazgo, aprendizajes y perspectivas que inspiran. Orador: Ing. Roberto Gimenez.",
           // Placeholder local: reemplazar por la portada específica del almuerzo cuando esté disponible.
           imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra4.webp",
-          linkDrive: ""
+          linkDrive: "https://drive.google.com/drive/folders/1y2x1yBLO2L9QRqBdR65c47LdqIOfLIVH?usp=sharing"
+        },
+        {
+          id: "liderazgo-gerencial-campo-9-2026",
+          categoria: "almuerzos",
+          formato: "vertical",
+          titulo: "Liderazgo Gerencial en un mundo complejo",
+          fechaTexto: "20 de mayo 2026",
+          descripcion: "Orador: Gustavo Koo (en Campo 9).",
+          // Placeholder local: reemplazar por la portada específica del almuerzo cuando esté disponible.
+          imagenPortada: "/assets/images/eventos/congreso-2025/foto-extra3.webp",
+          linkDrive: "https://drive.google.com/drive/folders/1YQLs4Z2wSSUgRQx_83VwNImDpASifQhS?usp=drive_link"
         },
         {
           id: "jornada-capellanes",
           categoria: "jornadas",
+          visible: false,
           formato: "compacta",
           titulo: "Jornada de Capellanes",
           fechaTexto: "Formación institucional",
@@ -198,6 +211,7 @@
         {
           id: "encuentros-institucionales",
           categoria: "institucionales",
+          visible: false,
           formato: "ancha",
           titulo: "Encuentros institucionales",
           fechaTexto: "Memoria institucional",
@@ -209,6 +223,7 @@
         {
           id: "liderazgo-comunidad",
           categoria: "institucionales",
+          visible: false,
           formato: "cierre",
           titulo: "Liderazgo y comunidad empresarial",
           fechaTexto: "Comunidad Capellanía",
@@ -350,7 +365,8 @@
       }
 
       function renderEventos() {
-        galleryContainer.innerHTML = eventosData.map(renderEventoCard).join("");
+        const eventosVisibles = eventosData.filter((evento) => evento.visible !== false);
+        galleryContainer.innerHTML = eventosVisibles.map(renderEventoCard).join("");
         galleryItems = [...galleryContainer.querySelectorAll("[data-lightbox-src]")];
         prepareCardReveal();
       }
