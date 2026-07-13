@@ -2307,7 +2307,7 @@ button {
 
 .c2026-program__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--space-8);
   margin-top: var(--space-10);
@@ -2515,6 +2515,530 @@ button {
   border-radius: 3px;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(8, 35, 63, 0.08);
+}
+
+.c2026-speaker-carousel {
+  margin-top: var(--space-12);
+}
+
+.c2026-speaker-carousel__header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.55fr);
+  align-items: end;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.c2026-speaker-carousel__title {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.c2026-speaker-carousel__intro {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.c2026-speaker-carousel__viewport {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.58fr) minmax(420px, 0.42fr);
+  align-items: center;
+  min-height: 520px;
+  border: 1px solid rgba(8, 35, 63, 0.1);
+  border-radius: calc(var(--radius-lg) + 6px);
+  background:
+    radial-gradient(circle at 84% 12%, rgba(180, 138, 60, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 251, 0.96));
+  padding: clamp(var(--space-5), 4vw, var(--space-10));
+  box-shadow: 0 24px 58px rgba(8, 35, 63, 0.08);
+  overflow: hidden;
+}
+
+.c2026-speaker-carousel__viewport:focus-visible {
+  outline: 2px solid rgba(180, 138, 60, 0.58);
+  outline-offset: 4px;
+}
+
+.c2026-speaker-carousel__media {
+  position: relative;
+  min-height: 440px;
+  border-radius: calc(var(--radius-lg) + 8px);
+  background:
+    linear-gradient(135deg, rgba(8, 35, 63, 0.08), rgba(180, 138, 60, 0.12)),
+    var(--color-capellania-navy-50);
+  overflow: hidden;
+}
+
+.c2026-speaker-carousel__image {
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+}
+
+.c2026-speaker-carousel__placeholder {
+  display: grid;
+  min-height: 440px;
+  place-items: center;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(180, 138, 60, 0.2), transparent 28%),
+    linear-gradient(135deg, var(--color-capellania-navy), var(--color-capellania-navy-700));
+  color: var(--color-surface);
+}
+
+.c2026-speaker-carousel__placeholder-inner {
+  display: grid;
+  place-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.c2026-speaker-carousel__initials {
+  display: grid;
+  width: clamp(5.5rem, 16vw, 9rem);
+  height: clamp(5.5rem, 16vw, 9rem);
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-congreso-gold);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.c2026-speaker-carousel__placeholder-label {
+  max-width: 16rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.c2026-speaker-carousel__card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-4);
+  width: min(100%, 620px);
+  min-width: 0;
+  justify-self: end;
+  margin-left: clamp(-1.5rem, -1.25vw, -0.75rem);
+  border: 1px solid rgba(8, 35, 63, 0.1);
+  border-radius: calc(var(--radius-lg) + 8px);
+  background: rgba(255, 255, 255, 0.94);
+  padding: clamp(var(--space-6), 3vw, var(--space-8));
+  box-shadow: 0 28px 68px rgba(8, 35, 63, 0.14);
+  transition:
+    opacity 260ms var(--ease-out-ui),
+    transform 260ms var(--ease-out-ui);
+}
+
+.c2026-speaker-carousel__card.is-changing {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.c2026-speaker-carousel__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.c2026-speaker-carousel__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  border: 1px solid rgba(8, 35, 63, 0.1);
+  border-radius: 999px;
+  background: var(--color-congreso-gold-50);
+  color: var(--color-congreso-gold-700);
+  padding: 0.3rem 0.58rem 0.3rem 0.36rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.c2026-speaker-carousel__flag {
+  width: 1.26rem;
+  height: 0.92rem;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(8, 35, 63, 0.08);
+}
+
+.c2026-speaker-carousel__position {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.c2026-speaker-carousel__name {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: clamp(2rem, 3.25vw, 3rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.c2026-speaker-carousel__role {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: clamp(1rem, 1.25vw, 1.08rem);
+  font-weight: 850;
+  line-height: 1.42;
+}
+
+.c2026-speaker-carousel__meta,
+.c2026-speaker-carousel__bio {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.68;
+}
+
+.c2026-speaker-carousel__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.c2026-speaker-carousel__link {
+  color: var(--color-capellania-navy);
+  font-size: 0.9rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.c2026-speaker-carousel__link:hover {
+  color: var(--color-congreso-gold-700);
+}
+
+.c2026-speaker-carousel__more {
+  width: fit-content;
+  margin-top: var(--space-2);
+}
+
+.c2026-speaker-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.c2026-speaker-carousel__arrow {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-capellania-navy);
+  font-size: 1.15rem;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(8, 35, 63, 0.07);
+  cursor: pointer;
+  transition:
+    border-color 220ms var(--ease-out-ui),
+    transform 180ms var(--ease-out-ui),
+    color 220ms var(--ease-out-ui);
+}
+
+.c2026-speaker-carousel__arrow:hover {
+  border-color: rgba(180, 138, 60, 0.36);
+  color: var(--color-congreso-gold-700);
+  transform: translateY(-2px);
+}
+
+.c2026-speaker-carousel__arrow:focus-visible,
+.c2026-speaker-carousel__dot:focus-visible,
+.c2026-speaker-modal__close:focus-visible {
+  outline: 2px solid rgba(180, 138, 60, 0.58);
+  outline-offset: 3px;
+}
+
+.c2026-speaker-carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.c2026-speaker-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(8, 35, 63, 0.22);
+  cursor: pointer;
+  transition:
+    background-color 220ms var(--ease-out-ui),
+    transform 220ms var(--ease-out-ui),
+    width 220ms var(--ease-out-ui);
+}
+
+.c2026-speaker-carousel__dot.is-active {
+  width: 28px;
+  background: var(--color-congreso-gold);
+}
+
+.c2026-speaker-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 18, 31, 0.58);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: var(--space-5);
+}
+
+.c2026-speaker-modal[hidden] {
+  display: none;
+}
+
+.c2026-speaker-modal__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.58fr);
+  width: min(100%, 980px);
+  max-height: min(86vh, 760px);
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: calc(var(--radius-lg) + 10px);
+  background: var(--color-surface);
+  box-shadow: 0 38px 96px rgba(0, 0, 0, 0.32);
+}
+
+.c2026-speaker-modal__media {
+  min-height: 100%;
+  background: var(--color-capellania-navy-50);
+}
+
+.c2026-speaker-modal__media img,
+.c2026-speaker-modal__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.c2026-speaker-modal__placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--color-capellania-navy), var(--color-capellania-navy-700));
+  color: var(--color-surface);
+}
+
+.c2026-speaker-modal__body {
+  display: grid;
+  gap: var(--space-4);
+  padding: clamp(var(--space-6), 4vw, var(--space-10));
+}
+
+.c2026-speaker-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-capellania-navy);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.c2026-speaker-modal__title {
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.c2026-speaker-modal__role,
+.c2026-speaker-modal__meta,
+.c2026-speaker-modal__text {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.68;
+}
+
+.c2026-speaker-modal__role {
+  color: var(--color-capellania-navy);
+  font-weight: 850;
+}
+
+.c2026-speaker-modal__section {
+  display: grid;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.c2026-speaker-modal__section h4 {
+  margin: 0;
+  color: var(--color-congreso-gold-700);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.c2026-speaker-modal__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.c2026-speaker-modal__link {
+  color: var(--color-capellania-navy);
+  font-weight: 850;
+}
+
+body.c2026-speaker-modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .c2026-speaker-carousel__header,
+  .c2026-speaker-carousel__viewport,
+  .c2026-speaker-modal__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .c2026-speaker-carousel__card {
+    margin-top: calc(var(--space-8) * -1);
+    margin-left: var(--space-5);
+    margin-right: var(--space-5);
+  }
+
+  .c2026-speaker-carousel__media,
+  .c2026-speaker-carousel__image,
+  .c2026-speaker-carousel__placeholder {
+    min-height: 420px;
+  }
+
+  .c2026-speaker-modal__media img,
+  .c2026-speaker-modal__placeholder {
+    min-height: 320px;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .c2026-speaker-carousel {
+    margin-top: var(--space-8);
+  }
+
+  .c2026-speaker-carousel__header {
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .c2026-speaker-carousel__viewport {
+    min-height: 0;
+    padding: var(--space-4);
+  }
+
+  .c2026-speaker-carousel__media,
+  .c2026-speaker-carousel__image,
+  .c2026-speaker-carousel__placeholder {
+    min-height: 320px;
+  }
+
+  .c2026-speaker-carousel__card {
+    gap: var(--space-3);
+    margin: calc(var(--space-6) * -1) var(--space-2) 0;
+    padding: var(--space-5);
+  }
+
+  .c2026-speaker-carousel__card-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .c2026-speaker-carousel__more {
+    width: 100%;
+  }
+
+  .c2026-speaker-carousel__controls {
+    gap: var(--space-3);
+  }
+
+  .c2026-speaker-modal {
+    padding: var(--space-3);
+    align-items: center;
+  }
+
+  .c2026-speaker-modal__panel {
+    display: flex;
+    width: min(100%, 640px);
+    max-height: 90svh;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .c2026-speaker-modal__media {
+    flex: 0 0 auto;
+    min-height: 0;
+    background: var(--color-capellania-navy-50);
+  }
+
+  .c2026-speaker-modal__media img,
+  .c2026-speaker-modal__placeholder {
+    display: block;
+    width: 100%;
+    height: clamp(240px, 48svh, 340px);
+    min-height: 0;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .c2026-speaker-modal__body {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    background: var(--color-surface);
+    padding: var(--space-5);
+  }
+
+  .c2026-speaker-modal__close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    z-index: 3;
+  }
 }
 
 .pricing-table {
