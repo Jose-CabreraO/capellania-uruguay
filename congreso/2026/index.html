@@ -564,6 +564,7 @@
         var speakers = [
           {
             id: "thilo-stadelmann",
+            isPublished: true,
             name: "Thilo Stadelmann",
             role: "Catedr\u00e1tico de Inteligencia Artificial y Aprendizaje Autom\u00e1tico",
             organization: "ZHAW School of Engineering",
@@ -581,6 +582,7 @@
           },
           {
             id: "carlos-fernandez-valdovinos",
+            isPublished: true,
             name: "Carlos F. Valdovinos",
             role: "Doctor (Ph.D.) en Econom\u00eda",
             organization: "University of Chicago",
@@ -598,6 +600,7 @@
           },
           {
             id: "wilmer-wiebe",
+            isPublished: false,
             name: "Wilmer Wiebe",
             role: "",
             organization: "",
@@ -615,6 +618,7 @@
           },
           {
             id: "ronald-reimer",
+            isPublished: false,
             name: "Ronald Reimer",
             role: "",
             organization: "",
@@ -632,6 +636,7 @@
           },
           {
             id: "sebastian-quast",
+            isPublished: false,
             name: "Sebastian Quast",
             role: "",
             organization: "",
@@ -649,6 +654,7 @@
           },
           {
             id: "antonio-torres",
+            isPublished: false,
             name: "Antonio Torres",
             role: "",
             organization: "",
@@ -665,6 +671,10 @@
             websiteUrl: ""
           }
         ];
+        var publishedSpeakers = speakers.filter(function (speaker) {
+          return speaker.isPublished;
+        });
+        if (!publishedSpeakers.length) publishedSpeakers = speakers;
 
         var media = document.querySelector("[data-c2026-speaker-media]");
         var card = document.querySelector("[data-c2026-speaker-card]");
@@ -770,8 +780,8 @@
         }
 
         function renderSpeaker(index) {
-          currentIndex = (index + speakers.length) % speakers.length;
-          var speaker = speakers[currentIndex];
+          currentIndex = (index + publishedSpeakers.length) % publishedSpeakers.length;
+          var speaker = publishedSpeakers[currentIndex];
 
           if (!reduceMotion) {
             card.classList.add("is-changing");
@@ -779,7 +789,7 @@
 
           buildMedia(speaker, media, false);
           buildCountryBadge(speaker);
-          position.textContent = String(currentIndex + 1).padStart(2, "0") + " / " + String(speakers.length).padStart(2, "0");
+          position.textContent = String(currentIndex + 1).padStart(2, "0") + " / " + String(publishedSpeakers.length).padStart(2, "0");
           name.textContent = speaker.name;
           setOptionalText(role, speaker.role);
           setOptionalText(meta, [speaker.organization, speaker.location].filter(Boolean).join(" - "));
@@ -802,7 +812,7 @@
         }
 
         function createDots() {
-          speakers.forEach(function (speaker, index) {
+          publishedSpeakers.forEach(function (speaker, index) {
             var dot = document.createElement("button");
             dot.className = "c2026-speaker-carousel__dot";
             dot.type = "button";
@@ -848,7 +858,7 @@
         }
 
         function openModal() {
-          var speaker = speakers[currentIndex];
+          var speaker = publishedSpeakers[currentIndex];
           lastFocused = document.activeElement;
           buildMedia(speaker, modalMedia, true);
           modalBody.innerHTML = "";
