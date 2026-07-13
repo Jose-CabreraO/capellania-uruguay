@@ -4,8 +4,10 @@
   "description": "Capellanía Empresarial website",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "node scripts/build-static.js"
+  },
   "dependencies": {
-    "@vercel/speed-insights": "^1.1.0",
     "flag-icons": "^7.5.0",
     "resend": "^6.12.4"
   }
