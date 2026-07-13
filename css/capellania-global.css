@@ -2318,6 +2318,17 @@ button {
   gap: var(--space-3);
 }
 
+.c2026-program__layout > .c2026-program__topics,
+.c2026-program__layout > .c2026-speaker-carousel {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.c2026-program__layout > .c2026-speaker-carousel {
+  width: 100%;
+  max-width: 100%;
+}
+
 .c2026-topic {
   overflow: hidden;
   border: 1px solid var(--c2026-border);
