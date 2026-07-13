@@ -11,16 +11,12 @@ const entries = [
   "index.html",
   "sobre-nosotros.html",
   "robots.txt",
-  "_redirects",
   "assets",
   "css",
   "images",
   "congreso",
+  "sobre-nosotros",
 ];
-
-const ignoredRelativePaths = new Set([
-  path.normalize("congreso/2026"),
-]);
 
 async function copyEntry(entry) {
   const source = path.join(root, entry);
@@ -31,10 +27,6 @@ async function copyEntry(entry) {
   await cp(source, target, {
     recursive: true,
     force: true,
-    filter: (sourcePath) => {
-      const relativePath = path.normalize(path.relative(root, sourcePath));
-      return !ignoredRelativePaths.has(relativePath);
-    },
   });
 }
 
