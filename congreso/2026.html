@@ -627,6 +627,7 @@
             countryName: "Paraguay",
             flagUrl: "/assets/icons/flags/py.svg",
             image: "/assets/images/congreso/disertantes/ronald-reimer.webp",
+            carouselImage: "/assets/images/congreso/disertantes/ronald-reimer-carousel.webp",
             shortBio: "Economista y productor agropecuario con amplia trayectoria en liderazgo cooperativo, desarrollo responsable de proyectos e innovaci\u00f3n en el sector productivo.",
             fullBio: "Ronald Reimer Hiebert naci\u00f3 el 15 de julio de 1978 y reside con su familia en la aldea Schoenfeld. Est\u00e1 casado con Graciela Neufeld y es padre de cuatro hijos.\n\nEs Licenciado en Econom\u00eda por la Universidad Nacional. Realiz\u00f3 una pasant\u00eda profesional de seis meses en el Banco Central del Paraguay y particip\u00f3 en cursos y congresos desarrollados en Europa, Sud\u00e1frica y Sudam\u00e9rica.\n\nCuenta con 21 a\u00f1os de experiencia en la Cooperativa Chortitzer Ltda. Durante casi 12 a\u00f1os trabaj\u00f3 en las \u00e1reas de cr\u00e9dito, ahorro y cuentas, y ejerci\u00f3 por aproximadamente nueve a\u00f1os como gerente de dicho departamento.\n\nPosteriormente integr\u00f3 durante cuatro a\u00f1os la Junta de Vigilancia de la CCH y ACCHK. Actualmente cumple su sexto a\u00f1o como presidente de la Asociaci\u00f3n Civil Chortitzer Komitee y de la Cooperativa Chortitzer Ltda.\n\nTambi\u00e9n integra el Consejo de Administraci\u00f3n de Acomepa, luego de haber formado parte de su Junta de Vigilancia. Desde hace dos a\u00f1os es miembro del Consejo de Administraci\u00f3n de Fecoprod.\n\nComo economista y productor agropecuario, promueve el trabajo en equipo, la innovaci\u00f3n y el desarrollo responsable de nuevos proyectos.",
             talkTitle: "",
@@ -733,7 +734,7 @@
           if (speaker.image) {
             var image = document.createElement("img");
             image.className = modalMode ? "c2026-speaker-modal__image" : "c2026-speaker-carousel__image";
-            image.src = speaker.image;
+            image.src = !modalMode && speaker.carouselImage ? speaker.carouselImage : speaker.image;
             image.alt = "Retrato de " + speaker.name;
             image.loading = modalMode ? "eager" : "lazy";
             image.addEventListener("error", function () {
