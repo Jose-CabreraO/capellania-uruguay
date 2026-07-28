@@ -2579,7 +2579,8 @@ button {
 
 .c2026-speaker-carousel__media {
   position: relative;
-  min-height: 440px;
+  height: clamp(360px, 42vw, 500px);
+  min-height: 0;
   border-radius: calc(var(--radius-lg) + 8px);
   background:
     linear-gradient(135deg, rgba(8, 35, 63, 0.08), rgba(180, 138, 60, 0.12)),
@@ -2588,9 +2589,10 @@ button {
 }
 
 .c2026-speaker-carousel__image {
+  display: block;
   width: 100%;
   height: 100%;
-  min-height: 440px;
+  min-height: 0;
   object-fit: cover;
   object-position: center;
   transform: scale(1.01);
@@ -2598,7 +2600,8 @@ button {
 
 .c2026-speaker-carousel__placeholder {
   display: grid;
-  min-height: 440px;
+  height: 100%;
+  min-height: 0;
   place-items: center;
   background:
     radial-gradient(circle at 18% 16%, rgba(180, 138, 60, 0.2), transparent 28%),
@@ -2952,7 +2955,8 @@ body.c2026-speaker-modal-open {
   .c2026-speaker-carousel__media,
   .c2026-speaker-carousel__image,
   .c2026-speaker-carousel__placeholder {
-    min-height: 420px;
+    height: 420px;
+    min-height: 0;
   }
 
   .c2026-speaker-modal__media img,
@@ -2980,7 +2984,8 @@ body.c2026-speaker-modal-open {
   .c2026-speaker-carousel__media,
   .c2026-speaker-carousel__image,
   .c2026-speaker-carousel__placeholder {
-    min-height: 320px;
+    height: clamp(300px, 72vw, 360px);
+    min-height: 0;
   }
 
   .c2026-speaker-carousel__card {
