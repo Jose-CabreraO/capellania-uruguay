@@ -97,7 +97,7 @@
 
               <form
                 class="registration-form"
-                action="https://script.google.com/macros/s/AKfycbyOjpmYaxXQaTBZrN9v1d5jYBmbjss5gTrUguODONaMHkKJuFqQiThkNRs1Rquw6Qcp/exec"
+                action="/api/registro"
                 method="POST"
                 data-registration-form
               >
@@ -106,6 +106,13 @@
                 <input type="hidden" name="estado" value="preinscripcion_recibida">
                 <input type="hidden" name="comprobante_estado" value="pendiente">
                 <input type="hidden" name="observaciones" value="">
+                <input type="hidden" name="form_started_at" value="">
+                <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;">
+                  <label>
+                    Sitio web de empresa
+                    <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+                  </label>
+                </div>
                 <fieldset class="form-step">
                   <legend>
                     <span>01</span>
@@ -375,10 +382,15 @@
         var parejaSection = document.getElementById('seccion-acompaniante');
         var facturaSection = document.getElementById('seccion-facturacion');
         var defaultButtonText = submitButton ? submitButton.textContent : '';
+        var startedAtInput = form ? form.querySelector('input[name="form_started_at"]') : null;
         var isSubmitting = false;
 
-        if (!form || !submitButton || !statusBox || !parejaSection || !facturaSection) {
+        if (!form || !submitButton || !statusBox || !parejaSection || !facturaSection || !startedAtInput) {
           return;
+        }
+
+        function setFormStartedAt() {
+          startedAtInput.value = String(Date.now());
         }
 
         function clearControl(control) {
@@ -494,7 +506,9 @@
             'direccion_facturacion',
             'ayuda_hospedaje',
             'comprobante_estado',
-            'observaciones'
+            'observaciones',
+            'company_website',
+            'form_started_at'
           ];
 
           payload.set('fecha_hora', new Date().toISOString());
@@ -565,6 +579,7 @@
               }
 
               form.reset();
+              setFormStartedAt();
               manejarCambioPase();
               manejarCambioFactura();
               updateOtherDetail('titular');
@@ -598,6 +613,7 @@
         manejarCambioFactura();
         updateOtherDetail('titular');
         updateOtherDetail('pareja');
+        setFormStartedAt();
         updateSubmitState();
       }());
     </script>
