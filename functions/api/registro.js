@@ -128,7 +128,7 @@ async function handlePost({ request, env }) {
     const spamRisk = assessSpamRisk(raw, request, env);
 
     if (spamRisk.isSpam) {
-      return neutralSuccess();
+      return json({ ok: false, error: "spam_filter" }, 400);
     }
 
     const validation = validatePayload(raw);
@@ -149,15 +149,18 @@ async function handlePost({ request, env }) {
     const response = await forwardToGoogleAppsScript(destination, payload);
     const result = await parseAppsScriptResponse(response);
 
-    if (!response.ok || !result || result.ok !== true) {
+    if (!response.ok || !result || result.ok !== true || !result.registro_id) {
       console.error("Google Apps Script no confirmo el registro.", {
         status: response.status,
         result,
       });
-      return json({ ok: false, error: "No se pudo confirmar el registro" }, 502);
+      return json({
+        ok: false,
+        error: result && result.error ? result.error : "upstream_not_confirmed",
+      }, 502);
     }
 
-    return json({ ok: true });
+    return json({ ok: true, registro_id: result.registro_id });
   } catch (error) {
     console.error("Error procesando registro:", error && error.message ? error.message : error);
     return json({ ok: false, error: "Error interno al procesar el registro" }, 500);
