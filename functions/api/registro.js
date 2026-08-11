@@ -1,5 +1,5 @@
 const GOOGLE_APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyOjpmYaxXQaTBZrN9v1d5jYBmbjss5gTrUguODONaMHkKJuFqQiThkNRs1Rquw6Qcp/exec";
+  "https://script.google.com/macros/s/AKfycbz9l3eyWeWCgD2dTGL3H0lX081paXCMkF0GhZvoz-1-wAPKVs5CW2ZH45acBAdpHzUn/exec";
 
 const MAX_BODY_BYTES = 24 * 1024;
 const MIN_FILL_TIME_MS = 2200;
@@ -136,19 +136,8 @@ async function handlePost({ request, env }) {
       return json({ ok: false, error: validation.error, stage: "validation" }, 200);
     }
 
-    const sharedSecret = env.REGISTRO_SHARED_SECRET;
-    if (!sharedSecret) {
-      console.error("REGISTRO_SHARED_SECRET no esta configurado.");
-      return json({
-        ok: false,
-        error: "missing_cloudflare_secret",
-        stage: "cloudflare_secret",
-      }, 200);
-    }
-
     const destination = env.REGISTRO_GOOGLE_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL;
     const payload = buildForwardPayload(raw);
-    payload.set("registro_shared_secret", sharedSecret);
 
     const response = await forwardToGoogleAppsScript(destination, payload);
     const result = await parseAppsScriptResponse(response);
