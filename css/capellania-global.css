@@ -2784,6 +2784,7 @@ button {
 
 .c2026-speaker-carousel__arrow:focus-visible,
 .c2026-speaker-carousel__dot:focus-visible,
+.c2026-speaker-carousel__roster-item:focus-visible,
 .c2026-speaker-modal__close:focus-visible {
   outline: 2px solid rgba(180, 138, 60, 0.58);
   outline-offset: 3px;
@@ -2813,6 +2814,49 @@ button {
 .c2026-speaker-carousel__dot.is-active {
   width: 28px;
   background: var(--color-congreso-gold);
+}
+
+.c2026-speaker-carousel__roster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: var(--space-4);
+}
+
+.c2026-speaker-carousel__roster-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0.58rem 0.88rem;
+  border: 1px solid rgba(8, 35, 63, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(8, 35, 63, 0.06);
+  transition:
+    border-color 220ms var(--ease-out-ui),
+    color 220ms var(--ease-out-ui),
+    background 220ms var(--ease-out-ui),
+    transform 220ms var(--ease-out-ui);
+}
+
+.c2026-speaker-carousel__roster-item:hover,
+.c2026-speaker-carousel__roster-item.is-active {
+  border-color: rgba(180, 138, 60, 0.42);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--color-capellania-navy);
+  transform: translateY(-1px);
+}
+
+.c2026-speaker-carousel__roster-item.is-active {
+  box-shadow: 0 0 0 1px rgba(180, 138, 60, 0.16), 0 14px 36px rgba(8, 35, 63, 0.08);
 }
 
 .c2026-speaker-modal {
@@ -3006,6 +3050,22 @@ body.c2026-speaker-modal-open {
 
   .c2026-speaker-carousel__controls {
     gap: var(--space-3);
+  }
+
+  .c2026-speaker-carousel__roster {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: var(--space-3);
+    overflow-x: auto;
+    padding: 0 0.15rem 0.35rem;
+    scroll-padding-inline: var(--space-4);
+  }
+
+  .c2026-speaker-carousel__roster-item {
+    flex: 0 0 auto;
+    min-height: 2.15rem;
+    padding: 0.5rem 0.72rem;
+    font-size: 0.72rem;
   }
 
   .c2026-speaker-modal {
