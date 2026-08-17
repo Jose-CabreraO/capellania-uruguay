@@ -321,7 +321,6 @@
                   <span aria-hidden="true">&rarr;</span>
                 </button>
               </div>
-              <div class="c2026-speaker-carousel__roster" data-c2026-speaker-roster aria-label="Listado de disertantes"></div>
             </section>
             </div>
           </div>
@@ -601,17 +600,18 @@
           },
           {
             id: "wilmer-wiebe",
-            isPublished: false,
-            name: "Wilmer Wiebe",
-            role: "",
-            organization: "",
-            location: "Paraguay",
+            isPublished: true,
+            name: "Wilmer Wiebe Toews",
+            role: "Pastor-Presidente",
+            organization: "Iglesia MG Emanuel de Loma Plata",
+            location: "Loma Plata, Boquer\u00f3n, Paraguay",
             countryCode: "PY",
             countryName: "Paraguay",
             flagUrl: "/assets/icons/flags/py.svg",
-            image: "",
-            shortBio: "",
-            fullBio: "",
+            image: "/assets/images/congreso/disertantes/wilmer-wiebe.webp",
+            carouselImage: "/assets/images/congreso/disertantes/wilmer-wiebe-carousel.webp",
+            shortBio: "Pastor, educador y l\u00edder cristiano con trayectoria en docencia, gesti\u00f3n educativa, formaci\u00f3n b\u00edblica y servicio congregacional.",
+            fullBio: "Wilmer Wiebe Toews naci\u00f3 el 30 de agosto de 1976 en la Colonia Menno y reside en Loma Plata, Boquer\u00f3n. Est\u00e1 casado con Marion Epp desde hace 25 a\u00f1os y tienen dos hijas.\n\nEs Licenciado en Ciencias, con especializaci\u00f3n en Biolog\u00eda, por la Universidad Nacional de Asunci\u00f3n.\n\nDurante 22 a\u00f1os se desempe\u00f1\u00f3 en el \u00e1mbito educativo como docente del Colegio Secundario Loma Plata y del Centro de Formaci\u00f3n Profesional. Tambi\u00e9n fue gerente del Departamento de Educaci\u00f3n de la ASCIM.\n\nComplement\u00f3 su formaci\u00f3n con estudios de Homil\u00e9tica y Hermen\u00e9utica en el seminario de teolog\u00eda de Loma Plata.\n\nActualmente ejerce como Pastor-Presidente de la Iglesia MG Emanuel de Loma Plata, congregaci\u00f3n que cuenta con m\u00e1s de 700 miembros.\n\nDesde su ministerio promueve la ense\u00f1anza de la Palabra de Dios y el mensaje de salvaci\u00f3n, reflejando una trayectoria marcada por la educaci\u00f3n, el liderazgo y el servicio cristiano.",
             talkTitle: "",
             talkDescription: "",
             linkedinUrl: "",
@@ -710,7 +710,6 @@
         var prev = document.querySelector("[data-c2026-speaker-prev]");
         var next = document.querySelector("[data-c2026-speaker-next]");
         var dots = document.querySelector("[data-c2026-speaker-dots]");
-        var roster = document.querySelector("[data-c2026-speaker-roster]");
         var currentIndex = 0;
         var lastFocused = null;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -825,11 +824,6 @@
             dot.classList.toggle("is-active", isActive);
             dot.setAttribute("aria-selected", isActive ? "true" : "false");
           });
-          Array.prototype.forEach.call(roster.children, function (item, itemIndex) {
-            var isActive = itemIndex === currentIndex;
-            item.classList.toggle("is-active", isActive);
-            item.setAttribute("aria-current", isActive ? "true" : "false");
-          });
 
           if (!reduceMotion) {
             window.setTimeout(function () {
@@ -849,15 +843,6 @@
               renderSpeaker(index);
             });
             dots.appendChild(dot);
-
-            var rosterItem = document.createElement("button");
-            rosterItem.className = "c2026-speaker-carousel__roster-item";
-            rosterItem.type = "button";
-            rosterItem.textContent = speaker.name;
-            rosterItem.addEventListener("click", function () {
-              renderSpeaker(index);
-            });
-            roster.appendChild(rosterItem);
           });
         }
 
