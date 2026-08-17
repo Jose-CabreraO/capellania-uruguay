@@ -101,7 +101,7 @@ const FRAUD_RE = /\b(transaction|top\s*up|balance|wallet|bitcoin|crypto|usdt|air
 
 export async function onRequest(context) {
   if (context.request.method !== "POST") {
-    return json({ ok: false, error: "method_not_allowed", stage: "request_method" }, 200);
+    return json({ ok: false, error: "method_not_allowed" }, 405);
   }
 
   return handlePost(context);
@@ -111,29 +111,29 @@ async function handlePost({ request, env }) {
   try {
     const contentType = request.headers.get("content-type") || "";
     if (!contentType.toLowerCase().includes("application/x-www-form-urlencoded")) {
-      return json({ ok: false, error: "invalid_content_type", stage: "content_type" }, 200);
+      return json({ ok: false, error: "invalid_content_type" }, 415);
     }
 
     const contentLength = Number(request.headers.get("content-length") || "0");
     if (contentLength > MAX_BODY_BYTES) {
-      return json({ ok: false, error: "request_too_large", stage: "request_size" }, 200);
+      return json({ ok: false, error: "request_too_large" }, 413);
     }
 
     const body = await request.text();
     if (new TextEncoder().encode(body).length > MAX_BODY_BYTES) {
-      return json({ ok: false, error: "request_too_large", stage: "request_size" }, 200);
+      return json({ ok: false, error: "request_too_large" }, 413);
     }
 
     const raw = new URLSearchParams(body);
     const spamRisk = assessSpamRisk(raw, request, env);
 
     if (spamRisk.isSpam) {
-      return json({ ok: false, error: "spam_filter", stage: "spam_filter" }, 200);
+      return neutralSuccess();
     }
 
     const validation = validatePayload(raw);
     if (!validation.ok) {
-      return json({ ok: false, error: validation.error, stage: "validation" }, 200);
+      return json({ ok: false, error: validation.error }, 400);
     }
 
     const destination = env.REGISTRO_GOOGLE_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL;
@@ -145,26 +145,18 @@ async function handlePost({ request, env }) {
     if (!response.ok || !result || result.ok !== true || !result.registro_id) {
       console.error("Google Apps Script no confirmo el registro.", {
         status: response.status,
-        result,
+        upstreamError: result && result.error ? result.error : "upstream_not_confirmed",
       });
-      return json({
-        ok: false,
-        error: result && result.error ? result.error : "upstream_not_confirmed",
-        stage: "google_apps_script",
-        upstream_status: response.status,
-        upstream_json: Boolean(result),
-      }, 200);
+      return json(
+        { ok: false, error: result && result.error ? result.error : "upstream_not_confirmed" },
+        502
+      );
     }
 
     return json({ ok: true, registro_id: result.registro_id }, 200);
   } catch (error) {
     console.error("Error procesando registro:", error && error.message ? error.message : error);
-    return json({
-      ok: false,
-      error: "worker_exception",
-      stage: "cloudflare_function",
-      detail: error && error.name ? error.name : "Error",
-    }, 200);
+    return json({ ok: false, error: "worker_exception" }, 500);
   }
 }
 
