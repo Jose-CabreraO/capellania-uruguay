@@ -321,6 +321,7 @@
                   <span aria-hidden="true">&rarr;</span>
                 </button>
               </div>
+              <div class="c2026-speaker-carousel__roster" data-c2026-speaker-roster aria-label="Listado de disertantes"></div>
             </section>
             </div>
           </div>
@@ -654,6 +655,25 @@
             websiteUrl: ""
           },
           {
+            id: "jacob-hildebrand",
+            isPublished: true,
+            name: "Jacob Hildebrand",
+            role: "Pastor Presidente",
+            organization: "Iglesia Menonita Volendam",
+            location: "Volendam, Paraguay",
+            countryCode: "PY",
+            countryName: "Paraguay",
+            flagUrl: "/assets/icons/flags/py.svg",
+            image: "/assets/images/congreso/disertantes/jacob-hildebrand.webp",
+            carouselImage: "/assets/images/congreso/disertantes/jacob-hildebrand-carousel.webp",
+            shortBio: "Pastor, consejero y comunicador cristiano con trayectoria en ministerio misionero, mediaci\u00f3n, acompa\u00f1amiento social y orientaci\u00f3n espiritual.",
+            fullBio: "Jacob Hildebrand naci\u00f3 el 12 de marzo de 1969. Est\u00e1 casado con Judith Hildebrand y juntos tienen dos hijos, un hijo y una hija, actualmente casada.\n\nRealiz\u00f3 sus estudios b\u00e1sicos y en 1998 culmin\u00f3 el Diplomado en Teolog\u00eda en CEMTA, Centro Evang\u00e9lico Menonita de Asunci\u00f3n.\n\nDesde 1999 hasta finales de 2022 se desempe\u00f1\u00f3 como pastor misionero, desarrollando tambi\u00e9n una activa labor en el \u00e1rea social, la mediaci\u00f3n y la consejer\u00eda.\n\nEn el a\u00f1o 2023 asumi\u00f3 como Pastor Presidente de la Iglesia Menonita Volendam, responsabilidad que ejerce hasta la actualidad.\n\nAdem\u00e1s, dirige un programa radial en FM Volendam 100.7, desde donde contin\u00faa compartiendo mensajes y orientaci\u00f3n de contenido cristiano.",
+            talkTitle: "",
+            talkDescription: "",
+            linkedinUrl: "",
+            websiteUrl: ""
+          },
+          {
             id: "antonio-torres",
             isPublished: false,
             name: "Antonio Torres",
@@ -690,6 +710,7 @@
         var prev = document.querySelector("[data-c2026-speaker-prev]");
         var next = document.querySelector("[data-c2026-speaker-next]");
         var dots = document.querySelector("[data-c2026-speaker-dots]");
+        var roster = document.querySelector("[data-c2026-speaker-roster]");
         var currentIndex = 0;
         var lastFocused = null;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -804,6 +825,11 @@
             dot.classList.toggle("is-active", isActive);
             dot.setAttribute("aria-selected", isActive ? "true" : "false");
           });
+          Array.prototype.forEach.call(roster.children, function (item, itemIndex) {
+            var isActive = itemIndex === currentIndex;
+            item.classList.toggle("is-active", isActive);
+            item.setAttribute("aria-current", isActive ? "true" : "false");
+          });
 
           if (!reduceMotion) {
             window.setTimeout(function () {
@@ -823,6 +849,15 @@
               renderSpeaker(index);
             });
             dots.appendChild(dot);
+
+            var rosterItem = document.createElement("button");
+            rosterItem.className = "c2026-speaker-carousel__roster-item";
+            rosterItem.type = "button";
+            rosterItem.textContent = speaker.name;
+            rosterItem.addEventListener("click", function () {
+              renderSpeaker(index);
+            });
+            roster.appendChild(rosterItem);
           });
         }
 
