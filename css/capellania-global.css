@@ -4908,3 +4908,83 @@ body.c2026-speaker-modal-open {
     text-align: left;
   }
 }
+
+/* Uruguay home: scoped adaptations; inherited pages retain their existing styles. */
+.uy-home .uy-skip { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 20px; background: white; color: #08233f; transform: translateY(-160%); }
+.uy-home .uy-skip:focus { transform: translateY(0); }
+.uy-home .uy-brand { display: flex; align-items: center; gap: 18px; }
+.uy-home .uy-brand__country { border-left: 1px solid currentColor; padding-left: 18px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.uy-home .header .brand__logo--capellania { width: 155px; height: auto; max-height: none; }
+.uy-home .home-hero { min-height: 620px; }
+.uy-home .uy-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 70px; align-items: end; padding-block: 80px; }
+.uy-home .home-hero__title { font-size: clamp(3rem, 5.3vw, 5rem); line-height: 1.06; letter-spacing: -.045em; }
+.uy-home .home-hero__title span { display: block; color: #e3c88c; }
+.uy-home .uy-hero-pending { max-width: 430px; font-size: 1rem; }
+.uy-home .uy-hero-note { border-top: 2px solid #caa461; padding-top: 22px; color: #fff; margin-bottom: 8px; }
+.uy-home .uy-note-label { font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; color: #e3c88c; }
+.uy-home .uy-hero-note p { font-size: 1.35rem; line-height: 1.4; margin: 14px 0; }
+.uy-home .uy-hero-note > span:last-child { font-size: .85rem; line-height: 1.6; color: #e0e6ec; }
+.uy-home .uy-photo-note { position: absolute; bottom: 10px; right: 24px; left: 24px; margin: 0; text-align: right; color: #fff; font-size: .68rem; }
+.uy-home section[id] { scroll-margin-top: 100px; }
+.uy-home .uy-pending { color: #5f6b78; line-height: 1.7; max-width: 52ch; }
+.uy-home .uy-editor-note { font-size: .88rem; color: #5f6b78; line-height: 1.65; max-width: 60ch; }
+.uy-home .uy-small-title { margin: 0; font-size: 1.15rem; color: #08233f; }
+.uy-home .uy-purpose-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 52px; }
+.uy-home .uy-purpose-heading h3 { margin: 0; font-size: 1.35rem; }
+.uy-home .about-summary__identity { margin-top: 24px; }
+.uy-home .identity-card__eyebrow { margin-top: 0; }
+.uy-home .uy-status { display: inline-block; color: #6d5528; background: #fbf6ea; border: 1px solid #e8d9b8; padding: 4px 9px; border-radius: 4px; font-size: .72rem; font-weight: 600; }
+.uy-home .service-card .card__title { margin-top: 22px; }
+.uy-home .services-bento { grid-auto-rows: minmax(180px, auto); margin-top: 32px; }
+.uy-home .service-card { min-width: 0; min-height: 220px; cursor: default; transition: none; }
+.uy-home .service-card--featured { min-height: 460px; }
+.uy-home .service-card--wide { min-height: 200px; }
+.uy-home .service-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-soft); transform: none; }
+.uy-home .uy-contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.uy-home .uy-contact-details > div { padding: 20px 0; border-bottom: 1px solid #dbe2ea; }
+.uy-home .uy-contact-details > div:first-child { padding-top: 0; }
+.uy-home .uy-contact-details h3 { margin: 0 0 6px; font-size: 1rem; }
+.uy-home .uy-contact-details p { margin: 0; color: #5f6b78; font-size: .9rem; }
+.uy-home .uy-footer-layout { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.uy-home .uy-footer-layout p { font-size: .85rem; margin: 0; }
+.uy-home .uy-footer-layout p span { display: inline-block; margin-top: 6px; color: #c5ced8; font-size: .75rem; }
+.uy-home .uy-back-top { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; font-size: .85rem; }
+.uy-home .btn { min-height: 48px; }
+.uy-home .nav__link { min-height: 44px; display: inline-flex; align-items: center; }
+.uy-home .btn { transition: transform 160ms var(--ease-out-ui), background-color 180ms ease, box-shadow 180ms var(--ease-out-ui), opacity 160ms ease; }
+.uy-home .nav { transition-duration: 200ms; }
+@media (hover: none) { .uy-home .btn:hover { transform: none; } }
+@media (max-width: 1024px) {
+  .uy-home .uy-hero-layout { grid-template-columns: minmax(0, 1fr) 230px; gap: 35px; }
+  .uy-home .uy-contact-layout { gap: 40px; }
+  .uy-home .uy-footer-layout { flex-wrap: wrap; }
+}
+@media (max-width: 768px) {
+  .uy-home .uy-hero-layout { grid-template-columns: 1fr; gap: 36px; padding-block: 60px; }
+  .uy-home .home-hero { min-height: auto; height: auto; }
+  .uy-home .uy-hero-note { max-width: 380px; padding-top: 16px; }
+  .uy-home .uy-hero-note p { font-size: 1rem; margin: 8px 0; }
+  .uy-home .uy-contact-layout { grid-template-columns: 1fr; gap: 32px; }
+  .uy-home .uy-purpose-heading { margin-top: 36px; }
+  .uy-home .service-card,
+  .uy-home .service-card--featured,
+  .uy-home .service-card--wide { min-height: 0; padding: 24px; }
+}
+@media (max-width: 560px) {
+  .uy-home .section { padding: 48px 16px; }
+  .uy-home .home-hero { padding: 0; }
+  .uy-home .uy-hero-layout { padding-top: 48px; padding-bottom: 64px; gap: 32px; }
+  .uy-home .home-hero__title { font-size: clamp(2.35rem, 10.2vw, 3.3rem); }
+  .uy-home .home-hero__lead { font-size: .94rem; }
+  .uy-home .uy-brand { gap: 12px; }
+  .uy-home .uy-brand__country { font-size: .62rem; padding-left: 12px; }
+  .uy-home .header .brand__logo--capellania { width: 122px; }
+  .uy-home .uy-photo-note { text-align: left; left: 16px; right: 16px; }
+  .uy-home .service-card,
+  .uy-home .service-card--featured,
+  .uy-home .service-card--wide { padding: 20px; }
+  .uy-home .uy-footer-layout { align-items: flex-start; flex-direction: column; gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .uy-home *, .uy-home *::before, .uy-home *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
