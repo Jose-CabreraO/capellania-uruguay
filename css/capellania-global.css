@@ -4913,8 +4913,8 @@ body.c2026-speaker-modal-open {
 .uy-home .uy-skip { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 20px; background: white; color: #08233f; transform: translateY(-160%); }
 .uy-home .uy-skip:focus { transform: translateY(0); }
 .uy-home .uy-brand { display: flex; align-items: center; gap: 18px; }
+.uy-home .uy-brand__name { max-width: 11rem; font-size: 1.05rem; font-weight: 800; line-height: 1.05; letter-spacing: -.025em; }
 .uy-home .uy-brand__country { border-left: 1px solid currentColor; padding-left: 18px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-.uy-home .header .brand__logo--capellania { width: 155px; height: auto; max-height: none; }
 .uy-home .home-hero { min-height: 620px; }
 .uy-home .uy-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 70px; align-items: end; padding-block: 80px; }
 .uy-home .home-hero__title { font-size: clamp(3rem, 5.3vw, 5rem); line-height: 1.06; letter-spacing: -.045em; }
@@ -4989,8 +4989,8 @@ body.c2026-speaker-modal-open {
   .uy-home .home-hero__title { font-size: clamp(2.35rem, 10.2vw, 3.3rem); }
   .uy-home .home-hero__lead { font-size: .94rem; }
   .uy-home .uy-brand { gap: 12px; }
+  .uy-home .uy-brand__name { max-width: 7rem; font-size: .82rem; }
   .uy-home .uy-brand__country { font-size: .62rem; padding-left: 12px; }
-  .uy-home .header .brand__logo--capellania { width: 122px; }
   .uy-home .uy-photo-note { text-align: left; left: 16px; right: 16px; }
   .uy-home .service-card,
   .uy-home .service-card--featured,
