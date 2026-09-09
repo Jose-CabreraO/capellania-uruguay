@@ -4940,6 +4940,91 @@ body.c2026-speaker-modal-open {
 .uy-home .service-card--featured { min-height: 460px; }
 .uy-home .service-card--wide { min-height: 200px; }
 .uy-home .service-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-soft); transform: none; }
+.uy-home .uy-services-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.uy-home .uy-service-item {
+  grid-column: span 2;
+  display: flex;
+  min-width: 0;
+  min-height: 164px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  border: 1px solid rgba(8, 35, 63, .11);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 26px;
+  box-shadow: 0 14px 38px rgba(8, 35, 63, .06);
+}
+.uy-home .uy-service-item:nth-child(n+4) { grid-column: span 3; }
+.uy-home .uy-service-item__number {
+  color: var(--color-congreso-gold-700);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+.uy-home .uy-service-item h3 {
+  max-width: 17ch;
+  margin: 0;
+  color: var(--color-capellania-navy);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.uy-home .uy-benefits {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 7vw, 96px);
+  align-items: start;
+  margin-top: 72px;
+  border-radius: var(--radius-lg);
+  background: var(--color-capellania-navy);
+  padding: clamp(32px, 5vw, 64px);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-strong);
+}
+.uy-home .uy-benefits .section__eyebrow { color: var(--color-congreso-gold); }
+.uy-home .uy-benefits h3 {
+  max-width: 15ch;
+  margin: 0;
+  color: var(--color-surface);
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+.uy-home .uy-benefits__list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.uy-home .uy-benefits__list li {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, .16);
+  padding: 18px 12px 18px 34px;
+  color: rgba(255, 255, 255, .88);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  line-height: 1.45;
+}
+.uy-home .uy-benefits__list li:first-child { padding-top: 4px; }
+.uy-home .uy-benefits__list li::before {
+  content: "";
+  position: absolute;
+  top: 1.65em;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-congreso-gold);
+}
+.uy-home .uy-benefits__list li:first-child::before { top: .7em; }
 .uy-home .impact-metric--pending strong {
   font-size: clamp(1.45rem, 7cqw, 2.35rem);
   letter-spacing: -0.025em;
@@ -4970,6 +5055,10 @@ body.c2026-speaker-modal-open {
   .uy-home .uy-hero-layout { grid-template-columns: minmax(0, 1fr) 230px; gap: 35px; }
   .uy-home .uy-contact-layout { gap: 40px; }
   .uy-home .uy-footer-layout { flex-wrap: wrap; }
+  .uy-home .uy-services-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .uy-home .uy-service-item,
+  .uy-home .uy-service-item:nth-child(n+4) { grid-column: auto; }
+  .uy-home .uy-service-item:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 768px) {
   .uy-home .uy-hero-layout { grid-template-columns: 1fr; gap: 36px; padding-block: 60px; }
@@ -4978,6 +5067,7 @@ body.c2026-speaker-modal-open {
   .uy-home .uy-hero-note p { font-size: 1rem; margin: 8px 0; }
   .uy-home .uy-contact-layout { grid-template-columns: 1fr; gap: 32px; }
   .uy-home .uy-purpose-heading { margin-top: 36px; }
+  .uy-home .uy-benefits { grid-template-columns: 1fr; gap: 36px; margin-top: 48px; }
   .uy-home .service-card,
   .uy-home .service-card--featured,
   .uy-home .service-card--wide { min-height: 0; padding: 24px; }
@@ -4992,6 +5082,11 @@ body.c2026-speaker-modal-open {
   .uy-home .uy-brand__name { max-width: 7rem; font-size: .82rem; }
   .uy-home .uy-brand__country { font-size: .62rem; padding-left: 12px; }
   .uy-home .uy-photo-note { text-align: left; left: 16px; right: 16px; }
+  .uy-home .uy-services-list { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+  .uy-home .uy-service-item,
+  .uy-home .uy-service-item:last-child { grid-column: auto; min-height: 128px; padding: 20px; }
+  .uy-home .uy-benefits { margin-top: 36px; padding: 28px 22px; }
+  .uy-home .uy-benefits h3 { font-size: clamp(1.65rem, 8vw, 2.1rem); }
   .uy-home .service-card,
   .uy-home .service-card--featured,
   .uy-home .service-card--wide { padding: 20px; }
