@@ -385,7 +385,7 @@ button {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(8, 35, 63, 0.88), rgba(8, 35, 63, 0.48)),
-    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1800&q=82") center / cover;
+    url("/assets/images/hero-capellania-uruguay.webp") center / cover;
 }
 
 .home-hero__overlay {
@@ -4940,6 +4940,18 @@ body.c2026-speaker-modal-open {
 .uy-home .service-card--featured { min-height: 460px; }
 .uy-home .service-card--wide { min-height: 200px; }
 .uy-home .service-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-soft); transform: none; }
+.uy-home .impact-metric--pending strong {
+  font-size: clamp(1.45rem, 7cqw, 2.35rem);
+  letter-spacing: -0.025em;
+}
+.uy-home .impact-metric--pending span { max-width: 24ch; }
+.uy-home .uy-budget .whatsapp-cta__content .uy-status { margin-bottom: 14px; }
+.uy-home .uy-budget-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  box-shadow: none;
+  transform: none;
+}
 .uy-home .uy-contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .uy-home .uy-contact-details > div { padding: 20px 0; border-bottom: 1px solid #dbe2ea; }
 .uy-home .uy-contact-details > div:first-child { padding-top: 0; }
