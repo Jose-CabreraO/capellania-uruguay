@@ -1,36 +1,7 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/congreso/2026/inscripcion",
-      "destination": "/congreso/inscripcion",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/congreso/2026",
-      "destination": "/congreso/2026.html"
-    },
-    {
-      "source": "/congreso/inscripcion",
-      "destination": "/congreso/inscripcion.html"
-    },
-    {
-      "source": "/congreso/fotos",
-      "destination": "/congreso/fotos.html"
-    },
-    {
-      "source": "/sobre-nosotros",
-      "destination": "/sobre-nosotros.html"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/css/(.*)",

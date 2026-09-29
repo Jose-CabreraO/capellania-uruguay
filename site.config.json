@@ -1,0 +1,11 @@
+{
+  "siteUrl": "https://capellaniaempresarial-uy.org",
+  "siteUrlConfirmed": false,
+  "provisionalSiteUrls": ["https://capellaniaempresarial-uy.org"],
+  "indexable": false,
+  "trailingSlash": true,
+  "routes": {
+    "/": "index.html",
+    "/galeria/": "galeria/index.html"
+  }
+}

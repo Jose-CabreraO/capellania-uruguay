@@ -5,7 +5,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-static.js"
+    "build": "node scripts/build-static.js",
+    "build:production": "node scripts/build-static.js --production"
   },
   "dependencies": {
     "flag-icons": "^7.5.0",

@@ -1,0 +1,23 @@
+# Solo aplica si el proyecto se conecta a Vercel desde la raíz del repositorio; otros hosts lo ignoran.
+# Evita subir material heredado de Paraguay (incluidas funciones serverless de api/) y documentación interna.
+/api
+/functions
+/congreso
+/sobre-nosotros
+/sobre-nosotros.html
+/images
+/assets/images/congreso
+/assets/images/eventos
+/assets/images/institucional
+/assets/icons
+/assets/logos/capellania
+/SEO_COMPREHENSIVE_COMPARISON.md
+
+# Documentación interna y herramientas de desarrollo.
+/.agents
+/.claude
+/.codexrules
+/AGENTS.md
+/CLAUDE.md
+/skills-lock.json
+/dist
