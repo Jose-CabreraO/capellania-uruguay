@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&amp;display=swap">
-    <link rel="stylesheet" href="/css/capellania-global.css?v=uy-6">
+    <link rel="stylesheet" href="/css/capellania-global.css?v=uy-12">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,7 +78,7 @@
             <a class="nav__link" href="#inicio">Inicio</a>
             <a class="nav__link" href="#sobre-nosotros">Quiénes somos</a>
             <a class="nav__link" href="#servicios">Qué hacemos</a>
-            <a class="nav__link" href="#impacto">Impacto</a>
+            <!-- <a class="nav__link" href="#impacto">Impacto</a> -->
             <a class="nav__link" href="/galeria/">Galería</a>
             <a class="nav__link" href="#contacto">Contacto</a>
           </nav>
@@ -103,29 +103,42 @@
               <span>Generamos espacios de escucha, orientación y acompañamiento dentro del entorno laboral, contribuyendo al bienestar integral de las personas.</span>
             </aside>
           </div>
-          <p class="uy-photo-note">Imagen de referencia. No corresponde a actividades de Uruguay.</p>
         </section>
         <section class="section identity-section about-summary" id="sobre-nosotros" aria-labelledby="about-title">
           <div class="container">
-            <div class="about-summary__intro">
-              <div>
-                <h2 id="about-title" class="section__title">Quiénes somos</h2>
-                <p class="section__lead">Capellanía Empresarial Uruguay</p>
-                <p class="uy-pending">Pendiente: presentación institucional y alcance del trabajo en Uruguay.</p>
-              </div>
-              <div class="about-summary__history">
-                <h3 class="uy-small-title">Nuestra historia</h3>
-                <p class="uy-pending">Pendiente: origen y trayectoria de la organización en Uruguay.</p>
-                <p class="uy-editor-note">Este espacio se completará con información oficial.</p>
-              </div>
+            <div class="uy-about-intro">
+              <h2 id="about-title" class="section__title">Quiénes somos</h2>
+              <p class="section__lead">Capellanía Empresarial Uruguay</p>
+              <!-- Pendiente (no publicar hasta tener texto oficial): presentación institucional, alcance del trabajo en Uruguay y "Nuestra historia". -->
             </div>
-            <div class="uy-purpose-heading"><h3>Propósito institucional</h3></div>
+            <h3 class="uy-purpose-title">Propósito institucional</h3>
             <div class="identity-layout about-summary__identity">
               <div class="identity-copy">
                 <article class="identity-panel"><h4 class="identity-card__eyebrow">Misión</h4><p class="identity-card__text">Promover el Reino de Dios en el mundo del trabajo.</p></article>
                 <article class="identity-panel"><h4 class="identity-card__eyebrow">Visión</h4><p class="identity-card__text">El Reino de Dios establecido en el entorno empresarial.</p></article>
               </div>
-              <div class="about-summary__values"><h4 class="about-summary__values-label">Valores</h4><p class="uy-pending">Pendiente: valores institucionales confirmados.</p></div>
+              <!-- Pendiente: bloque "Valores" cuando estén confirmados. -->
+            </div>
+          </div>
+        </section>
+        <section class="section uy-video-section" id="video" aria-labelledby="video-title">
+          <div class="container uy-video-layout">
+            <div class="uy-video-copy">
+              <p class="section__eyebrow">Capellanía Empresarial</p>
+              <h2 id="video-title" class="uy-video-copy__title">¿Qué es <span>Capellanía</span> Empresarial?</h2>
+              <p class="uy-video-copy__text">Philipp comparte una mirada breve sobre el propósito de la Capellanía Empresarial y el acompañamiento a las personas dentro de su lugar de trabajo.</p>
+              <p class="uy-video-copy__meta"><span aria-hidden="true"></span>01:04 · Video</p>
+            </div>
+            <div class="uy-video-stage">
+              <figure class="uy-video" data-video>
+                <video controls playsinline preload="metadata" width="720" height="1296" poster="/assets/video/que-es-capellania-empresarial-philipp-poster.webp" aria-label="Video: Philipp explica qué es Capellanía Empresarial. Incluye subtítulos incrustados." data-video-player>
+                  <source src="/assets/video/que-es-capellania-empresarial-philipp.mp4?v=2" type="video/mp4">
+                  Tu navegador no puede reproducir este video.
+                </video>
+                <button class="uy-video__play" type="button" aria-label="Reproducir video: ¿Qué es Capellanía Empresarial?" data-video-play hidden>
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+                </button>
+              </figure>
             </div>
           </div>
         </section>
@@ -134,11 +147,31 @@
             <p class="section__eyebrow">Servicios</p>
             <h2 id="services-title" class="section__title">Qué hacemos</h2>
             <ol class="uy-services-list" aria-label="Servicios de Capellanía Empresarial Uruguay">
-              <li class="uy-service-item"><span class="uy-service-item__number">01</span><h3>Reflexiones semanales</h3></li>
-              <li class="uy-service-item"><span class="uy-service-item__number">02</span><h3>Cursos bíblicos</h3></li>
-              <li class="uy-service-item"><span class="uy-service-item__number">03</span><h3>Tiempos de consejería</h3></li>
-              <li class="uy-service-item"><span class="uy-service-item__number">04</span><h3>Visitas al colaborador</h3></li>
-              <li class="uy-service-item"><span class="uy-service-item__number">05</span><h3>Eventos empresariales</h3></li>
+              <li class="uy-service-item">
+                <span class="uy-service-item__number">01</span>
+                <h3>Reflexiones semanales</h3>
+                <p>Espacios semanales breves para cultivar valores, propósito y esperanza dentro de la jornada laboral.</p>
+              </li>
+              <li class="uy-service-item">
+                <span class="uy-service-item__number">02</span>
+                <h3>Cursos bíblicos</h3>
+                <!-- Pendiente: descripción oficial de Cursos bíblicos. -->
+              </li>
+              <li class="uy-service-item">
+                <span class="uy-service-item__number">03</span>
+                <h3>Tiempos de consejería</h3>
+                <p>Acompañamiento personal y familiar con escucha responsable, orientación espiritual y apoyo emocional.</p>
+              </li>
+              <li class="uy-service-item">
+                <span class="uy-service-item__number">04</span>
+                <h3>Visitas al colaborador</h3>
+                <p>Presencia pastoral en empresas, hogares y hospitales, con seguimiento ordenado y reportes para la organización.</p>
+              </li>
+              <li class="uy-service-item">
+                <span class="uy-service-item__number">05</span>
+                <h3>Eventos empresariales</h3>
+                <!-- Pendiente: descripción oficial de Eventos empresariales. -->
+              </li>
             </ol>
             <div class="uy-benefits" aria-labelledby="benefits-title">
               <div class="uy-benefits__intro">
@@ -159,6 +192,8 @@
             </div>
           </div>
         </section>
+        <!-- SECCIÓN IMPACTO OCULTA TEMPORALMENTE hasta contar con cifras confirmadas.
+     Para restaurarla: quitar este comentario y volver a agregar el enlace "Impacto" del menú.
         <section class="section impact-section" id="impacto" aria-labelledby="impact-title">
           <div class="container impact-layout">
             <div>
@@ -187,6 +222,7 @@
             </div>
           </div>
         </section>
+        FIN SECCIÓN IMPACTO -->
         <section class="whatsapp-cta uy-budget" aria-labelledby="budget-title">
           <div class="container">
             <div class="whatsapp-cta__inner">
@@ -225,7 +261,6 @@
         </div>
         <div class="container uy-footer__bottom">
           <p>© 2026 Capellanía Empresarial Uruguay</p>
-          <p class="uy-footer__note">Vista de desarrollo. Contenido pendiente de aprobación.</p>
           <a class="uy-back-top" href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
         </div>
       </footer>
@@ -234,5 +269,6 @@
       <svg aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg>
     </a>
     <script src="/assets/js/uy-site.js" defer></script>
+    <script src="/assets/js/uy-video.js" defer></script>
   </body>
 </html>
