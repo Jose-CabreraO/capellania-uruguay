@@ -64,3 +64,25 @@
     if (focusWillBeHidden) document.querySelector('.header .brand').focus();
   });
 })();
+
+// Scroll reveal for main blocks ([data-reveal]). Runs once per element and is skipped
+// entirely when the visitor prefers reduced motion or IntersectionObserver is missing.
+(() => {
+  const blocks = document.querySelectorAll('[data-reveal]');
+  if (!blocks.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Blocks already on screen at load stay as they are: no flash, no animation.
+  const below = [...blocks].filter(block => block.getBoundingClientRect().top > window.innerHeight * 0.9);
+  blocks.forEach(block => { if (!below.includes(block)) block.classList.add('is-visible'); });
+  document.documentElement.classList.add('uy-reveal-ready');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  below.forEach(block => observer.observe(block));
+})();

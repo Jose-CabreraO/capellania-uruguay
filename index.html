@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&amp;display=swap">
-    <link rel="stylesheet" href="/css/capellania-global.css?v=uy-13">
+    <link rel="stylesheet" href="/css/capellania-global.css?v=uy-16">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -114,7 +114,7 @@
             <!-- Pendiente: foto del staff de Capellanía Empresarial Uruguay (junto al título). -->
             <h3 class="uy-purpose-title">Propósito institucional</h3>
             <div class="identity-layout about-summary__identity">
-              <div class="identity-copy">
+              <div class="identity-copy" data-reveal>
                 <article class="identity-panel"><h4 class="identity-card__eyebrow">Misión</h4><p class="identity-card__text">Promover el Reino de Dios en el mundo del trabajo.</p></article>
                 <article class="identity-panel"><h4 class="identity-card__eyebrow">Visión</h4><p class="identity-card__text">El Reino de Dios establecido en el entorno empresarial.</p></article>
               </div>
@@ -123,7 +123,7 @@
           </div>
         </section>
         <section class="section uy-video-section" id="video" aria-labelledby="video-title">
-          <div class="container uy-video-layout">
+          <div class="container uy-video-layout" data-reveal>
             <div class="uy-video-copy">
               <p class="section__eyebrow">Capellanía Empresarial</p>
               <h2 id="video-title" class="uy-video-copy__title">¿Qué es <span>Capellanía</span> Empresarial?</h2>
@@ -146,8 +146,8 @@
         <section class="section section--soft" id="servicios" aria-labelledby="services-title">
           <div class="container">
             <p class="section__eyebrow">Servicios</p>
-            <h2 id="services-title" class="section__title">Qué hacemos</h2>
-            <ol class="uy-services-list" aria-label="Servicios de Capellanía Empresarial Uruguay">
+            <h2 id="services-title" class="section__title" data-reveal>Qué hacemos</h2>
+            <ol class="uy-services-list" data-reveal aria-label="Servicios de Capellanía Empresarial Uruguay">
               <li class="uy-service-item">
                 <span class="uy-service-item__number">01</span>
                 <h3>Reflexiones semanales</h3>
@@ -174,7 +174,7 @@
                 <p>Actividades especiales que promueven integración, formación, reflexión y fortalecimiento de vínculos dentro de la organización.</p>
               </li>
             </ol>
-            <div class="uy-benefits" aria-labelledby="benefits-title">
+            <div class="uy-benefits" data-reveal aria-labelledby="benefits-title">
               <div class="uy-benefits__intro">
                 <p class="section__eyebrow">Beneficios</p>
                 <h3 id="benefits-title">¿Qué beneficios da este servicio según los colaboradores?</h3>
@@ -224,25 +224,33 @@
           </div>
         </section>
         FIN SECCIÓN IMPACTO -->
+        <section class="uy-presence" aria-labelledby="presence-title">
+          <img class="uy-presence__photo" src="/assets/images/galeria/devocional-empresa-04.webp" srcset="/assets/images/galeria/devocional-empresa-04-800.webp 800w, /assets/images/galeria/devocional-empresa-04.webp 1600w" sizes="100vw" alt="Trabajadores de pie en círculo, con la cabeza inclinada, dentro de una planta industrial" width="1600" height="1200" loading="lazy" decoding="async">
+          <div class="container uy-presence__content" data-reveal>
+            <p class="uy-presence__eyebrow">Presencia</p>
+            <h2 id="presence-title" class="uy-presence__title">Acompañar es estar presentes.</h2>
+            <p class="uy-presence__text">Cerca de las personas, también dentro de su lugar de trabajo.</p>
+          </div>
+        </section>
         <section class="section uy-labor" id="nuestra-labor" aria-labelledby="labor-title">
           <div class="container">
-            <div class="uy-labor__head">
+            <div class="uy-labor__head" data-reveal>
               <div>
                 <h2 id="labor-title" class="uy-labor__title">Nuestra labor</h2>
                 <p class="uy-labor__text">Momentos de acompañamiento, encuentro y servicio dentro de las organizaciones.</p>
               </div>
               <a class="uy-labor__link" href="/galeria/">Ver galería completa <span aria-hidden="true">→</span></a>
             </div>
-            <div class="uy-labor__grid">
-              <img class="uy-labor__photo uy-labor__photo--wide" src="/assets/images/galeria/devocional-empresa-05-800.webp" alt="Grupo numeroso de personas posando alrededor de una mesa" width="800" height="381" loading="lazy" decoding="async">
-              <img class="uy-labor__photo" src="/assets/images/galeria/devocional-empresa-02-800.webp" alt="Personas reunidas alrededor de una mesa en una sala de trabajo" width="800" height="600" loading="lazy" decoding="async">
-              <img class="uy-labor__photo" src="/assets/images/galeria/devocional-empresa-04-800.webp" alt="Personas reunidas de pie en un espacio interior" width="800" height="600" loading="lazy" decoding="async">
+            <div class="uy-labor__grid" data-reveal>
+              <span class="uy-labor__frame uy-labor__frame--wide"><img class="uy-labor__photo" src="/assets/images/galeria/devocional-empresa-05-800.webp" alt="Grupo numeroso de personas posando alrededor de una mesa" width="800" height="381" loading="lazy" decoding="async"></span>
+              <span class="uy-labor__frame"><img class="uy-labor__photo" src="/assets/images/galeria/devocional-empresa-02-800.webp" alt="Personas reunidas alrededor de una mesa en una sala de trabajo" width="800" height="600" loading="lazy" decoding="async"></span>
+              <span class="uy-labor__frame"><img class="uy-labor__photo" src="/assets/images/galeria/devocional-empresa-08-800.webp" alt="Grupo de personas sentado alrededor de una mesa de reuniones" width="800" height="600" loading="lazy" decoding="async"></span>
             </div>
           </div>
         </section>
         <section class="whatsapp-cta uy-budget" aria-labelledby="budget-title">
           <div class="container">
-            <div class="whatsapp-cta__inner">
+            <div class="whatsapp-cta__inner" data-reveal>
               <div class="whatsapp-cta__content">
                 <span class="uy-status">Contacto directo</span>
                 <h2 id="budget-title">Sumá Capellanía a tu empresa</h2>

@@ -5129,6 +5129,11 @@ body.c2026-speaker-modal-open {
   box-shadow: var(--uy-shadow-sm);
 }
 .uy-home .uy-service-item:nth-child(n + 4) { grid-column: span 3; }
+/* Informational cards: the hover is a barely noticeable lift, with no press state. */
+.uy-home .uy-service-item { transition: transform var(--uy-duration) var(--uy-ease-out), border-color var(--uy-duration) var(--uy-ease-out), box-shadow var(--uy-duration) var(--uy-ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .uy-home .uy-service-item:hover { border-color: rgb(69 111 180 / .28); box-shadow: var(--uy-shadow-md); transform: translateY(-2px); }
+}
 .uy-home .uy-service-item__number {
   color: var(--uy-secondary-strong);
   font-size: var(--uy-font-eyebrow);
@@ -5211,6 +5216,42 @@ body.c2026-speaker-modal-open {
   .uy-home .impact-metric--large { grid-row: span 3; min-height: 0; }
 }
 
+/* "Presencia": full-bleed photograph between Beneficios and Nuestra labor. The text sits on the
+   empty floor at the bottom of the photo, so no face is covered; the overlay only darkens that area. */
+.uy-home .uy-presence {
+  position: relative;
+  display: grid;
+  min-height: clamp(520px, 46vw, 680px);
+  align-items: end;
+  overflow: hidden;
+  background: var(--uy-primary-dark);
+  padding: clamp(32px, 4vw, 56px) 16px;
+}
+.uy-home .uy-presence__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 66%;
+}
+.uy-home .uy-presence::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(19 28 66 / .1) 0%, rgb(19 28 66 / .18) 34%, rgb(19 28 66 / .6) 58%, rgb(19 28 66 / .9) 100%);
+}
+.uy-home .uy-presence__content { position: relative; z-index: 1; width: min(100%, var(--container)); color: var(--uy-surface); }
+.uy-home .uy-presence__eyebrow { margin: 0 0 12px; color: var(--uy-accent); font-size: var(--uy-font-eyebrow); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.uy-home .uy-presence__title { max-width: 18ch; margin: 0; font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 800; line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; }
+.uy-home .uy-presence__text { max-width: 40ch; margin: 14px 0 0; color: var(--uy-text-on-dark); font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.6; }
+@media (max-width: 768px) {
+  /* Narrow screens: show the photo at its natural height instead of forcing a panoramic crop. */
+  .uy-home .uy-presence { min-height: 540px; }
+  .uy-home .uy-presence__photo { object-position: 42% 50%; }
+  .uy-home .uy-presence::after { background: linear-gradient(180deg, rgb(19 28 66 / .1) 0%, rgb(19 28 66 / .25) 45%, rgb(19 28 66 / .9) 88%); }
+}
+
 /* "Nuestra labor": three-photo teaser of the gallery, a short visual pause before the CTA. */
 .uy-home .uy-labor { background: var(--uy-surface); }
 .uy-home .uy-labor__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; }
@@ -5241,22 +5282,30 @@ body.c2026-speaker-modal-open {
   gap: 16px;
   margin-top: var(--uy-heading-gap);
 }
+.uy-home .uy-labor__frame {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--uy-primary-light);
+}
 .uy-home .uy-labor__photo {
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-lg);
   object-fit: cover;
-  background: var(--uy-primary-light);
+  transition: transform var(--uy-duration) var(--uy-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .uy-home .uy-labor__frame:hover .uy-labor__photo { transform: scale(1.03); }
 }
 @media (max-width: 1024px) {
   .uy-home .uy-labor__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
-  .uy-home .uy-labor__photo { aspect-ratio: 4 / 3; height: auto; }
-  .uy-home .uy-labor__photo--wide { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+  .uy-home .uy-labor__frame { aspect-ratio: 4 / 3; }
+  .uy-home .uy-labor__frame--wide { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
 }
 @media (max-width: 560px) {
   .uy-home .uy-labor__grid { grid-template-columns: 1fr; gap: 12px; }
-  .uy-home .uy-labor__photo--wide { aspect-ratio: 16 / 9; }
+  .uy-home .uy-labor__frame--wide { aspect-ratio: 16 / 9; }
 }
 
 /* WhatsApp budget CTA */
@@ -5308,6 +5357,10 @@ body.c2026-speaker-modal-open {
   inset: 0 clamp(80px, 8vw, 112px) 0 clamp(24px, 4vw, 56px);
   border-radius: var(--radius-lg);
   background: var(--uy-primary-light);
+  transition: transform var(--uy-duration) var(--uy-ease-out);
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+  .uy-home .uy-video-stage:hover::before { transform: translateX(-3px); }
 }
 .uy-home .uy-video {
   position: relative;
@@ -5495,7 +5548,7 @@ body.c2026-speaker-modal-open {
   min-height: 260px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 400ms var(--uy-ease-out);
+  transition: transform var(--uy-duration) var(--uy-ease-out);
 }
 .uy-gallery-page .uy-gallery-card__media:focus-visible { box-shadow: inset 0 0 0 3px var(--uy-surface), inset 0 0 0 6px var(--uy-secondary); }
 .uy-gallery-page .uy-gallery-card__body { padding: 20px 24px 24px; }
@@ -5686,7 +5739,16 @@ body.c2026-speaker-modal-open {
   .uy-gallery-dialog__nav:active { transform: scale(.96); }
 }
 
+/* Scroll reveal: enabled by uy-site.js only when motion is allowed; content is visible without JavaScript. */
+.uy-reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms var(--uy-ease-out), transform 400ms var(--uy-ease-out);
+}
+.uy-reveal-ready [data-reveal].is-visible { opacity: 1; transform: none; }
+
 @media (prefers-reduced-motion: reduce) {
+  .uy-reveal-ready [data-reveal] { opacity: 1 !important; transform: none !important; }
   .uy-home *, .uy-home *::before, .uy-home *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
   html:has(.uy-home) { scroll-behavior: auto; }
 }
