@@ -5211,8 +5211,56 @@ body.c2026-speaker-modal-open {
   .uy-home .impact-metric--large { grid-row: span 3; min-height: 0; }
 }
 
+/* "Nuestra labor": three-photo teaser of the gallery, a short visual pause before the CTA. */
+.uy-home .uy-labor { background: var(--uy-surface); }
+.uy-home .uy-labor__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; }
+.uy-home .uy-labor__title { margin: 0; color: var(--uy-primary); font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -.03em; }
+.uy-home .uy-labor__text { max-width: 48ch; margin: 10px 0 0; color: var(--uy-text-muted); line-height: 1.65; }
+.uy-home .uy-labor__link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  color: var(--uy-primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(69 111 180 / .35);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color var(--uy-duration) var(--uy-ease-out);
+}
+.uy-home .uy-labor__link span { transition: transform var(--uy-duration) var(--uy-ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .uy-home .uy-labor__link:hover { text-decoration-color: var(--uy-secondary); }
+  .uy-home .uy-labor__link:hover span { transform: translateX(3px); }
+}
+.uy-home .uy-labor__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-auto-rows: clamp(200px, 22vw, 300px);
+  gap: 16px;
+  margin-top: var(--uy-heading-gap);
+}
+.uy-home .uy-labor__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  background: var(--uy-primary-light);
+}
+@media (max-width: 1024px) {
+  .uy-home .uy-labor__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+  .uy-home .uy-labor__photo { aspect-ratio: 4 / 3; height: auto; }
+  .uy-home .uy-labor__photo--wide { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+}
+@media (max-width: 560px) {
+  .uy-home .uy-labor__grid { grid-template-columns: 1fr; gap: 12px; }
+  .uy-home .uy-labor__photo--wide { aspect-ratio: 16 / 9; }
+}
+
 /* WhatsApp budget CTA */
-.uy-home .whatsapp-cta { border-top: 0; background: var(--uy-background); padding: 0 16px var(--uy-section-space); }
+.uy-home .whatsapp-cta { border-top: 0; background: var(--uy-surface); padding: 0 16px var(--uy-section-space); }
 .uy-home .whatsapp-cta > .container { width: min(100%, var(--container)); }
 .uy-home .whatsapp-cta__inner { border-color: var(--uy-border-subtle); background: linear-gradient(135deg, var(--uy-surface), var(--uy-primary-light)); box-shadow: var(--uy-shadow-sm); }
 .uy-home .whatsapp-cta h2 { color: var(--uy-primary); font-size: clamp(1.5rem, 2.4vw, 2rem); letter-spacing: -.02em; }
