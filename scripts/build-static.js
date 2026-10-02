@@ -25,7 +25,7 @@ const entries = [
   "assets/images/hero-capellania-uruguay.webp",
   "assets/images/hero-capellania-uruguay-1200.webp",
   "assets/images/og-capellania-uruguay.jpg",
-  "assets/video/que-es-capellania-empresarial-philipp.mp4",
+  "assets/video/que-es-capellania-empresarial-philipp-editado.mp4",
   "assets/video/que-es-capellania-empresarial-philipp-poster.webp",
   "assets/logos/capellania-uruguay",
 ];
