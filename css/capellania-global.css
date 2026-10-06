@@ -5527,8 +5527,6 @@ body.c2026-speaker-modal-open {
   background: var(--uy-surface);
   box-shadow: var(--uy-shadow-sm);
 }
-.uy-gallery-page .uy-gallery-card:nth-child(5n + 1) { grid-column: span 7; }
-.uy-gallery-page .uy-gallery-card:nth-child(5n + 2) { grid-column: span 5; }
 .uy-gallery-page .uy-gallery-card__media {
   display: block;
   width: 100%;

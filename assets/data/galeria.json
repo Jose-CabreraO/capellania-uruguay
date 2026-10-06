@@ -1,38 +1,47 @@
 [
   {
     "src": "/assets/images/galeria/devocional-empresa-01.webp",
-    "alt": "Grupo de personas reunidas alrededor de una mesa"
+    "alt": "Grupo de personas reunidas alrededor de una mesa",
+    "description": "Reflexión semanal con empleados de un Hogar de Ancianos."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-02.webp",
-    "alt": "Personas reunidas alrededor de una mesa en una sala de trabajo"
+    "alt": "Personas reunidas alrededor de una mesa en una sala de trabajo",
+    "description": "Capacitación a capellanes."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-03.webp",
-    "alt": "Grupo de personas reunidas en una sala"
+    "alt": "Grupo de personas reunidas en una sala",
+    "description": "Dinámica en una reflexión semanal de 15 minutos."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-04.webp",
-    "alt": "Personas reunidas de pie en un espacio interior"
+    "alt": "Personas reunidas de pie en un espacio interior",
+    "description": "Reflexión semanal en un depósito de una empresa cliente de Capellanía Empresarial Uruguay."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-05.webp",
-    "alt": "Grupo numeroso de personas posando alrededor de una mesa"
+    "alt": "Grupo numeroso de personas posando alrededor de una mesa",
+    "description": "Desayuno compartido como parte de un evento organizado por Capellanía en una empresa rural de Uruguay."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-06.webp",
-    "alt": "Tres personas sentadas alrededor de una mesa"
+    "alt": "Tres personas sentadas alrededor de una mesa",
+    "description": "Devocional matutino en un establecimiento lechero."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-07.webp",
-    "alt": "Grupo de personas reunidas alrededor de una mesa en una habitación"
+    "alt": "Grupo de personas reunidas alrededor de una mesa en una habitación",
+    "description": "Reflexión semanal en una empresa rural de Uruguay."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-08.webp",
-    "alt": "Grupo de personas sentado alrededor de una mesa de reuniones"
+    "alt": "Grupo de personas sentado alrededor de una mesa de reuniones",
+    "description": "Reflexión semanal con personal administrativo de una empresa cliente de Capellanía Empresarial."
   },
   {
     "src": "/assets/images/galeria/devocional-empresa-09.webp",
-    "alt": "Dos personas en un entorno rural, una de ellas montada a caballo"
+    "alt": "Dos personas en un entorno rural, una de ellas montada a caballo",
+    "description": "Un capellán teniendo una conversación personal y reflexión con un empleado de una empresa cliente de Capellanía Empresarial."
   }
 ]

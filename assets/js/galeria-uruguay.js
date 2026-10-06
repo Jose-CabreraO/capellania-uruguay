@@ -65,11 +65,7 @@
       date.textContent = entry.date;
       body.append(date);
     }
-    if (entry.description) {
-      const description = document.createElement('p');
-      description.textContent = entry.description;
-      body.append(description);
-    }
+    // The description is shown only in the enlarged viewer, not on the card.
 
     article.append(button);
     if (body.childElementCount) {
@@ -111,7 +107,7 @@
     dialogImage.alt = entry.alt;
     const multiple = visibleEntries.length > 1;
     const counter = multiple ? `${activeIndex + 1} / ${visibleEntries.length}` : '';
-    dialogCaption.textContent = [entry.title, counter].filter(Boolean).join(' · ');
+    dialogCaption.textContent = [entry.title || entry.description, counter].filter(Boolean).join(' · ');
     dialogCaption.hidden = !dialogCaption.textContent;
     previousButton.hidden = !multiple;
     nextButton.hidden = !multiple;
