@@ -28,6 +28,7 @@ const entries = [
   "assets/video/que-es-capellania-empresarial-philipp-editado.mp4",
   "assets/video/que-es-capellania-empresarial-philipp-poster.webp",
   "assets/logos/capellania-uruguay",
+  "assets/logos/impulso",
 ];
 
 const TEXT_FILE = /\.(html|css|js|json|xml|txt)$/i;

@@ -1350,6 +1350,12 @@ button {
   font-size: 1.35rem;
 }
 
+.devocional-card__button svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 auto;
+}
+
 .devocional-card__button:hover {
   filter: brightness(1.04);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
